@@ -1,1 +1,1 @@
-web: node web/index.html
+web: node web/js/app.js
