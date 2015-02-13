@@ -2,6 +2,8 @@
 
 var angular = require('angular');
 
+//var appversion = require('../package.json').version;
+
 //require('angular-route');
 //require('angular-jwt');
 //require('angular-translate');
