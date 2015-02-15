@@ -1,4 +1,6 @@
 node_modules
 
+web/i18n/*
 web/js/*
 web/media/*
+web/views/*

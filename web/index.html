@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tox CCC ui</title>
+    <title translate="common.application.label"></title>
     <!--<base href="/">-->
     <link rel="stylesheet" href="media/css/style.min.css">
 </head>
 <body>
 
-hello world ... oder so ... 4 volkman
+<header class="cs-3">
+    <aside class="col-left brand">
+        <a class="navbar-brand" href="#">
+            <span translate="common.application.label"></span>
+        </a>
+    </aside>
+    <aside class="col-main"></aside>
+    <aside class="col-right"></aside>
+</header>
+
+<main class="cs-1" ui-view="main"></main>
 
 <script type="text/javascript" src="js/app.js"></script>
 

@@ -1,0 +1,22 @@
+<aside class="cs-2 col-left">
+    <!--<section class="section-head">section-head</section>-->
+    <section class="section-body">
+        <ul class="list-unstyled level-list">
+            <li>
+                <div class="heading">
+                    <span class="title" translate="common.section.admin.label"></span>
+                </div>
+                <ul class="list-unstyled">
+                    <li ng-class="{'selected':('admin.instance'|includedByState)}">
+                        <a ui-sref="admin.instance.list">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="title" translate="instance.sidebar.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!--<section class="section-foot">section-foot</section>-->
+</aside>
+<aside class="col-main-right" ui-view="content"></aside>
