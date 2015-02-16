@@ -58,7 +58,6 @@
     "build:copy": "npm run build:copy-i18n && npm run build:copy-views && npm run build:copy-fonts",
     "build:copy-i18n": "node scripts/copy.js src/**/translations/*.json web/i18n/",
     "build:copy-views": "node scripts/copy.js src/**/views/*.html web/views/",
-    "xxxbuild:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts",
-    "build:copy-fonts": "node scripts/copy.js node_modules/font-awesome/fonts/* web/media/fonts/"
+    "build:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts"
   }
 }
