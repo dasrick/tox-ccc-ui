@@ -7,10 +7,12 @@
                     <span class="title" translate="common.section.admin.label"></span>
                 </div>
                 <ul class="list-unstyled">
-                    <li ng-class="{'selected':('admin.instance'|includedByState)}">
-                        <a ui-sref="admin.instance.list">
-                            <i class="fa fa-dashboard"></i>
-                            <span class="title" translate="instance.sidebar.label"></span>
+                    <li ng-repeat="type in ['instance', 'plan', 'player_skin', 'transcoder_profile']"
+                        ng-class="{'selected':('admin.'+type|includedByState)}">
+                        <a ui-sref="admin.{{type}}.list"
+                           title="{{type+'.sidebar.title'|translate}}">
+                            <i class="fa {{type+'.sidebar.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar.label"></span>
                         </a>
                     </li>
                 </ul>

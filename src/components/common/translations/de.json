@@ -1,5 +1,6 @@
 {
-  "common.application.label": "Customer Control Center",
+  "common.application.label": "CustomerControlCenter",
   "common.application.title": "CCC",
-  "common.section.admin.label": "Globale Einstellungen"
+  "common.section.admin.label": "Globale Einstellungen",
+  "common.section.profile.label": "Profil-Einstellungen"
 }

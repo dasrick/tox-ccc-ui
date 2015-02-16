@@ -4,6 +4,7 @@ var angular = require('angular');
 
 //var appversion = require('../package.json').version;
 
+require('angular-loading-bar');
 require('angular-route');
 //require('angular-jwt');
 require('angular-translate');
@@ -12,6 +13,7 @@ require('angular-translate-loader-partial');
 require('angular-resource');
 //require('angular-ui-unique');
 var requires = [
+  'angular-loading-bar',
   'ui.router',
   //'angular-jwt',
   'pascalprecht.translate',
@@ -72,6 +74,9 @@ angular.module('tox-ccc-ui-app', requires)
         return $translateProvider.preferredLanguage('de');
       }
   })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+  }])
 ;
 
 angular.bootstrap(document, ['tox-ccc-ui-app']);

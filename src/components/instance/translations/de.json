@@ -1,4 +1,5 @@
 {
   "instance.sidebar.label": "Instanzen",
-  "instance.sidebar.title": "Instanzen"
+  "instance.sidebar.title": "Instanzen",
+  "instance.sidebar.icon": "fa-cubes"
 }

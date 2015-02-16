@@ -1,0 +1,22 @@
+<aside class="cs-2 col-left">
+    <!--<section class="section-head">section-head</section>-->
+    <section class="section-body">
+        <ul class="list-unstyled level-list">
+            <li>
+                <div class="heading">
+                    <span class="title" translate="common.section.profile.label"></span>
+                </div>
+                <ul class="list-unstyled">
+                    <li ng-class="{'selected':('profile.user'|includedByState)}">
+                        <a ui-sref="profile.user.data">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="title" translate="user.sidebar.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!--<section class="section-foot">section-foot</section>-->
+</aside>
+<aside class="col-main-right" ui-view="content"></aside>

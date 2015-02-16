@@ -4,4 +4,4 @@ node_js:
 deploy:
   provider: heroku
   api_key: "4dacafd2-7064-4c78-b2fb-122b9a122a5a"
-  app: mighty-anchorage-6493
+  app: tox-ccc-ui
