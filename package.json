@@ -42,8 +42,7 @@
     "glob": "^4.3.5",
     "less": "^2.2.0",
     "less-plugin-autoprefix": "^1.3.0",
-    "mi24-bootstrap": "^0.1.6",
-    "ui-select": "git+https://github.com/angular-ui/ui-select.git#v0.9.8"
+    "mi24-bootstrap": "^0.1.6"
   },
   "devDependencies": {
     "david": "^6.1.1"
