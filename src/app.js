@@ -41,7 +41,7 @@ angular.module('tox-ccc-ui-app', requires)
       //UserService = $injector.get('UserService');
       $state = $injector.get('$state');
       //if (UserService.isLoggedIn() === true) {
-        $state.go('admin.instance.list');
+      $state.go('admin.instance.list');
       //} else {
       //  $state.go('security.login');
       //}
@@ -65,18 +65,18 @@ angular.module('tox-ccc-ui-app', requires)
       })
       .determinePreferredLanguage();
 
-      /*
-       The fallback language is not working ...
-       $translateProvider.fallbackLanguage('en');
-       The following workaround sets the preferred language to english,
-       if the detection failed or the detected language is not known.
-       */
-      var language = $translateProvider.preferredLanguage();
-      if ((language !== null) || !language.match(/(de).*/)) {
-        return $translateProvider.preferredLanguage('de');
-      }
+    /*
+     The fallback language is not working ...
+     $translateProvider.fallbackLanguage('en');
+     The following workaround sets the preferred language to english,
+     if the detection failed or the detected language is not known.
+     */
+    var language = $translateProvider.preferredLanguage();
+    if ((language !== null) || !language.match(/(de).*/)) {
+      return $translateProvider.preferredLanguage('de');
+    }
   })
-  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+  .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }])
 ;
