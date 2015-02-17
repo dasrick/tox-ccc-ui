@@ -12,6 +12,7 @@ require('angular-translate-loader-partial');
 //require('angular-cache');
 require('angular-resource');
 //require('angular-ui-unique');
+require('ui-select');
 var requires = [
   'angular-loading-bar',
   'ui.router',
@@ -19,6 +20,7 @@ var requires = [
   'pascalprecht.translate',
   //'angular-data.DSCacheFactory',
   'ngResource',
+  'ui.select',
   //'ui.unique',
   //require('./components').name,
   //require('./shared').name

@@ -1,0 +1,6 @@
+<ui-select ng-model="singleCustomer.selected" theme="bootstrap" ng-disabled="disabled">
+    <ui-select-match>{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="c in customer | filter: {name: $select.search}">
+        <div ng-bind-html="c.name | highlight: $select.search" class="option-value"></div>
+    </ui-select-choices>
+</ui-select>

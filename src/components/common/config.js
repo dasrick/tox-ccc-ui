@@ -7,6 +7,10 @@ module.exports = {
     views: {
       'main': {
         templateUrl: '/views/common/admin.html'
+      },
+      'customer-select': {
+        templateUrl: '/views/common/customer_select.html'
+        //controller: 'CommonBaseController'
       }
     }
   },
