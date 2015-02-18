@@ -28,7 +28,7 @@ module.exports = {
     url: '/profile',
     abstract: true,
     views: {
-      "main": {
+      'main': {
         templateUrl: '/views/common/profile.html'
       }
     }

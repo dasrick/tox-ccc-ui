@@ -14,5 +14,8 @@ Here are some calls ...
     npm run build
     
     # just check the codestyle with jscs
-    npm run codestyle
+    npm run codestyle   
+     
+    # or check the codestyle with jshint
+    npm run lint
     
