@@ -7,10 +7,12 @@
                     <span class="title" translate="common.section.profile.label"></span>
                 </div>
                 <ul class="list-unstyled">
-                    <li ng-class="{'selected':('profile.user'|includedByState)}">
-                        <a ui-sref="profile.user.data">
-                            <i class="fa fa-dashboard"></i>
-                            <span class="title" translate="user.sidebar.label"></span>
+                    <li ng-repeat="type in ['user', 'customer', 'review']"
+                        ng-class="{'selected':('profile.'+type|includedByState)}">
+                        <a ui-sref="profile.{{type}}.list"
+                           title="{{type+'.sidebar.title'|translate}}">
+                            <i class="fa {{type+'.sidebar.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar.label"></span>
                         </a>
                     </li>
                 </ul>

@@ -32,6 +32,12 @@ module.exports = {
     views: {
       'main': {
         templateUrl: '/views/common/profile.html'
+      },
+      'headerMiddle': {
+        templateUrl: '/views/common/header-middle.html'
+      },
+      'headerRight': {
+        templateUrl: '/views/common/header-right.html'
       }
     }
   }

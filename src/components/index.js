@@ -6,5 +6,6 @@ module.exports = require('angular')
     require('./instance').name,
     require('./plan').name,
     require('./player_skin').name,
-    require('./transcoder_profile').name
+    require('./transcoder_profile').name,
+    require('./user').name
   ]);
