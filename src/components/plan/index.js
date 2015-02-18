@@ -10,7 +10,7 @@ module.exports = angular.module('plan', []);
 //angular.module('plan').service("InstanceService", require('./service/InstanceService'));
 angular.module('plan').config(function ($stateProvider, $translatePartialLoaderProvider) {
   angular.forEach(RoutingConfig, function (config, name) {
-    $stateProvider.state(name, config)
+    $stateProvider.state(name, config);
   });
   $translatePartialLoaderProvider.addPart('plan');
 });
