@@ -56,7 +56,7 @@
     "start": "node serve.js",
     "build": "npm run build:scripts && npm run build:css && npm run build:copy",
     "build:scripts": "browserify --debug src/app.js -o web/js/app.js",
-    "build:css": "lessc --autoprefix='last 2 versions,ie 9' src/media/less/style.less > web/media/css/style.css && cleancss --source-map -o web/media/css/style.min.css web/media/css/style.css",
+    "build:css": "lessc --autoprefix='last 2 versions,ie 9' src/media/less/style.less  web/media/css/style.css && cleancss --source-map -o web/media/css/style.min.css web/media/css/style.css",
     "build:copy": "npm run build:copy-i18n && npm run build:copy-views && npm run build:copy-fonts",
     "build:copy-i18n": "node scripts/copy.js src/**/translations/*.json web/i18n/",
     "build:copy-views": "node scripts/copy.js src/**/views/*.html web/views/",
