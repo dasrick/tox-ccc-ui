@@ -8,9 +8,11 @@ module.exports = {
       'main': {
         templateUrl: '/views/common/admin.html'
       },
-      'customer-select': {
-        templateUrl: '/views/common/customer_select.html'
-        //controller: 'CommonBaseController'
+      'headerMiddle': {
+        templateUrl: '/views/common/header-middle.html'
+      },
+      'headerRight': {
+        templateUrl: '/views/common/header-right.html'
       }
     }
   },

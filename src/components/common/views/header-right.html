@@ -1,0 +1,29 @@
+<ul class="nav navbar-nav pull-right">
+    <li class="dropdown" dropdown is-open="status.isopen">
+        <a title="{{'common.header.menu.title'|translate}}" dropdown-toggle ng-disabled="disabled">
+            <i class="fa {{'common.header.menu.icon'|translate}}"></i>
+            <span translate="common.header.menu.label"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+            <li>
+                <a href="#">Action</a>
+            </li>
+            <li>
+                <a href="#">Another action</a>
+            </li>
+            <li>
+                <a href="#">Something else here</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#">Separated link</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a title="{{'common.header.logout.title'|translate}}">
+            <i class="fa {{'common.header.logout.icon'|translate}}"></i>
+            <span translate="common.header.logout.label"></span>
+        </a>
+    </li>
+</ul>

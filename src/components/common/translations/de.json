@@ -1,6 +1,13 @@
 {
   "common.application.label": "CustomerControlCenter",
   "common.application.title": "CCC",
+  "common.header.menu.icon": "fa-th-large",
+  "common.header.menu.label": "Menü",
+  "common.header.menu.title": "Menü, das viel kann",
+  "common.header.logout.icon": "fa-sign-out",
+  "common.header.logout.label": "Logout",
+  "common.header.logout.title": "Hier lönnen Sie sich vom System abmelden.",
   "common.section.admin.label": "Globale Einstellungen",
+  "common.section.customer.label": "Kunden-Verwaltung",
   "common.section.profile.label": "Profil-Einstellungen"
 }

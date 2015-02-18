@@ -4,6 +4,7 @@ var angular = require('angular');
 
 //var appversion = require('../package.json').version;
 
+require('angular-bootstrap');
 require('angular-loading-bar');
 require('angular-route');
 //require('angular-jwt');
@@ -14,6 +15,7 @@ require('angular-resource');
 //require('angular-ui-unique');
 //require('ui-select');
 var requires = [
+  'ui.bootstrap',
   'angular-loading-bar',
   'ui.router',
   //'angular-jwt',
