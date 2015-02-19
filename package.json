@@ -21,6 +21,7 @@
   },
   "browser": {
     "angular": "./node_modules/angular/angular.js",
+    "angular-mocks": "./node_modules/angular-mocks/angular-mocks.js",
     "angular-route": "./node_modules/angular-ui-router/release/angular-ui-router.js",
     "angular-translate": "./node_modules/angular-translate/dist/angular-translate.js",
     "angular-translate-loader-partial": "./node_modules/angular-translate/dist/angular-translate-loader-partial/angular-translate-loader-partial.js",
@@ -49,19 +50,28 @@
     "mi24-bootstrap": "^0.2.3"
   },
   "devDependencies": {
-    "david": "^6.1.1"
+    "angular-mocks": "^1.3.10",
+    "browserify-istanbul": "^0.1.3",
+    "david": "^6.1.1",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-browserify": "^3.0.0",
+    "karma-coverage": "0.2.6",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
   },
   "scripts": {
     "postinstall": "npm run build",
     "start": "node serve.js",
     "build": "npm run build:scripts && npm run build:css && npm run build:copy",
-    "build:scripts": "browserify --debug src/app.js -o web/js/app.js",
+    "build:scripts": "browserify src/app.js -o web/js/app.js",
     "build:css": "lessc --autoprefix='last 2 versions,ie 9' src/media/less/style.less  web/media/css/style.css && cleancss --source-map -o web/media/css/style.min.css web/media/css/style.css",
     "build:copy": "npm run build:copy-i18n && npm run build:copy-views && npm run build:copy-fonts",
     "build:copy-i18n": "node scripts/copy.js src/**/translations/*.json web/i18n/",
     "build:copy-views": "node scripts/copy.js src/**/views/*.html web/views/",
     "build:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts",
     "codestyle": "jscs .",
-    "lint": "jshint ./src --reporter node_modules/jshint-stylish/stylish.js"
+    "lint": "jshint ./src --reporter node_modules/jshint-stylish/stylish.js",
+    "test": "./node_modules/karma/bin/karma start karma.config.js"
   }
 }
