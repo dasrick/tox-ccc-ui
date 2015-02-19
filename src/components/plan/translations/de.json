@@ -1,5 +1,5 @@
 {
-  "plan.sidebar.label": "Tarife",
-  "plan.sidebar.title": "Tarife",
-  "plan.sidebar.icon": "fa-money"
+  "plan.sidebar-admin.label": "Tarife",
+  "plan.sidebar-admin.title": "Tarife",
+  "plan.sidebar-admin.icon": "fa-money"
 }

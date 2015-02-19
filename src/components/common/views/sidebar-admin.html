@@ -10,9 +10,9 @@
                     <li ng-repeat="type in ['instance', 'plan', 'player_skin', 'transcoder_profile']"
                         ng-class="{'selected':('admin.'+type|includedByState)}">
                         <a ui-sref="admin.{{type}}.list"
-                           title="{{type+'.sidebar.title'|translate}}">
-                            <i class="fa {{type+'.sidebar.icon'|translate}}"></i>
-                            <span class="title" translate="{{type}}.sidebar.label"></span>
+                           title="{{type+'.sidebar-admin.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-admin.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-admin.label"></span>
                         </a>
                     </li>
                 </ul>

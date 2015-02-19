@@ -10,9 +10,9 @@
                     <li ng-repeat="type in ['user', 'customer', 'review']"
                         ng-class="{'selected':('profile.'+type|includedByState)}">
                         <a ui-sref="profile.{{type}}.list"
-                           title="{{type+'.sidebar.title'|translate}}">
-                            <i class="fa {{type+'.sidebar.icon'|translate}}"></i>
-                            <span class="title" translate="{{type}}.sidebar.label"></span>
+                           title="{{type+'.sidebar-profile.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-profile.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-profile.label"></span>
                         </a>
                     </li>
                 </ul>

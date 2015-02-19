@@ -6,7 +6,7 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/admin.html'
+        templateUrl: '/views/common/sidebar-admin.html'
       },
       'headerMiddle': {
         templateUrl: '/views/common/header-middle.html'
@@ -16,22 +16,28 @@ module.exports = {
       }
     }
   },
-  //'customer': {
-  //  url: '/customer/{customerId:[0-9]{1,}}',
-  //  abstract: true,
-  //  views: {
-  //    "main": {
-  //      templateUrl: '/views/common/2col.html',
-  //      controller: 'CommonController as vm'
-  //    }
-  //  }
-  //},
+  'customer': {
+    url: '/customer/{customerId:[0-9]{1,}}',
+    abstract: true,
+    views: {
+      'main': {
+        templateUrl: '/views/common/sidebar-customer.html'
+        //controller: 'CommonController as vm'
+      },
+      'headerMiddle': {
+        templateUrl: '/views/common/header-middle.html'
+      },
+      'headerRight': {
+        templateUrl: '/views/common/header-right.html'
+      }
+    }
+  },
   'profile': {
     url: '/profile',
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/profile.html'
+        templateUrl: '/views/common/sidebar-profile.html'
       },
       'headerMiddle': {
         templateUrl: '/views/common/header-middle.html'

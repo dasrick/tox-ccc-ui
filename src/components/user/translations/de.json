@@ -1,5 +1,5 @@
 {
-  "user.sidebar.icon": "fa-users",
-  "user.sidebar.label": "Benutzer",
-  "user.sidebar.title": "Benutzer"
+  "user.sidebar-profile.icon": "fa-user",
+  "user.sidebar-profile.label": "Benutzer",
+  "user.sidebar-profile.title": "Benutzer"
 }

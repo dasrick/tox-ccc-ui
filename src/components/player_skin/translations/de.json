@@ -1,5 +1,5 @@
 {
-  "player_skin.sidebar.label": "Player Skins",
-  "player_skin.sidebar.title": "Player Skins",
-  "player_skin.sidebar.icon": "fa-play-circle"
+  "player_skin.sidebar-admin.label": "Player Skins",
+  "player_skin.sidebar-admin.title": "Player Skins",
+  "player_skin.sidebar-admin.icon": "fa-play-circle"
 }
