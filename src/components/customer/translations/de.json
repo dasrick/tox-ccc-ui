@@ -1,0 +1,11 @@
+{
+  "customer.sidebar-admin.label": "Alle Kunden",
+  "customer.sidebar-admin.title": "Alle Kunden",
+  "customer.sidebar-admin.icon": "fa-building",
+  "customer.sidebar-customer.label": "Kunden",
+  "customer.sidebar-customer.title": "Kunden",
+  "customer.sidebar-customer.icon": "fa-building",
+  "customer.sidebar-profile.label": "Firma",
+  "customer.sidebar-profile.title": "Firma",
+  "customer.sidebar-profile.icon": "fa-building"
+}

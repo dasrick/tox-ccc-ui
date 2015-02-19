@@ -9,7 +9,7 @@
                 <ul class="list-unstyled">
                     <li ng-repeat="type in ['user', 'customer', 'review']"
                         ng-class="{'selected':('profile.'+type|includedByState)}">
-                        <a ui-sref="profile.{{type}}.list"
+                        <a ui-sref="profile.{{type}}.data"
                            title="{{type+'.sidebar-profile.title'|translate}}">
                             <i class="fa {{type+'.sidebar-profile.icon'|translate}}"></i>
                             <span class="title" translate="{{type}}.sidebar-profile.label"></span>

@@ -1,5 +1,11 @@
 {
+  "user.sidebar-admin.icon": "fa-users",
+  "user.sidebar-admin.label": "Alle Benutzer",
+  "user.sidebar-admin.title": "Alle Benutzer",
+  "user.sidebar-customer.icon": "fa-users",
+  "user.sidebar-customer.label": "Benutzer",
+  "user.sidebar-customer.title": "Benutzer",
   "user.sidebar-profile.icon": "fa-user",
-  "user.sidebar-profile.label": "Benutzer",
-  "user.sidebar-profile.title": "Benutzer"
+  "user.sidebar-profile.label": "Meine Daten",
+  "user.sidebar-profile.title": "Meine Daten"
 }

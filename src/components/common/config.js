@@ -46,15 +46,14 @@ module.exports = {
         templateUrl: '/views/common/header-right.html'
       }
     }
+  },
+  'security': {
+    url: '',
+    abstract: true,
+    views: {
+      'main': {
+        templateUrl: '/views/common/1col.html'
+      }
+    }
   }
-  //'security': {
-  //  url: '/security',
-  //  abstract: true,
-  //  views: {
-  //    "main@": {
-  //      templateUrl: '/views/common/1col.html',
-  //      controller: 'CommonController as vm'
-  //    }
-  //  }
-  //}
 };

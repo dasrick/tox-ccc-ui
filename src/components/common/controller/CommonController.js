@@ -11,7 +11,7 @@ module.exports = function () {
   //
   //vm.login = function () {
   //  SecurityService.login(vm.loginData).then(function () {
-  //    $state.go('template.overview');
+  //    $state.go('customer.dashboard.list');
   //  });
   //}
 
