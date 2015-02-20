@@ -52,7 +52,7 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/1col.html'
+        templateUrl: '/views/template/1col-centerbox.html'
       }
     }
   }

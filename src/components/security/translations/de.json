@@ -1,5 +1,17 @@
 {
   "security.sidebar-customer.label": "Produkte",
   "security.sidebar-customer.title": "Produkte",
-  "security.sidebar-customer.icon": "fa-cubes"
+  "security.sidebar-customer.icon": "fa-cubes",
+  "security.form.login.header": "Anmeldung",
+  "security.form.login.msg": "Geben Sie hier bitte ihre Login-Daten ein.",
+  "security.form.request-password.header": "Passwort anfordern",
+  "security.form.request-password.msg": "Geben Sie bitte Ihre Emailadresse an, um ein neues Passwort anzufordern.",
+  "security.form.set-password.header": "Passwort setzen",
+  "security.form.set-password.msg": "Geben Sie bitte zweimal das neue Passwort an.",
+  "security.form.email.placeholder": "name@excample.com",
+  "security.form.password.placeholder": "Passwort",
+  "security.form.login.label": "Anmelden",
+  "security.form.forgot-password.label": "Passwort vergessen?",
+  "security.form.request-password.label": "Passwort anfordern",
+  "security.form.save-password.label": "Passwort setzen"
 }

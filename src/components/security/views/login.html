@@ -1,1 +1,33 @@
-login
+<h3 translate="security.form.login.header"></h3>
+
+<p translate="security.form.login.msg"></p>
+
+<form class="form" id="formLogin" name="form" novalidate>
+    <div class="form-group">
+        <input type="email" class="form-control" autofocus ng-model="loginData.email" required
+               name="email" placeholder="{{'security.form.email.placeholder'|translate}}"/>
+    </div>
+    <div class="form-group">
+        <input type="password"
+               class="form-control"
+               name="password"
+               placeholder="{{'security.form.password.placeholder'|translate}}"
+               ng-model="loginData.password" required>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <button ng-click="login(loginData)"
+                    ng-disabled="form.$invalid"
+                    translate="security.form.login.label"
+                    class="btn btn-block btn-primary">
+            </button>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <a hide-login
+               ui-sref="security.password-request"
+               class="btn btn-block btn-link"
+               translate="security.form.forgot-password.label">
+            </a>
+        </div>
+    </div>
+</form>

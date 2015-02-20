@@ -9,7 +9,7 @@ module.exports = {
       }
     }
   },
-  'security.password.request': {
+  'security.password-request': {
     url: '/request-password',
     views: {
       'content': {
@@ -17,7 +17,7 @@ module.exports = {
       }
     }
   },
-  'security.password.set': {
+  'security.password-set': {
     url: '/set-password',
     views: {
       'content': {
