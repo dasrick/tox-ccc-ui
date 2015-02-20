@@ -7,7 +7,7 @@ var angular = require('angular');
 require('angular-bootstrap');
 require('angular-loading-bar');
 require('angular-route');
-//require('angular-jwt');
+require('angular-jwt');
 require('angular-translate');
 require('angular-translate-loader-partial');
 //require('angular-cache');
@@ -18,7 +18,7 @@ var requires = [
   'ui.bootstrap',
   'angular-loading-bar',
   'ui.router',
-  //'angular-jwt',
+  'angular-jwt',
   'pascalprecht.translate',
   //'angular-data.DSCacheFactory',
   'ngResource',

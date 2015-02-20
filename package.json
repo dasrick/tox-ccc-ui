@@ -21,6 +21,7 @@
   },
   "browser": {
     "angular": "./node_modules/angular/angular.js",
+    "angular-jwt": "./node_modules/angular-jwt/dist/angular-jwt.js",
     "angular-mocks": "./node_modules/angular-mocks/angular-mocks.js",
     "angular-route": "./node_modules/angular-ui-router/release/angular-ui-router.js",
     "angular-translate": "./node_modules/angular-translate/dist/angular-translate.js",
@@ -30,6 +31,7 @@
   "dependencies": {
     "angular": "~1.3.9",
     "angular-bootstrap": "^0.12.0",
+    "angular-jwt": "0.0.5",
     "angular-loading-bar": "^0.6.0",
     "angular-resource": "^1.3.10",
     "angular-translate": "^2.6.0",
