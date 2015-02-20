@@ -6,7 +6,7 @@ module.exports = {
     abstract: true,
     views: {
       'content': {
-        templateUrl: '/views/customer/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },
@@ -24,7 +24,7 @@ module.exports = {
     abstract: true,
     views: {
       'content': {
-        templateUrl: '/views/customer/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },
@@ -42,7 +42,7 @@ module.exports = {
     abstract: true,
     views: {
       'content': {
-        templateUrl: '/views/customer/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },

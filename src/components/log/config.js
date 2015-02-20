@@ -6,7 +6,7 @@ module.exports = {
     abstract: true,
     views: {
       'content': {
-        templateUrl: '/views/log/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },

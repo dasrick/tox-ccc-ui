@@ -6,7 +6,7 @@ module.exports = {
     abstract: true,
     views: {
       'content': {
-        templateUrl: '/views/instance/base.html',
+        templateUrl: '/views/template/base.html'
         //controller: 'InstanceListController as vm'
       }
     }

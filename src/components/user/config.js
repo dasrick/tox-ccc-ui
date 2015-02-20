@@ -6,7 +6,7 @@ module.exports = {
     url: '/user',
     views: {
       'content': {
-        templateUrl: '/views/user/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },
@@ -33,7 +33,7 @@ module.exports = {
     url: '/user',
     views: {
       'content': {
-        templateUrl: '/views/user/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },
@@ -60,7 +60,7 @@ module.exports = {
     url: '/user',
     views: {
       'content': {
-        templateUrl: '/views/user/base.html'
+        templateUrl: '/views/template/base.html'
       }
     }
   },
