@@ -5,7 +5,8 @@ module.exports = {
     url: '/login',
     views: {
       'content': {
-        templateUrl: '/views/security/login.html'
+        templateUrl: '/views/security/login.html',
+        controller: 'SecurityLoginController as vm'
       }
     }
   },

@@ -41,7 +41,7 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/user/detail.html'
+        templateUrl: '/views/user/list.html'
         //controller: 'ProfileUserEditDataController'
       }
     }

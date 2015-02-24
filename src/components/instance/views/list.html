@@ -1,5 +1,5 @@
-here comes the list - instances
-
 <div ng-repeat="instance in vm.instances">
-    x
+    <a ui-sref="admin.instance.detail({instanceId:instance.id})">
+        {{::instance.name}}
+    </a>
 </div>

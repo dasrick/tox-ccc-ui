@@ -10,7 +10,7 @@ require('angular-route');
 require('angular-jwt');
 require('angular-translate');
 require('angular-translate-loader-partial');
-//require('angular-cache');
+require('angular-cache');
 require('angular-resource');
 //require('angular-ui-unique');
 //require('ui-select');
@@ -20,45 +20,39 @@ var requires = [
   'ui.router',
   'angular-jwt',
   'pascalprecht.translate',
-  //'angular-data.DSCacheFactory',
+  'angular-data.DSCacheFactory',
   'ngResource',
   //'ui.select',
   //'ui.unique',
-  //require('./components').name,
-  //require('./shared').name
+  require('./shared').name,
   require('./components').name
 ];
 
 angular.module('tox-ccc-ui-app', requires)
-  //.config(function ($httpProvider, jwtInterceptorProvider) {
-  //  jwtInterceptorProvider.tokenGetter = ['UserService', function(UserService) {
-  //    return UserService.getToken();
-  //  }];
-  //
-  //  $httpProvider.interceptors.push('jwtInterceptor');
-  //})
+  .config(function ($httpProvider, jwtInterceptorProvider) {
+    jwtInterceptorProvider.tokenGetter = ['UserService', function (UserService) {
+      return UserService.getToken();
+    }];
+    $httpProvider.interceptors.push('jwtInterceptor');
+  })
   .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
-      var $state;
-      //UserService = $injector.get('UserService');
+      var $state, UserService;
+      UserService = $injector.get('UserService');
       $state = $injector.get('$state');
-      //if (UserService.isLoggedIn() === true) {
-      $state.go('admin.instance.list');
-      //} else {
-      //  $state.go('security.login');
-      //}
+      if (UserService.isLoggedIn() === true) {
+        $state.go('customer.dashboard.list');
+      } else {
+        $state.go('security.login');
+      }
     });
-
     $resourceProvider.defaults.stripTrailingSlashes = true;
-
     //$locationProvider.html5Mode(true).hashPrefix('!');
   })
   .config(function ($translateProvider) {
-
     $translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: '/i18n/{part}/{lang}.json'
     });
-
     // add translation table
     $translateProvider
       .registerAvailableLanguageKeys(['en', 'de'], {

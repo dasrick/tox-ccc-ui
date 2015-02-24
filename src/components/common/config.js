@@ -12,7 +12,8 @@ module.exports = {
         templateUrl: '/views/common/header-middle.html'
       },
       'headerRight': {
-        templateUrl: '/views/common/header-right.html'
+        templateUrl: '/views/common/header-right.html',
+        controller: 'SecurityLogoutController as vm'
       }
     }
   },
@@ -22,13 +23,13 @@ module.exports = {
     views: {
       'main': {
         templateUrl: '/views/common/sidebar-customer.html'
-        //controller: 'CommonController as vm'
       },
       'headerMiddle': {
         templateUrl: '/views/common/header-middle.html'
       },
       'headerRight': {
-        templateUrl: '/views/common/header-right.html'
+        templateUrl: '/views/common/header-right.html',
+        controller: 'SecurityLogoutController as vm'
       }
     }
   },
@@ -43,7 +44,8 @@ module.exports = {
         templateUrl: '/views/common/header-middle.html'
       },
       'headerRight': {
-        templateUrl: '/views/common/header-right.html'
+        templateUrl: '/views/common/header-right.html',
+        controller: 'SecurityLogoutController as vm'
       }
     }
   },
