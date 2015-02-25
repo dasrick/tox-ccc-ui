@@ -14,8 +14,15 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/transcoder_profile/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/transcoder_profile/list.html',
+        controller: 'TranscoderProfileListController as vm'
+      }
+    },
+    resolve: {
+      TranscoderProfileResource: 'TranscoderProfileResource',
+      transcoderProfiles: function (TranscoderProfileResource) {
+        var type = 'all';
+        return TranscoderProfileResource.query({type: type}).$promise;
       }
     }
   },
@@ -23,8 +30,8 @@ module.exports = {
     url: '/path-for-id',
     views: {
       'data': {
-        templateUrl: '/views/transcoder_profile/detail.html'
-        //controller: 'InstanceDetailController as vm'
+        templateUrl: '/views/transcoder_profile/detail.html',
+        controller: 'TranscoderProfileDetailController as vm'
       }
     }
   }

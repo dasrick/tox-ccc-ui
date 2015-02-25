@@ -17,6 +17,12 @@ module.exports = {
         templateUrl: '/views/log/list.html'
         //controller: 'InstanceListController as vm'
       }
+    },
+    resolve: {
+      LogResource: 'LogResource',
+      instances: function (LogResource) {
+        return LogResource.query().$promise;
+      }
     }
   },
   'customer.log.detail': {

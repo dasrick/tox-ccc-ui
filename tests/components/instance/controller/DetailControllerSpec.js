@@ -1,6 +1,6 @@
 'use strict';
 
-var InstanceDetailController = require('../../../../src/components/instance/controller/InstanceDetailController');
+var InstanceDetailController = require('../../../../src/components/instance/controller/DetailController');
 
 describe('Components:Instance:Controller:InstanceDetailController', function () {
 

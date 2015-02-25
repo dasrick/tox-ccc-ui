@@ -14,8 +14,14 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/plan/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/plan/list.html',
+        controller: 'PlanListController as vm'
+      }
+    },
+    resolve: {
+      PlanResource: 'PlanResource',
+      plans: function (PlanResource) {
+        return PlanResource.query().$promise;
       }
     }
   },
@@ -23,8 +29,8 @@ module.exports = {
     url: '/path-for-id',
     views: {
       'data': {
-        templateUrl: '/views/plan/detail.html'
-        //controller: 'InstanceDetailController as vm'
+        templateUrl: '/views/plan/detail.html',
+        controller: 'PlanDetailController as vm'
       }
     }
   }

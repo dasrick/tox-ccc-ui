@@ -14,8 +14,14 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/user/detail.html'
-        //controller: 'ProfileUserEditDataController'
+        templateUrl: '/views/user/list.html',
+        controller: 'UserListController as vm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      users: function (UserResource) {
+        return UserResource.query().$promise;
       }
     }
   },
@@ -23,8 +29,8 @@ module.exports = {
     url: '/path-to-id',
     views: {
       'data': {
-        templateUrl: '/views/user/detail.html'
-        //controller: 'ProfileUserEditPasswordController'
+        templateUrl: '/views/user/detail.html',
+        controller: 'UserDetailController as vm'
       }
     }
   },
@@ -41,8 +47,15 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/user/list.html'
-        //controller: 'ProfileUserEditDataController'
+        templateUrl: '/views/user/list.html',
+        controller: 'UserListController as vm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      users: function (UserResource) {
+        var customerId = 2;
+        return UserResource.query({customerId: customerId}).$promise;
       }
     }
   },
@@ -50,8 +63,8 @@ module.exports = {
     url: '/path-to-id',
     views: {
       'data': {
-        templateUrl: '/views/user/detail.html'
-        //controller: 'ProfileUserEditPasswordController'
+        templateUrl: '/views/user/detail.html',
+        controller: 'UserDetailController as vm'
       }
     }
   },
@@ -68,9 +81,15 @@ module.exports = {
     url: '/data',
     views: {
       'data': {
-        templateUrl: '/views/user/detail.html'
-        //controller: 'ProfileUserEditDataController'
+        templateUrl: '/views/user/list.html'
+        //controller: 'UserListController as vm'
       }
+    //},
+    //resolve: {
+    //  UserResource: 'UserResource',
+    //  users: function (UserResource) {
+    //    return UserResource.query().$promise;
+    //  }
     }
   },
   'profile.user.password': {
@@ -78,7 +97,7 @@ module.exports = {
     views: {
       'data': {
         templateUrl: '/views/user/detail.html'
-        //controller: 'ProfileUserEditPasswordController'
+        //controller: 'UserDetailController as vm'
       }
     }
   }

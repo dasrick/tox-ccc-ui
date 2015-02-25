@@ -14,8 +14,14 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/product/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/product/list.html',
+        controller: 'ProductListController as vm'
+      }
+    },
+    resolve: {
+      ProductResource: 'ProductResource',
+      products: function (ProductResource) {
+        return ProductResource.query().$promise;
       }
     }
   },
@@ -23,8 +29,8 @@ module.exports = {
     url: '/path-for-id',
     views: {
       'data': {
-        templateUrl: '/views/product/detail.html'
-        //controller: 'InstanceDetailController as vm'
+        templateUrl: '/views/product/detail.html',
+        controller: 'ProductDetailController as vm'
       }
     }
   }

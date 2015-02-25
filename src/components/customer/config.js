@@ -14,8 +14,14 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/customer/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/customer/list.html',
+        controller: 'CustomerListController as vm'
+      }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customers: function (CustomerResource) {
+        return CustomerResource.query().$promise;
       }
     }
   },
@@ -32,8 +38,16 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/customer/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/customer/list.html',
+        controller: 'CustomerListController as vm'
+      }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customers: function (CustomerResource) {
+        // ToDo: parentId muss dynamsiert werden
+        var parentId = 2;
+        return CustomerResource.query({parent: parentId}).$promise;
       }
     }
   },
@@ -54,6 +68,6 @@ module.exports = {
         //controller: 'InstanceListController as vm'
       }
     }
-  },
+  }
 
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-var InstanceListController = require('../../../../src/components/instance/controller/InstanceListController');
+var InstanceListController = require('../../../../src/components/instance/controller/ListController');
 
 describe('Components:Instance:Controller:InstanceListController', function () {
 
