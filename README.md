@@ -19,3 +19,7 @@ Here are some calls ...
     # or check the codestyle with jshint
     npm run lint
     
+    # to ste new version in package.json and tag the branch use
+    # the follwoing line or read this:
+    # https://www.npmjs.com/package/versiony#readme
+    npm version patch
