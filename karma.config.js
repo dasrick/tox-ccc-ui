@@ -18,7 +18,7 @@ module.exports = function(karma) {
 
     reporters: ['progress', 'coverage'],
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : 'coverage/'
     },
     preprocessors: {
