@@ -11,5 +11,5 @@ module.exports = function ($http, UserService) {
   };
   this.logout = function () {
     UserService.logout();
-  }
+  };
 };

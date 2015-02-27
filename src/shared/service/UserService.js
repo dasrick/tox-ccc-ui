@@ -15,7 +15,7 @@ module.exports = function(DSCacheFactory) {
   };
 
   this.isLoggedIn = function() {
-    return angular.isDefined(userData.get('jwt_token'))
+    return angular.isDefined(userData.get('jwt_token'));
   };
 
   this.logout = function() {

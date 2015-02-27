@@ -12,5 +12,5 @@ module.exports = function (SecurityService, $state) {
     SecurityService.login(vm.loginData).then(function () {
       $state.go('customer.dashboard.list');
     });
-  }
+  };
 };
