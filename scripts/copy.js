@@ -1,6 +1,6 @@
 var path = require('path');
 var fs = require('fs-extra');
-var glob = require("glob");
+var glob = require('glob');
 
 function rename(dest, src) {
   var srcPath = src.split('/').reverse();

@@ -18,7 +18,7 @@ describe('Shared:Service:UserService', function () {
 
   it('should set a token', function () {
     UserServiceInstance.setToken('token');
-    expect(Cache.put).toHaveBeenCalledWith('jwt_token', 'token')
+    expect(Cache.put).toHaveBeenCalledWith('jwt_token', 'token');
   });
 
   it('should return the token', function () {
