@@ -14,8 +14,14 @@ module.exports = {
     url: '',
     views: {
       'data': {
-        templateUrl: '/views/review/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/review/list.html',
+        controller: 'ReviewListController as vm'
+      }
+    },
+    resolve: {
+      ReviewResource: 'ReviewResource',
+      reviews: function (ReviewResource) {
+        return ReviewResource.query().$promise;
       }
     }
   }

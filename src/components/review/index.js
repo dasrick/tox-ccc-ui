@@ -5,8 +5,8 @@ var RoutingConfig = require('./config');
 
 module.exports = angular.module('review', []);
 
-//angular.module('review').controller("InstanceListController", require('./controller/InstanceListController'));
-//angular.module('review').controller("InstanceDetailController", require('./controller/InstanceDetailController'));
+angular.module('review').controller('ReviewListController', require('./controller/ListController'));
+angular.module('review').controller('ReviewDetailController', require('./controller/DetailController'));
 //angular.module('review').service("InstanceService", require('./service/InstanceService'));
 angular.module('review').factory('ReviewResource', function ($resource) {
   return $resource('https://ccc.mi24.dev/api/review/:reviewId', {reviewId: '@id'}, {});
