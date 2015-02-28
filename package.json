@@ -62,12 +62,13 @@
     "karma-browserify": "^3.0.0",
     "karma-coverage": "0.2.6",
     "karma-jasmine": "^0.3.5",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "karma-phantomjs-launcher": "^0.1.4",
+    "watch": "^0.14.0"
   },
   "scripts": {
     "postinstall": "npm run build",
     "start": "node serve.js",
-    "build": "npm run build:scripts && npm run build:css && npm run build:copy",
+    "build": "npm run build:scripts && npm run build:css && npm run build:copy && npm run lint",
     "build:scripts": "browserify src/app.js -o web/js/app.js",
     "build:css": "lessc --autoprefix='last 2 versions,ie 9' src/media/less/style.less  web/media/css/style.css && cleancss --source-map -o web/media/css/style.min.css web/media/css/style.css",
     "build:copy": "npm run build:copy-i18n && npm run build:copy-views && npm run build:copy-fonts",
@@ -76,7 +77,11 @@
     "build:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts",
     "codestyle": "jscs .",
     "lint": "jshint ./src --reporter node_modules/jshint-stylish/stylish.js",
+    "test": "export CODACY_REPO_TOKEN='6d0c32dbb8fe4543bee90b3b20c1d2e5' && npm run test:karma && cat ./coverage/**/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
     "test:karma": "./node_modules/karma/bin/karma start karma.config.js",
-    "test": "export CODACY_REPO_TOKEN='6d0c32dbb8fe4543bee90b3b20c1d2e5' && npm run test:karma && cat ./coverage/**/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js"
+    "watch": "npm run watch:copy & npm run watch:css & npm run watch:scripts",
+    "watch:copy": "watch 'npm run build:copy' src/",
+    "watch:css": "watch 'npm run build:css' src/media/less",
+    "watch:scripts": "watch 'npm run build:scripts' src/"
   }
 }
