@@ -75,7 +75,7 @@
     "build:copy-i18n": "node scripts/copy.js src/**/translations/*.json web/i18n/",
     "build:copy-views": "node scripts/copy.js src/**/views/*.html web/views/",
     "build:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts",
-    "codestyle": "jscs .",
+    "codestyle": "jscs ./src ./tests ./scripts",
     "lint": "jshint ./src --reporter node_modules/jshint-stylish/stylish.js",
     "test": "export CODACY_REPO_TOKEN='6d0c32dbb8fe4543bee90b3b20c1d2e5' && npm run test:karma && cat ./coverage/**/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
     "test:karma": "./node_modules/karma/bin/karma start karma.config.js",

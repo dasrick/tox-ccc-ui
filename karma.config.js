@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = function(karma) {
+module.exports = function (karma) {
   karma.set({
 
-    frameworks: [ 'jasmine', 'browserify' ],
+    frameworks: ['jasmine', 'browserify'],
 
     files: [
       'tests/**/*Spec.js',
@@ -18,16 +18,16 @@ module.exports = function(karma) {
 
     reporters: ['progress', 'coverage'],
     coverageReporter: {
-      type : 'lcov',
-      dir : 'coverage/'
+      type: 'lcov',
+      dir: 'coverage/'
     },
     preprocessors: {
-      'tests/**/*Spec.js': [ 'browserify' ],
-      'tests/base.js': [ 'browserify'],
-      'src/**/*.js': [ 'browserify' ]
+      'tests/**/*Spec.js': ['browserify'],
+      'tests/base.js': ['browserify'],
+      'src/**/*.js': ['browserify']
     },
 
-    browsers: [ 'PhantomJS' ],
+    browsers: ['PhantomJS'],
 
     logLevel: 'LOG_INFO',
 

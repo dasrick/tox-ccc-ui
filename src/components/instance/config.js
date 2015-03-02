@@ -38,7 +38,7 @@ module.exports = {
     },
     resolve: {
       InstanceResource: 'InstanceResource',
-      instance: function(InstanceResource, $stateParams){
+      instance: function (InstanceResource, $stateParams) {
         // Extract instance ID from $stateParams
         var instanceId = $stateParams.instanceId;
         // Return a promise to make sure the customer is completely
