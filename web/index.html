@@ -20,6 +20,10 @@
 
 <main class="cs-1" ui-view="main"></main>
 
+<div class="global-alerts">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{alert.msg}}</alert>
+</div>
+
 <script type="text/javascript" src="js/app.js"></script>
 
 </body>

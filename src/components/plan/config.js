@@ -20,8 +20,16 @@ module.exports = {
     },
     resolve: {
       PlanResource: 'PlanResource',
+      //AlertService: 'AlertService',
       plans: function (PlanResource) {
-        return PlanResource.query().$promise;
+        PlanResource.query().$promise.then(function (data) {
+          return data;
+        //}, function (error) {
+        //  console.log(error);
+        //  var msg = (error.data.code + ' - ' + error.data.message);
+        //  AlertService.add('danger', msg);
+        }
+        );
       }
     }
   },

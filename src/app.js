@@ -35,6 +35,9 @@ angular.module('tox-ccc-ui-app', requires)
     }];
     $httpProvider.interceptors.push('jwtInterceptor');
   })
+  .config(function ($httpProvider) {
+    $httpProvider.interceptors.push('AlertInterceptor');
+  })
   .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
       var $state, UserService;

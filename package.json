@@ -75,6 +75,8 @@
     "build:copy-i18n": "node scripts/copy.js src/**/translations/*.json web/i18n/",
     "build:copy-views": "node scripts/copy.js src/**/views/*.html web/views/",
     "build:copy-fonts": "mkdir -p web/media/fonts && cp -R node_modules/font-awesome/fonts/* web/media/fonts",
+    "build-dev": "npm run build-dev:scripts && npm run build:css && npm run build:copy && npm run jscs && npm run lint",
+    "build-dev:scripts": "browserify -d src/app.js -o web/js/app.js",
     "jscs": "jscs ./src ./tests ./scripts",
     "lint": "jshint ./src ./tests ./scripts --reporter node_modules/jshint-stylish/stylish.js",
     "test": "export CODACY_REPO_TOKEN='6d0c32dbb8fe4543bee90b3b20c1d2e5' && npm run test:karma && cat ./coverage/**/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
