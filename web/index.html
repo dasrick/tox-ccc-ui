@@ -9,18 +9,14 @@
 <body>
 
 <header class="cs-3">
-    <aside class="col-left brand">
-        <a class="navbar-brand" href="#">
-            <span translate="common.application.label"></span>
-        </a>
-    </aside>
+    <aside class="col-left brand" ui-view="headerLeft"></aside>
     <aside class="col-main" ui-view="headerMiddle"></aside>
     <aside class="col-right" ui-view="headerRight"></aside>
 </header>
 
 <main class="cs-1" ui-view="main"></main>
 
-<div class="global-alerts">
+<div class="global-alerts" ng-cloak>
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{alert.msg}}</alert>
 </div>
 

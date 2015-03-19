@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-//process.env.appversion = require('../package.json').version;
+process.env.appversion = require('../package.json').version;
 
 require('angular-bootstrap');
 require('angular-loading-bar');
