@@ -2,9 +2,9 @@
 /**
  * @ngInject
  */
-module.exports = function(DSCacheFactory) {
+module.exports = function(CacheFactory) {
 
-  var userData = DSCacheFactory('userData', {storageMode: 'sessionStorage'});
+  var userData = CacheFactory('userData', {storageMode: 'sessionStorage'});
 
   this.setToken = function(token) {
     userData.put('jwt_token', token);

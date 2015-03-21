@@ -20,7 +20,7 @@ var requires = [
   'ui.router',
   'angular-jwt',
   'pascalprecht.translate',
-  'angular-data.DSCacheFactory',
+  'angular-cache',
   'ngResource',
   //'ui.select',
   //'ui.unique',
