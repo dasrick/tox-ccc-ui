@@ -9,10 +9,10 @@ describe('Shared:Service:UserService', function () {
   beforeEach(function () {
     angular.mock.inject(function ($injector) {
       Cache = jasmine.createSpyObj('Cache', ['put', 'get', 'removeAll']);
-      var DSCacheFactory = jasmine.createSpy('DSCacheFactory');
-      DSCacheFactory.and.returnValue(Cache);
-      UserServiceInstance = $injector.instantiate(UserService, {DSCacheFactory: DSCacheFactory});
-      expect(DSCacheFactory).toHaveBeenCalledWith('userData', {storageMode: 'sessionStorage'});
+      var CacheFactory = jasmine.createSpy('CacheFactory');
+      CacheFactory.and.returnValue(Cache);
+      UserServiceInstance = $injector.instantiate(UserService, {CacheFactory: CacheFactory});
+      expect(CacheFactory).toHaveBeenCalledWith('userData', {storageMode: 'sessionStorage'});
     });
   });
 
