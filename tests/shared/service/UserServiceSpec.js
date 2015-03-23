@@ -40,4 +40,19 @@ describe('Shared:Service:UserService', function () {
     expect(Cache.removeAll).toHaveBeenCalled();
   });
 
+  it('should set a user', function () {
+    UserServiceInstance.setUser('userObject');
+    expect(Cache.put).toHaveBeenCalledWith('user', 'userObject');
+  });
+
+  it('should return the current (logged) user', function () {
+    Cache.get.and.returnValue('token');
+    Cache.get.and.returnValue('userObject');
+    expect(UserServiceInstance.getUser()).toBe('userObject');
+  });
+
+  it('should try to return the current (logged) user, but no token', function () {
+    expect(UserServiceInstance.getUser()).toBeUndefined();
+  });
+
 });

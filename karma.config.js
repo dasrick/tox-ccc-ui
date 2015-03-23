@@ -6,8 +6,8 @@ module.exports = function (karma) {
     frameworks: ['jasmine', 'browserify'],
 
     files: [
-      'tests/**/*Spec.js',
       'tests/base.js',
+      'tests/**/*Spec.js',
       'src/**/*.js'
     ],
     exclude: [
@@ -22,8 +22,8 @@ module.exports = function (karma) {
       dir: 'coverage/'
     },
     preprocessors: {
-      'tests/**/*Spec.js': ['browserify'],
       'tests/base.js': ['browserify'],
+      'tests/**/*Spec.js': ['browserify'],
       'src/**/*.js': ['browserify']
     },
 
