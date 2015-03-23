@@ -53,5 +53,5 @@ describe('Components:Security:Directive:HasType', function () {
       expect(PermissionService.hasType).toHaveBeenCalledWith('other');
     });
   });
-  
+
 });
