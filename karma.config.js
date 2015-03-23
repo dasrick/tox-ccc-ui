@@ -22,8 +22,8 @@ module.exports = function (karma) {
       dir: 'coverage/'
     },
     preprocessors: {
-      'tests/**/*Spec.js': ['browserify'],
       'tests/base.js': ['browserify'],
+      'tests/**/*Spec.js': ['browserify'],
       'src/**/*.js': ['browserify']
     },
 

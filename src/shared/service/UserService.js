@@ -21,4 +21,14 @@ module.exports = function(CacheFactory) {
   this.logout = function() {
     userData.removeAll();
   };
+
+  this.setUser = function (user) {
+    userData.put('user', user);
+  };
+
+  this.getUser = function () {
+    if (this.getToken() != null) {
+      return userData.get('user');
+    }
+  };
 };
