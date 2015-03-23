@@ -6,8 +6,8 @@ module.exports = function (karma) {
     frameworks: ['jasmine', 'browserify'],
 
     files: [
-      'tests/**/*Spec.js',
       'tests/base.js',
+      'tests/**/*Spec.js',
       'src/**/*.js'
     ],
     exclude: [
