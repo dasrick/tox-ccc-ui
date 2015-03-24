@@ -13,7 +13,7 @@ module.exports = {
   'admin.transcoder_profile.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/transcoder_profile/list.html',
         controller: 'TranscoderProfileListController as vm'
       }
@@ -29,7 +29,7 @@ module.exports = {
   'admin.transcoder_profile.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/transcoder_profile/detail.html',
         controller: 'TranscoderProfileDetailController as vm'
       }

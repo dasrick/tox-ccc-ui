@@ -8,7 +8,7 @@
                name="email"
                class="form-control"
                placeholder="{{'security.form.email.placeholder'|translate}}"
-               ng-model="vm.loginData.email"
+               ng-model="loginVm.loginData.email"
                autofocus
                required
                 >
@@ -18,13 +18,13 @@
                name="password"
                class="form-control"
                placeholder="{{'security.form.password.placeholder'|translate}}"
-               ng-model="vm.loginData.password"
+               ng-model="loginVm.loginData.password"
                required
                 >
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-6">
-            <button ng-click="vm.login()"
+            <button ng-click="loginVm.login()"
                     ng-disabled="form.$invalid"
                     translate="security.form.login.label"
                     class="btn btn-block btn-primary">

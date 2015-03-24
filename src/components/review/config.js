@@ -13,7 +13,7 @@ module.exports = {
   'profile.review.data': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/review/list.html',
         controller: 'ReviewListController as vm'
       }

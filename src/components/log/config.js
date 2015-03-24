@@ -13,7 +13,7 @@ module.exports = {
   'customer.log.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/log/list.html'
         //controller: 'InstanceListController as vm'
       }
@@ -28,7 +28,7 @@ module.exports = {
   'customer.log.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/log/detail.html'
         //controller: 'InstanceDetailController as vm'
       }

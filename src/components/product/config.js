@@ -13,7 +13,7 @@ module.exports = {
   'admin.product.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/product/list.html',
         controller: 'ProductListController as vm'
       }
@@ -28,7 +28,7 @@ module.exports = {
   'admin.product.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/product/detail.html',
         controller: 'ProductDetailController as vm'
       }

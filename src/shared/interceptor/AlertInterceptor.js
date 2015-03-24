@@ -14,7 +14,7 @@ module.exports = function ($q, AlertService) {
     requestError: function (rejection) {
       //console.log(rejection);
       var msg = rejection.data || 'Unknown request error occured';
-      AlertService.add('danger', msg, 8000);
+      AlertService.add('danger', msg, 10000);
       return $q.reject(rejection);
     },
     // response success
@@ -25,8 +25,8 @@ module.exports = function ($q, AlertService) {
     // response failure
     responseError: function (rejection) {
       //console.log(rejection);
-      var msg = rejection.data || 'Unknown response error occured';
-      AlertService.add('danger', msg, 8000);
+      //var msg = rejection.data || 'Unknown response error occured';
+      //AlertService.add('danger', msg, 10000);
       return $q.reject(rejection);
     }
   };

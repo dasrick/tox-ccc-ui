@@ -13,7 +13,7 @@ module.exports = {
   'admin.user.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/list.html',
         controller: 'UserListController as vm'
       }
@@ -28,7 +28,7 @@ module.exports = {
   'admin.user.detail': {
     url: '/path-to-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/detail.html',
         controller: 'UserDetailController as vm'
       }
@@ -46,7 +46,7 @@ module.exports = {
   'customer.user.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/list.html',
         controller: 'UserListController as vm'
       }
@@ -62,7 +62,7 @@ module.exports = {
   'customer.user.detail': {
     url: '/path-to-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/detail.html',
         controller: 'UserDetailController as vm'
       }
@@ -80,7 +80,7 @@ module.exports = {
   'profile.user.data': {
     url: '/data',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/list.html'
         //controller: 'UserListController as vm'
       }
@@ -95,7 +95,7 @@ module.exports = {
   'profile.user.password': {
     url: '/password',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/user/detail.html'
         //controller: 'UserDetailController as vm'
       }

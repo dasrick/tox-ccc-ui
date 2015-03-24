@@ -14,8 +14,11 @@ module.exports = {
   'admin.instance.list': {
     url: '',
     views: {
-      'data': {
-        templateUrl: '/views/instance/list.html',
+      'data-header': {
+        templateUrl: '/views/instance/list-header.html'
+      },
+      'data-body': {
+        templateUrl: '/views/instance/list-body.html',
         controller: 'InstanceListController as vm'
       }
     },
@@ -31,7 +34,7 @@ module.exports = {
   'admin.instance.detail': {
     url: '/{instanceId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/instance/detail.html',
         controller: 'InstanceDetailController as vm'
       }

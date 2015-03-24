@@ -13,7 +13,7 @@ module.exports = {
   'admin.player_skin.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/player_skin/list.html',
         controller: 'PlayerSkinListController as vm'
       }
@@ -29,7 +29,7 @@ module.exports = {
   'admin.player_skin.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/player_skin/detail.html',
         controller: 'PlayerSkinDetailController as vm'
       }
