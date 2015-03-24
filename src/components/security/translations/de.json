@@ -13,5 +13,8 @@
   "security.form.login.label": "Anmelden",
   "security.form.forgot-password.label": "Passwort vergessen?",
   "security.form.request-password.label": "Passwort anfordern",
-  "security.form.save-password.label": "Passwort setzen"
+  "security.form.save-password.label": "Passwort setzen",
+  "security.alert.login.unknown": "Es ist ein unbekannter Fehler beim Login aufgetreten.",
+  "security.alert.login.unauthorized": "Ihre Zugansdaten sind inkorrekt",
+  "security.alert.login.user_locked": "Ihr Zugang ist gesperrt. Wenden Sie sich bitte an Ihren Adminsitrator."
 }

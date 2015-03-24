@@ -13,7 +13,7 @@ module.exports = {
   'customer.dashboard.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/dashboard/list.html'
         //controller: 'InstanceListController as vm'
       }

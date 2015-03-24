@@ -13,7 +13,7 @@ module.exports = {
   'admin.customer.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/customer/list.html',
         controller: 'CustomerListController as vm'
       }
@@ -37,7 +37,7 @@ module.exports = {
   'customer.customer.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/customer/list.html',
         controller: 'CustomerListController as vm'
       }
@@ -63,7 +63,7 @@ module.exports = {
   'profile.customer.data': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/customer/list.html'
         //controller: 'InstanceListController as vm'
       }

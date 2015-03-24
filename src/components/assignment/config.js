@@ -13,7 +13,7 @@ module.exports = {
   'customer.assignment.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/assignment/list.html'
         //controller: 'InstanceListController as vm'
       }
@@ -22,7 +22,7 @@ module.exports = {
   'customer.assignment.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/assignment/detail.html'
         //controller: 'InstanceDetailController as vm'
       }

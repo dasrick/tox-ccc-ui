@@ -4,11 +4,20 @@ var AlertService = require('../../../src/shared/service/AlertService');
 
 describe('Shared:Service:AlertService', function () {
 
-  var AlertServiceInstance;
+  var AlertServiceInstance, locals, $rootScope, $timeout, $translate;
+
+  $translate = jasmine.createSpyObj('$translate', ['instant']);
 
   beforeEach(function () {
     angular.mock.inject(function ($injector) {
-      AlertServiceInstance = $injector.instantiate(AlertService);
+      $rootScope = $injector.get('$rootScope');
+      $timeout = $injector.get('$timeout');
+      locals = {
+        $rootScope: $rootScope,
+        $timeout: $timeout,
+        $translate: $translate
+      };
+      AlertServiceInstance = $injector.instantiate(AlertService, locals);
     });
   });
 
@@ -25,7 +34,7 @@ describe('Shared:Service:AlertService', function () {
   });
 
   it('should close an alert by id', function () {
-    var alertId =2342;
+    var alertId = 2342;
     AlertServiceInstance.closeAlertIdx(alertId);
   });
 

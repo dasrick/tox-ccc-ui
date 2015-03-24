@@ -13,7 +13,7 @@ module.exports = {
   'admin.plan.list': {
     url: '',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/plan/list.html',
         controller: 'PlanListController as vm'
       }
@@ -36,7 +36,7 @@ module.exports = {
   'admin.plan.detail': {
     url: '/path-for-id',
     views: {
-      'data': {
+      'data-body': {
         templateUrl: '/views/plan/detail.html',
         controller: 'PlanDetailController as vm'
       }

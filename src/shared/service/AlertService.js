@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($rootScope, $timeout) {
+module.exports = function ($rootScope, $timeout, $translate) {
 
   // create an array of alerts available globally
   $rootScope.alerts = [];
@@ -21,7 +21,7 @@ module.exports = function ($rootScope, $timeout) {
   function add(type, msg, timeout) {
     $rootScope.alerts.push({
       type: type,
-      msg: msg,
+      msg: $translate.instant(msg),
       close: function () {
         return alertService.closeAlert(this);
       }
