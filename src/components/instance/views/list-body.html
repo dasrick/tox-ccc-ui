@@ -1,5 +1,6 @@
+<h2 translate="instance.common.title"></h2>
 <div class="item-list">
-    <div ng-repeat="instance in vm.instances"
+    <div ng-repeat="instance in instanceListVm.instances"
          class="item-outer state-left"
          ng-class="(instance.active) ? 'label-success' : 'label-danger'">
         <a ui-sref="admin.instance.detail({instanceId:instance.id})">

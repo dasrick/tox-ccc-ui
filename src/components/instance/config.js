@@ -19,7 +19,7 @@ module.exports = {
       },
       'data-body': {
         templateUrl: '/views/instance/list-body.html',
-        controller: 'InstanceListController as vm'
+        controller: 'InstanceListController as instanceListVm'
       }
     },
     resolve: {
@@ -34,9 +34,12 @@ module.exports = {
   'admin.instance.detail': {
     url: '/{instanceId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/instance/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/instance/detail.html',
-        controller: 'InstanceDetailController as vm'
+        templateUrl: '/views/instance/detail-body.html',
+        controller: 'InstanceDetailController as instanceDetailVm'
       }
     },
     resolve: {

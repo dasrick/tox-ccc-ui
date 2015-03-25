@@ -1,5 +1,6 @@
 {
   "instance.sidebar-admin.icon": "fa-server",
   "instance.sidebar-admin.label": "Instanzen",
-  "instance.sidebar-admin.title": "Instanzen"
+  "instance.sidebar-admin.title": "Instanzen",
+  "instance.common.title": "Instanzen"
 }
