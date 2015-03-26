@@ -5,14 +5,17 @@
             <span translate="common.header.menu.label"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li>
+            <li is-in-base-state="customer"
+                ng-class="{'active':isInBaseState['customer']}">
                 <a ui-sref="customer.dashboard.list" translate="common.section.customer.label"></a>
             </li>
-            <li>
+            <li is-in-base-state="admin"
+                ng-class="{'active':isInBaseState['admin']}">
                 <a ui-sref="admin.instance.list" translate="common.section.admin.label"></a>
             </li>
             <li class="divider"></li>
-            <li>
+            <li is-in-base-state="profile"
+                ng-class="{'active':isInBaseState['profile']}">
                 <a ui-sref="profile.user.data" translate="common.section.profile.label"></a>
             </li>
         </ul>
