@@ -1,6 +1,6 @@
 'use strict';
 
-var PlayerSkinListController = require('../../../../src/components/player_skin/controller/ListController');
+var PlayerSkinListController = require('../../../../src/components/player-skin/controller/ListController');
 
 describe('Components:PlayerSkin:Controller:ListController', function () {
 
