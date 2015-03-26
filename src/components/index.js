@@ -9,7 +9,7 @@ module.exports = require('angular')
     require('./instance').name,
     require('./log').name,
     require('./plan').name,
-    require('./player_skin').name,
+    require('./player-skin').name,
     require('./product').name,
     require('./review').name,
     require('./security').name,
