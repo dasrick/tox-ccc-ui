@@ -13,6 +13,6 @@ module.exports = require('angular')
     require('./product').name,
     require('./review').name,
     require('./security').name,
-    require('./transcoder_profile').name,
+    require('./transcoder-profile').name,
     require('./user').name
   ]);

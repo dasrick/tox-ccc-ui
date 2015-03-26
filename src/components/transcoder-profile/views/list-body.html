@@ -1,0 +1,5 @@
+<div ng-repeat="transcoderProfile in transcoderProfileListVm.transcoderProfiles">
+    <a ui-sref="admin.transcoder-profile.detail({transcoderProfileId:transcoderProfile.key})">
+        <pre>{{transcoderProfile}}</pre>
+    </a>
+</div>

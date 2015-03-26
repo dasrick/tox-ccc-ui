@@ -1,6 +1,6 @@
 'use strict';
 
-var TranscoderProfileDetailController = require('../../../../src/components/transcoder_profile/controller/DetailController');
+var TranscoderProfileDetailController = require('../../../../src/components/transcoder-profile/controller/DetailController');
 
 describe('Components:TranscoderProfile:Controller:DetailController', function () {
 
