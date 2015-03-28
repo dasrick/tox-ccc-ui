@@ -9,5 +9,8 @@
   "common.header.logout.title": "Hier können Sie sich vom System abmelden.",
   "common.section.admin.label": "Globale Einstellungen",
   "common.section.customer.label": "Kunden-Verwaltung",
-  "common.section.profile.label": "Profil-Einstellungen"
+  "common.section.profile.label": "Profil-Einstellungen",
+
+  "common.icon.in-use.title": "Verwendungs-Status",
+  "common.icon.under-review.title": "Überprüfungs-Status"
 }

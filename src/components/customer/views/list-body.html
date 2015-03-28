@@ -1,0 +1,6 @@
+<h2>customer übersetzen</h2>
+<div class="item-list">
+    <div ng-repeat="item in customerListVm.preparedList"
+         row-list-item="item"
+         row-list-route="admin.customer.detail({customerId:item.id})"></div>
+</div>

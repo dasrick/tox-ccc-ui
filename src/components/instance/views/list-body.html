@@ -1,13 +1,6 @@
 <h2 translate="instance.common.title"></h2>
 <div class="item-list">
-    <div ng-repeat="instance in instanceListVm.instances"
-         class="item-outer state-left"
-         ng-class="(instance.active) ? 'label-success' : 'label-danger'">
-        <a ui-sref="admin.instance.detail({instanceId:instance.id})">
-            <div class="item-inner">
-                <span>{{::instance.name}}</span>
-                <span>{{::instance.baseUrl}}</span>
-            </div>
-        </a>
-    </div>
+    <div ng-repeat="item in instanceListVm.preparedList"
+         row-list-item="item"
+         row-list-route="admin.instance.detail({instanceId:item.id})"></div>
 </div>

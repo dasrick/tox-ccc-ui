@@ -39,6 +39,12 @@ module.exports = {
         templateUrl: '/views/player-skin/detail-body.html',
         controller: 'PlayerSkinDetailController as playerSkinDetailVm'
       }
+    },
+    resolve: {
+      PlayerSkinResource: 'PlayerSkinResource',
+      playerSkin: function (PlayerSkinResource, $stateParams) {
+        return PlayerSkinResource.get({playerSkinId: $stateParams.playerSkinId}).$promise;
+      }
     }
   }
 };

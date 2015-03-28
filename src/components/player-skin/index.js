@@ -7,7 +7,6 @@ module.exports = angular.module('player-skin', []);
 
 angular.module('player-skin').controller('PlayerSkinListController', require('./controller/ListController'));
 angular.module('player-skin').controller('PlayerSkinDetailController', require('./controller/DetailController'));
-//angular.module('player-skin').service("InstanceService", require('./service/InstanceService'));
 angular.module('player-skin').factory('PlayerSkinResource', function ($resource) {
   return $resource('https://ccc.mi24.dev/api/player-skins/:playerSkinId', {playerSkinId: '@id', type: '@type'}, {});
 });

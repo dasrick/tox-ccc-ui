@@ -1,0 +1,17 @@
+<div class="item-outer state-left"
+     ng-class="(item.active) ? 'label-success' : 'label-danger'">
+    <a ui-sref="{{::route}}">
+        <div class="item-inner">
+            <span ng-if="item.reviewStatus!==undefined"
+                  ng-class="(item.reviewStatus=='none') ? 'fa-eye-slash' : 'fa-eye'"
+                  class="fa"
+                  title="{{'common.icon.under-review.title' | translate}}"></span>
+            <span ng-if="item.inUse!==undefined"
+                  ng-class="(item.inUse) ? 'fa-bookmark' : 'fa-bookmark-o'"
+                  class="fa"
+                  title="{{'common.icon.in-use.title' | translate}}"></span>
+            <span class="title">{{::item.title}}</span>
+            <span class="subtitle">{{::item.subtitle}}</span>
+        </div>
+    </a>
+</div>

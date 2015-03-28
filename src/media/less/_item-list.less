@@ -1,17 +1,17 @@
 .item-list {
   .item-outer {
 
-    @der-lustige-seitenabstand: 15px;
+    @der-lustige-seitenabstand: 5px;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
     &.state-left {
-      margin-left: @der-lustige-seitenabstand * -1;
+//      margin-left: @der-lustige-seitenabstand * -1;
       padding-left: @der-lustige-seitenabstand;
     }
     &.state-right {
-      margin-right: @der-lustige-seitenabstand * -1;
+//      margin-right: @der-lustige-seitenabstand * -1;
       padding-right: @der-lustige-seitenabstand;
     }
 
@@ -21,7 +21,7 @@
     }
 
     .item-inner {
-      padding: 0 @der-lustige-seitenabstand;
+      padding: 0 10px;
       background-color: #fff;
       &:hover {
         background-color: #f7f7f7;
@@ -29,11 +29,15 @@
 
       span {
         display: inline-block;
-        padding: 5px 1em 5px 0;
+        padding: 5px .25em 5px 0;
         color: #999;
-        &:first-child {
+        &.title {
           font-weight: 600;
           color: #444;
+          padding-left: .5em;
+          &:first-child {
+            padding-left: 0;
+          }
         }
       }
     }

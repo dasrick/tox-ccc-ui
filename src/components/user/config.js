@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  // TODO: seperate templates or dynamic solution inside of single templates for the three routes ...
   'admin.user': {
     abstract: true,
     url: '/user',
@@ -13,9 +14,12 @@ module.exports = {
   'admin.user.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/user/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/user/list.html',
-        controller: 'UserListController as vm'
+        templateUrl: '/views/user/list-body.html',
+        controller: 'UserListController as userListVm'
       }
     },
     resolve: {
@@ -26,11 +30,20 @@ module.exports = {
     }
   },
   'admin.user.detail': {
-    url: '/path-to-id',
+    url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/user/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/user/detail.html',
-        controller: 'UserDetailController as vm'
+        templateUrl: '/views/user/detail-body.html',
+        controller: 'UserDetailController as userDetailVm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      user: function (UserResource, $stateParams) {
+        return UserResource.get({userId: $stateParams.userId}).$promise;
       }
     }
   },
@@ -46,25 +59,36 @@ module.exports = {
   'customer.user.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/user/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/user/list.html',
-        controller: 'UserListController as vm'
+        templateUrl: '/views/user/list-body.html',
+        controller: 'UserListController as userListVm'
       }
     },
     resolve: {
       UserResource: 'UserResource',
-      users: function (UserResource) {
-        var customerId = 2;
-        return UserResource.query({customerId: customerId}).$promise;
+      users: function (UserResource, $stateParams) {
+        return UserResource.query({customerId: $stateParams.customerId}).$promise;
       }
     }
   },
   'customer.user.detail': {
-    url: '/path-to-id',
+    url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/user/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/user/detail.html',
-        controller: 'UserDetailController as vm'
+        templateUrl: '/views/user/detail-body.html',
+        controller: 'UserDetailController as userDetailVm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      user: function (UserResource, $stateParams) {
+        return UserResource.get({userId: $stateParams.userId}).$promise;
       }
     }
   },

@@ -13,32 +13,36 @@ module.exports = {
   'admin.plan.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/plan/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/plan/list.html',
-        controller: 'PlanListController as vm'
+        templateUrl: '/views/plan/list-body.html',
+        controller: 'PlanListController as planListVm'
       }
     },
     resolve: {
       PlanResource: 'PlanResource',
-      //AlertService: 'AlertService',
       plans: function (PlanResource) {
-        PlanResource.query().$promise.then(function (data) {
-          return data;
-        //}, function (error) {
-        //  console.log(error);
-        //  var msg = (error.data.code + ' - ' + error.data.message);
-        //  AlertService.add('danger', msg);
-        }
-        );
+        return PlanResource.query().$promise;
       }
     }
   },
   'admin.plan.detail': {
-    url: '/path-for-id',
+    url: '/{planId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/plan/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/plan/detail.html',
-        controller: 'PlanDetailController as vm'
+        templateUrl: '/views/plan/detail-body.html',
+        controller: 'PlanDetailController as planDetailVm'
+      }
+    },
+    resolve: {
+      PlanResource: 'PlanResource',
+      plan: function (PlanResource, $stateParams) {
+        return PlanResource.get({planId: $stateParams.planId}).$promise;
       }
     }
   }

@@ -13,9 +13,12 @@ module.exports = {
   'admin.customer.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/customer/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/customer/list.html',
-        controller: 'CustomerListController as vm'
+        templateUrl: '/views/customer/list-body.html',
+        controller: 'CustomerListController as customerListVm'
       }
     },
     resolve: {
@@ -37,9 +40,12 @@ module.exports = {
   'customer.customer.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/customer/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/customer/list.html',
-        controller: 'CustomerListController as vm'
+        templateUrl: '/views/customer/list-body.html',
+        controller: 'CustomerListController as customerListVm'
       }
     },
     resolve: {

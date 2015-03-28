@@ -1,5 +1,6 @@
-<div ng-repeat="playerSkin in playerSkinListVm.playerSkins">
-    <a ui-sref="admin.player-skin.detail({playerSkinId:playerSkin.id})">
-        <pre>{{playerSkin}}</pre>
-    </a>
+<h2>player skins übersetzen</h2>
+<div class="item-list">
+    <div ng-repeat="item in playerSkinListVm.preparedList"
+         row-list-item="item"
+         row-list-route="admin.player-skin.detail({playerSkinId:item.id})"></div>
 </div>

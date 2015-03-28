@@ -13,9 +13,12 @@ module.exports = {
   'admin.product.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/product/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/product/list.html',
-        controller: 'ProductListController as vm'
+        templateUrl: '/views/product/list-body.html',
+        controller: 'ProductListController as productListVm'
       }
     },
     resolve: {
@@ -26,11 +29,20 @@ module.exports = {
     }
   },
   'admin.product.detail': {
-    url: '/path-for-id',
+    url: '/{productId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/product/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/product/detail.html',
-        controller: 'ProductDetailController as vm'
+        templateUrl: '/views/product/detail-body.html',
+        controller: 'ProductDetailController as productDetailVm'
+      }
+    },
+    resolve: {
+      ProductResource: 'ProductResource',
+      product: function (ProductResource, $stateParams) {
+        return ProductResource.get({productId: $stateParams.productId}).$promise;
       }
     }
   }
