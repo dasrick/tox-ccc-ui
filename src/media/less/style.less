@@ -1,5 +1,5 @@
-//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
-//@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 @import (inline) "../../../node_modules/mi24-bootstrap/dist/css/mi24-bootstrap.css";
 @import (inline) "../../../node_modules/mi24-bootstrap/dist/css/mi24-theme.css";
 @import (inline) "../../../node_modules/font-awesome/css/font-awesome.min.css";
@@ -14,6 +14,16 @@
 @import '_section-body';
 
 // START - auslagern
+
+// START - section row wegen einrückung von buttons
+// evtl. sollte man das in mi24-bootstrap anpassen
+section > .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+// END - section row wegen einrückung von buttons
+
 main > aside.col-main-right > section.section-body {
   padding: 15px;
 }

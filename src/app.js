@@ -78,19 +78,19 @@ angular.module('tox-ccc-ui-app', requires)
   .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }])
-  .run(function ($rootScope, $state, $stateParams) {
-    $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-      // to be used for back button //won't work when page is reloaded.
-      $rootScope.previousStateName = fromState.name;
-      $rootScope.previousStateParams = fromParams;
-    });
-    //back button function called from back button's ng-click="back()"
-    $rootScope.back = function () {
-      $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
-    };
-  })
+  //.run(function ($rootScope, $state, $stateParams) {
+  //  $rootScope.$state = $state;
+  //  $rootScope.$stateParams = $stateParams;
+  //  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+  //    // to be used for back button //won't work when page is reloaded.
+  //    $rootScope.previousStateName = fromState.name;
+  //    $rootScope.previousStateParams = fromParams;
+  //  });
+  //  //back button function called from back button's ng-click="back()"
+  //  $rootScope.back = function () {
+  //    $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
+  //  };
+  //})
 ;
 
 angular.bootstrap(document, ['tox-ccc-ui-app']);

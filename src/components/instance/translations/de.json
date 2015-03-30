@@ -2,5 +2,6 @@
   "instance.sidebar-admin.icon": "fa-server",
   "instance.sidebar-admin.label": "Instanzen",
   "instance.sidebar-admin.title": "Instanzen",
-  "instance.common.title": "Instanzen"
+  "instance.common.singular.title": "Instanz",
+  "instance.common.plural.title": "Instanzen"
 }

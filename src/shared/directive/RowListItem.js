@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 'use strict';
 
 /**
@@ -12,9 +13,9 @@ module.exports = function () {
       route: '@rowListRoute'
     },
     templateUrl: '/views/template/row-list-item.html',
-    replace: true,
+    replace: true
     //controller: controllerFunction, //Embed a custom controller in the directive
-    link: function ($scope, element, attrs) {
-    } //DOM manipulation
+    //link: function ($scope, element, attrs) {
+    //} //DOM manipulation
   };
 };
