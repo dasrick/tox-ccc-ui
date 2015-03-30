@@ -105,7 +105,7 @@ module.exports = {
     url: '/data',
     views: {
       'data-body': {
-        templateUrl: '/views/user/list.html'
+        templateUrl: '/views/user/list-body.html'
         //controller: 'UserListController as vm'
       }
     //},
@@ -120,7 +120,7 @@ module.exports = {
     url: '/password',
     views: {
       'data-body': {
-        templateUrl: '/views/user/detail.html'
+        templateUrl: '/views/user/detail-body.html'
         //controller: 'UserDetailController as vm'
       }
     }
