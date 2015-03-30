@@ -11,6 +11,7 @@
   "common.section.customer.label": "Kunden-Verwaltung",
   "common.section.profile.label": "Profil-Einstellungen",
 
+  "common.icon.active.title": "Aktivierungs-Status",
   "common.icon.in-use.title": "Verwendungs-Status",
   "common.icon.under-review.title": "Überprüfungs-Status"
 }

@@ -50,7 +50,7 @@
     "jshint-stylish": "^1.0.1",
     "less": "^2.4.0",
     "less-plugin-autoprefix": "^1.4.1",
-    "mi24-bootstrap": "^0.2.10",
+    "mi24-bootstrap": "^0.2.12",
     "newrelic": "~1.18.0"
   },
   "devDependencies": {

@@ -7,7 +7,8 @@ module.exports = angular.module('instance', []);
 
 angular.module('instance').controller('InstanceListController', require('./controller/ListController'));
 angular.module('instance').controller('InstanceDetailController', require('./controller/DetailController'));
-//angular.module('instance').service("InstanceService", require('./service/InstanceService'));
+angular.module('instance').controller('InstanceNewController', require('./controller/NewController'));
+angular.module('instance').controller('InstanceEditController', require('./controller/EditController'));
 angular.module('instance').factory('InstanceResource', function ($resource) {
   return $resource('https://ccc.mi24.dev/api/vmproinstance/:instanceId', {instanceId: '@id'}, {});
 });

@@ -6,13 +6,13 @@
                 <i class="fa {{'instance.sidebar-admin.icon'|translate}}"></i>
             </div>
             <div class="state-row">
-                <i ng-class="(item.active) ? 'fa-toggle-on' : 'fa-toggle-off'"
+                <i ng-class="(item.active) ? 'fa-toggle-on text-success' : 'fa-toggle-off text-muted'"
                    class="fa"
                    title="{{'common.icon.active.title' | translate}}"></i>
-                <i ng-class="(item.reviewStatus=='none') ? 'fa-eye-slash' : 'fa-eye'"
+                <i ng-class="(item.reviewStatus=='none') ? 'fa-eye-slash text-muted' : 'fa-eye text-danger'"
                    class="fa"
                    title="{{'common.icon.under-review.title' | translate}}"></i>
-                <i ng-class="(item.inUse) ? 'fa-bookmark' : 'fa-bookmark-o'"
+                <i ng-class="(item.inUse) ? 'fa-bookmark text-success' : 'fa-bookmark-o text-muted'"
                    class="fa"
                    title="{{'common.icon.in-use.title' | translate}}"></i>
             </div>
@@ -49,5 +49,3 @@
         </div>
     </div>
 </div>
-
-<pre>{{instanceDetailVm.instance}}</pre>
