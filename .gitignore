@@ -1,4 +1,5 @@
 npm-debug.log
+newrelic_agent.log
 
 coverage
 node_modules
