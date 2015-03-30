@@ -4,6 +4,7 @@ var angular = require('angular');
 
 process.env.appversion = require('../package.json').version;
 
+require('newrelic');
 require('angular-bootstrap');
 require('angular-loading-bar');
 require('angular-route');
@@ -15,6 +16,7 @@ require('angular-resource');
 //require('angular-ui-unique');
 //require('ui-select');
 var requires = [
+  'newrelic',
   'ui.bootstrap',
   'angular-loading-bar',
   'ui.router',
