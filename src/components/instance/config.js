@@ -7,25 +7,22 @@ module.exports = {
     views: {
       'content': {
         templateUrl: '/views/template/base.html'
-        //controller: 'InstanceListController as vm'
       }
     }
   },
   'admin.instance.list': {
     url: '',
     views: {
-      'data-header': {
+      'data-header@admin.instance': {
         templateUrl: '/views/instance/list-header.html'
       },
-      'data-body': {
+      'data-body@admin.instance': {
         templateUrl: '/views/instance/list-body.html',
         controller: 'InstanceListController as instanceListVm'
       }
     },
     resolve: {
-      // Get AngularJS resource to query
       InstanceResource: 'InstanceResource',
-      // Use the resource to fetch data from the server
       instances: function (InstanceResource) {
         return InstanceResource.query().$promise;
       }
@@ -34,10 +31,10 @@ module.exports = {
   'admin.instance.detail': {
     url: '/{instanceId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
+      'data-header@admin.instance': {
         templateUrl: '/views/instance/detail-header.html'
       },
-      'data-body': {
+      'data-body@admin.instance': {
         templateUrl: '/views/instance/detail-body.html',
         controller: 'InstanceDetailController as instanceDetailVm'
       }
@@ -45,11 +42,25 @@ module.exports = {
     resolve: {
       InstanceResource: 'InstanceResource',
       instance: function (InstanceResource, $stateParams) {
-        // Extract instance ID from $stateParams
-        var instanceId = $stateParams.instanceId;
-        // Return a promise to make sure the customer is completely
-        // resolved before the controller is instantiated
-        return InstanceResource.get({instanceId: instanceId}).$promise;
+        return InstanceResource.get({instanceId: $stateParams.instanceId}).$promise;
+      }
+    }
+  },
+  'admin.instance.detail.edit': {
+    url: '/edit',
+    views: {
+      'data-header@admin.instance': {
+        templateUrl: '/views/instance/form-header.html'
+      },
+      'data-body@admin.instance': {
+        templateUrl: '/views/instance/form-body.html',
+        controller: 'InstanceEditController as instanceEditVm'
+      }
+    },
+    resolve: {
+      InstanceResource: 'InstanceResource',
+      instance: function (InstanceResource, $stateParams) {
+        return InstanceResource.get({instanceId: $stateParams.instanceId}).$promise;
       }
     }
   }

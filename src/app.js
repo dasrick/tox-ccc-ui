@@ -31,6 +31,13 @@ var requires = [
 angular.module('tox-ccc-ui-app', requires)
   .config(function ($httpProvider, jwtInterceptorProvider) {
     jwtInterceptorProvider.tokenGetter = ['UserService', function (UserService) {
+      //
+      // CCC Frontend erweitern siehe
+      // https://github.com/auth0/angular-jwt
+      //
+      // CCC Backend erweitern siehe
+      // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
+      //
       return UserService.getToken();
     }];
     $httpProvider.interceptors.push('jwtInterceptor');

@@ -1,6 +1,33 @@
 <div class="row">
     <div class="col-sm-6 text-left">
-        form => cancel - save
+        <a ui-sref="admin.instance.detail"
+           tooltip-placement="bottom"
+           tooltip-popup-delay="1000"
+           tooltip-append-to-body="true"
+           tooltip="[de] Zurück">
+            <button class="btn btn-mi24 btn-info border-right">
+                <i class="fa fa-arrow-circle-left"></i>
+            </button>
+        </a>
+
+        <a ui-sref="admin.instance.detail"
+           tooltip-placement="bottom"
+           tooltip-popup-delay="1000"
+           tooltip-append-to-body="true"
+           tooltip="[de] Zurücksetzen">
+            <button class="btn btn-mi24 btn-warning">
+                <i class="fa fa-undo"></i>
+            </button>
+        </a>
+        <a ui-sref="admin.instance.detail"
+           tooltip-placement="bottom"
+           tooltip-popup-delay="1000"
+           tooltip-append-to-body="true"
+           tooltip="[de] Speichern">
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-save"></i>
+            </button>
+        </a>
     </div>
     <div class="col-sm-6 text-right"></div>
 </div>
