@@ -7,5 +7,8 @@
   "user.sidebar-customer.title": "Benutzer",
   "user.sidebar-profile.icon": "fa-user",
   "user.sidebar-profile.label": "Meine Daten",
-  "user.sidebar-profile.title": "Meine Daten"
+  "user.sidebar-profile.title": "Meine Daten",
+
+  "user.list.headline.label": "Benutzerliste",
+  "user.list.description": "Benutzer werden benötigt, um sich im Customer Control Center anmelden zu können. Mit diesem Benutzer können je nach Berechtigung weitere Aktionen innerhalb des Customer Control Centers ausgelöst werden."
 }

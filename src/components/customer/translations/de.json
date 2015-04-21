@@ -7,5 +7,8 @@
   "customer.sidebar-customer.icon": "fa-building",
   "customer.sidebar-profile.label": "Firma",
   "customer.sidebar-profile.title": "Firma",
-  "customer.sidebar-profile.icon": "fa-building"
+  "customer.sidebar-profile.icon": "fa-building",
+
+  "customer.list.headline.label": "Kundenliste",
+  "customer.list.description": "Kunden sind in der Regel Firmen, welche als Basis zur Buchung von Produkten verwendet werden."
 }
