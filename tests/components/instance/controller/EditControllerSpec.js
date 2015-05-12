@@ -6,7 +6,7 @@ describe('Components:Instance:Controller:InstanceEditController', function () {
 
   var createController, $q;
 
-  var instance = jasmine.createSpyObj('instance', ['save']);
+  var instance = jasmine.createSpyObj('instance', ['$save']);
 
   var instanceObject = {id: 2342};
 
@@ -30,7 +30,7 @@ describe('Components:Instance:Controller:InstanceEditController', function () {
     var controller = createController();
     controller.instance = instance;
     controller.save();
-    expect(instance.save).toHaveBeenCalled();
+    expect(instance.$save).toHaveBeenCalled();
   });
 
 });
