@@ -60,6 +60,7 @@ angular.module('tox-ccc-ui-app', requires)
     //$locationProvider.html5Mode(true).hashPrefix('!');
   })
   .config(function ($translateProvider) {
+    $translateProvider.useSanitizeValueStrategy('escaped');
     $translateProvider.useLoader('$translatePartialLoader', {
       urlTemplate: '/i18n/{part}/{lang}.json'
     });
