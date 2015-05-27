@@ -9,8 +9,9 @@ angular.module('instance').controller('InstanceListController', require('./contr
 angular.module('instance').controller('InstanceDetailController', require('./controller/DetailController'));
 angular.module('instance').controller('InstanceNewController', require('./controller/NewController'));
 angular.module('instance').controller('InstanceEditController', require('./controller/EditController'));
-angular.module('instance').factory('InstanceResource', function ($resource) {
-  return $resource('https://ccc.mi24.dev/api/vmproinstance/:instanceId', {instanceId: '@id'}, {});
+angular.module('instance').factory('InstanceResource', function ($resource, EnvConfigService) {
+  var apiUrl = EnvConfigService.get('apiUrl');
+  return $resource(apiUrl + '/api/vmproinstance/:instanceId', {instanceId: '@id'}, {});
 });
 angular.module('instance').config(function ($stateProvider, $translatePartialLoaderProvider) {
   angular.forEach(RoutingConfig, function (config, name) {

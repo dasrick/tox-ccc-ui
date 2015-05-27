@@ -2,10 +2,10 @@
 /**
  * @ngInject
  */
-module.exports = function ($http, UserService, AlertService) {
-  var baseUrl = 'https://ccc.mi24.dev';
+module.exports = function ($http, UserService, AlertService, EnvConfigService) {
   this.login = function (data) {
-    return $http.post(baseUrl + '/api/security/login', data)
+    var apiUrl = EnvConfigService.get('apiUrl');
+    return $http.post(apiUrl + '/api/security/login', data)
       .success(function (data) {
         // set token
         UserService.setToken(data.token);

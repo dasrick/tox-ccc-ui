@@ -8,8 +8,9 @@ module.exports = angular.module('transcoder-profile', []);
 angular.module('transcoder-profile').controller('TranscoderProfileListController', require('./controller/ListController'));
 angular.module('transcoder-profile').controller('TranscoderProfileDetailController', require('./controller/DetailController'));
 //angular.module('transcoder-profile').service("InstanceService", require('./service/InstanceService'));
-angular.module('transcoder-profile').factory('TranscoderProfileResource', function ($resource) {
-  return $resource('https://ccc.mi24.dev/api/transcoderprofiles/:transcoderProfileId', {
+angular.module('transcoder-profile').factory('TranscoderProfileResource', function ($resource, EnvConfigService) {
+  var apiUrl = EnvConfigService.get('apiUrl');
+  return $resource(apiUrl + '/api/transcoderprofiles/:transcoderProfileId', {
     transcoderProfileId: '@id',
     type: '@type'
   }, {});
