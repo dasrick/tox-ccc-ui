@@ -1,8 +1,8 @@
 <ul class="nav navbar-nav pull-right">
-    <li class="dropdown" dropdown is-open="status.isopen">
-        <a title="{{'common.header.menu.title'|translate}}" dropdown-toggle ng-disabled="disabled">
-            <i class="fa {{'common.header.menu.icon'|translate}}"></i>
-            <span translate="common.header.menu.label"></span>
+    <li class="dropdown" dropdown is-open="status.isopenappmenu">
+        <a title="{{'common.header.menu.app.title'|translate}}" dropdown-toggle ng-disabled="disabled">
+            <i class="fa {{'common.header.menu.app.icon'|translate}}"></i>
+            <span translate="common.header.menu.app.label"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
             <li is-in-base-state="customer"
@@ -13,17 +13,28 @@
                 ng-class="{'active':isInBaseState['admin']}">
                 <a ui-sref="admin.instance.list" translate="common.section.admin.label"></a>
             </li>
+            <!--
             <li class="divider"></li>
+            -->
+        </ul>
+    </li>
+
+    <li class="dropdown" dropdown is-open="status.isopenusermenu">
+        <a title="{{headerRightVm.currentUser.firstName}} {{headerRightVm.currentUser.lastName}}" dropdown-toggle ng-disabled="disabled">
+            <img gravatar-src="'{{headerRightVm.currentUser.email}}'" class="gravatar">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
             <li is-in-base-state="profile"
                 ng-class="{'active':isInBaseState['profile']}">
                 <a ui-sref="profile.user.data" translate="common.section.profile.label"></a>
             </li>
+            <li class="divider"></li>
+            <li>
+                <a title="{{'common.header.logout.title'|translate}}"
+                   ng-click="headerRightVm.logout()"
+                   translate="common.header.logout.label"></a>
+            </li>
         </ul>
     </li>
-    <li>
-        <a title="{{'common.header.logout.title'|translate}}" ng-click="vm.logout()">
-            <i class="fa {{'common.header.logout.icon'|translate}}"></i>
-            <span translate="common.header.logout.label"></span>
-        </a>
-    </li>
+
 </ul>

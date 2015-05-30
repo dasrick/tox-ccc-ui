@@ -5,6 +5,7 @@ var angular = require('angular');
 process.env.appversion = require('../package.json').version;
 
 require('angular-bootstrap');
+require('angular-gravatar');
 require('angular-loading-bar');
 require('angular-route');
 require('angular-jwt');
@@ -16,6 +17,7 @@ require('angular-resource');
 //require('ui-select');
 var requires = [
   'ui.bootstrap',
+  'ui.gravatar',
   'angular-loading-bar',
   'ui.router',
   'angular-jwt',
@@ -99,6 +101,20 @@ angular.module('tox-ccc-ui-app', requires)
   //    $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
   //  };
   //})
+
+  .config(['gravatarServiceProvider', function (gravatarServiceProvider) {
+    gravatarServiceProvider.defaults = {
+      size: 100,
+      'default': 'mm'  // Mystery man as default for missing avatars
+    };
+
+    // Use https endpoint
+    gravatarServiceProvider.secure = true;
+
+    // Force protocol
+    //gravatarServiceProvider.protocol = 'my-protocol';
+  }
+  ])
 ;
 
 angular.bootstrap(document, ['tox-ccc-ui-app']);

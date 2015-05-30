@@ -17,7 +17,7 @@ module.exports = {
       },
       'headerRight': {
         templateUrl: '/views/common/header-right.html',
-        controller: 'SecurityLogoutController as vm'
+        controller: 'HeaderRightController as headerRightVm'
       }
     }
   },
@@ -37,7 +37,7 @@ module.exports = {
       },
       'headerRight': {
         templateUrl: '/views/common/header-right.html',
-        controller: 'SecurityLogoutController as vm'
+        controller: 'HeaderRightController as headerRightVm'
       }
     }
   },
@@ -57,7 +57,7 @@ module.exports = {
       },
       'headerRight': {
         templateUrl: '/views/common/header-right.html',
-        controller: 'SecurityLogoutController as vm'
+        controller: 'HeaderRightController as headerRightVm'
       }
     }
   },
