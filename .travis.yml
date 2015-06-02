@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "0.12"
 deploy:
   provider: heroku
   api_key: "4dacafd2-7064-4c78-b2fb-122b9a122a5a"
