@@ -72,6 +72,7 @@
     "watch": "^0.16.0"
   },
   "scripts": {
+    "preinstall": "npm cache clean && npm install bower",
     "postinstall": "npm run build",
     "start": "node serve.js",
     "build": "npm run build:scripts && npm run build:css && npm run build:copy && npm run jscs && npm run lint",
