@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'admin.player-skin': {
+  'app.admin.player-skin': {
     url: '/player-skin',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'admin.player-skin.list': {
+  'app.admin.player-skin.list': {
     url: '',
     views: {
       'data-header': {
@@ -29,7 +29,7 @@ module.exports = {
       }
     }
   },
-  'admin.player-skin.detail': {
+  'app.admin.player-skin.detail': {
     url: '/{playerSkinId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {

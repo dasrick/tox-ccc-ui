@@ -1,6 +1,7 @@
-<h2 translate="instance.common.plural.title"></h2>
+<h2 translate="instance.list.headline.label"></h2>
+<p translate="instance.list.description"></p>
 <div class="item-list">
     <div ng-repeat="item in instanceListVm.preparedList"
          row-list-item="item"
-         row-list-route="admin.instance.detail({instanceId:item.id})"></div>
+         row-list-route="app.admin.instance.detail({instanceId:item.id})"></div>
 </div>

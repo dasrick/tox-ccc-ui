@@ -8,6 +8,6 @@ module.exports = function (SecurityService, $state) {
 
   vm.logout = function () {
     SecurityService.logout();
-    $state.go('security.login');
+    $state.go('app.security.login');
   };
 };

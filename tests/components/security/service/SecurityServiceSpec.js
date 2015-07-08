@@ -4,11 +4,13 @@ var SecurityService = require('../../../../src/components/security/service/Secur
 
 describe('Components:Security:Service:SecurityService', function () {
 
-  var SecurityServiceInstance, $httpBackend, UserService, AlertService, EnvConfigService, locals;
+  var SecurityServiceInstance, $httpBackend, UserService, AlertService, EnvConfigService, CustomerResource, CustomerService, locals;
 
   UserService = jasmine.createSpyObj('UserService', ['setToken', 'setUser', 'logout']);
   AlertService = jasmine.createSpyObj('AlertService', ['add']);
   EnvConfigService = jasmine.createSpyObj('EnvConfigService', ['get']);
+  CustomerService = jasmine.createSpyObj('CustomerService', ['setSelectedCustomer']);
+  CustomerResource = jasmine.createSpyObj('CustomerResource', ['get']);
 
   var tokenValid = 'oooooo.eyJleHAiOjE0MjcyODI5NzQsInVzZXJuYW1lIjoiQWRtaW5AY2NjLm1pMjQuZGV2Iiwic3RvbXAiOnsiaG9zdCI6Ilwvc3RvbXAiLCJ1c2VyIjoiZ3Vlc3QiLCJwYXNzd29yZCI6Imd1ZXN0Iiwidmhvc3QiOiJcLyJ9LCJ1c2VyIjoie1wiaWRcIjpcIjU0ZTc3MDBlMWU3Y2UxMDEwMDhiNDU3ZFwiLFwiZmlyc3ROYW1lXCI6XCJNYXJ5XCIsXCJsYXN0TmFtZVwiOlwiQm9obmJhY2hcIixcImVtYWlsXCI6XCJBZG1pbkBjY2MubWkyNC5kZXZcIixcImxvY2FsZVwiOlwiZGVcIixcImN1c3RvbWVyXCI6e1wiaWRcIjoyLFwidHlwZVwiOlwiYWRtaW5cIn0sXCJyZWFjaGFibGVSb2xlc1wiOltcInVzZXJfZWRpdFwiLFwidXNlcl9jcmVhdGVcIixcInVzZXJfZGVsZXRlXCIsXCJ1c2VyX3NldF9yb2xlXCIsXCJ1c2VyX2FkbWluXCIsXCJjdXN0b21lcl9lZGl0XCIsXCJjdXN0b21lcl9jcmVhdGVcIixcImN1c3RvbWVyX2RlbGV0ZVwiLFwiY3VzdG9tZXJfYWRtaW5cIixcInByb2R1Y3RfZWRpdFwiLFwicHJvZHVjdF9jcmVhdGVcIixcInByb2R1Y3RfZGVsZXRlXCIsXCJwcm9kdWN0X2FkbWluXCIsXCJhc3NpZ25tZW50X2VkaXRcIixcImFzc2lnbm1lbnRfZGVhY3RpdmF0ZVwiLFwiYXNzaWdubWVudF9jcmVhdGVcIixcImFzc2lnbm1lbnRfYWRtaW5cIixcImFkbWluXCIsXCJ1c2VyXCIsXCJ0cmFuc2NvZGVycHJvZmlsZV9yZWFkXCIsXCJ0cmFuc2NvZGVycHJvZmlsZV9jcmVhdGVcIixcInRyYW5zY29kZXJwcm9maWxlX2VkaXRcIixcInRyYW5zY29kZXJwcm9maWxlX2RlbGV0ZVwiLFwidHJhbnNjb2RlcnByb2ZpbGVfYWRtaW5cIixcInBsYW5fcmVhZFwiLFwicGxhbl9jcmVhdGVcIixcInBsYW5fZWRpdFwiLFwicGxhbl9kZWxldGVcIixcInBsYW5fYWRtaW5cIixcInBsYXllcl9za2luX2NyZWF0ZVwiLFwicGxheWVyX3NraW5fZWRpdFwiLFwicGxheWVyX3NraW5fZGVsZXRlXCIsXCJwbGF5ZXJfc2tpbl9hZG1pblwiLFwiaW5zdGFuY2VfcmVhZFwiLFwiaW5zdGFuY2VfY3JlYXRlXCIsXCJpbnN0YW5jZV9lZGl0XCIsXCJpbnN0YW5jZV9kZWxldGVcIixcImluc3RhbmNlX2FkbWluXCJdLFwicmV2aWV3Q291bnRcIjowfSIsImlhdCI6IjE0MjcxOTY1NzQifQ.oooooo';
   var apiUrl = 'https://ccc.mi24.dev';
@@ -19,7 +21,9 @@ describe('Components:Security:Service:SecurityService', function () {
       locals = {
         UserService: UserService,
         AlertService: AlertService,
-        EnvConfigService: EnvConfigService
+        EnvConfigService: EnvConfigService,
+        CustomerResource: CustomerResource,
+        CustomerService: CustomerService
       };
       SecurityServiceInstance = $injector.instantiate(SecurityService, locals);
     });

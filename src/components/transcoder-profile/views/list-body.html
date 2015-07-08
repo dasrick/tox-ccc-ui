@@ -1,7 +1,8 @@
-<h2>überschrift übersetzen</h2>
+<h2 translate="transcoder-profile.list.headline.label"></h2>
+<p translate="transcoder-profile.list.description"></p>
 <div class="item-list">
     <div ng-repeat="item in transcoderProfileListVm.preparedList"
          row-list-item="item"
-         row-list-route="admin.transcoder-profile.detail({transcoderProfileId:item.id})"></div>
+         row-list-route="app.admin.transcoder-profile.detail({transcoderProfileId:item.id})"></div>
 </div>
 

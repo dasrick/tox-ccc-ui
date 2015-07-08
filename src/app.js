@@ -9,23 +9,23 @@ require('angular-gravatar');
 require('angular-loading-bar');
 require('angular-route');
 require('angular-jwt');
+require('angular-sanitize');
 require('angular-translate');
 require('angular-translate-loader-partial');
 require('angular-cache');
 require('angular-resource');
-//require('angular-ui-unique');
-//require('ui-select');
+require('ui-select');
 var requires = [
   'ui.bootstrap',
   'ui.gravatar',
   'angular-loading-bar',
   'ui.router',
   'angular-jwt',
+  'ngSanitize',
   'pascalprecht.translate',
   'angular-cache',
   'ngResource',
-  //'ui.select',
-  //'ui.unique',
+  'ui.select',
   require('./shared').name,
   require('./components').name
 ];
@@ -53,9 +53,9 @@ angular.module('tox-ccc-ui-app', requires)
       UserService = $injector.get('UserService');
       $state = $injector.get('$state');
       if (UserService.isLoggedIn() === true) {
-        $state.go('customer.dashboard.list');
+        $state.go('app.management.dashboard.list');
       } else {
-        $state.go('security.login');
+        $state.go('app.security.login');
       }
     });
     $resourceProvider.defaults.stripTrailingSlashes = true;
@@ -88,20 +88,6 @@ angular.module('tox-ccc-ui-app', requires)
   .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }])
-  //.run(function ($rootScope, $state, $stateParams) {
-  //  $rootScope.$state = $state;
-  //  $rootScope.$stateParams = $stateParams;
-  //  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-  //    // to be used for back button //won't work when page is reloaded.
-  //    $rootScope.previousStateName = fromState.name;
-  //    $rootScope.previousStateParams = fromParams;
-  //  });
-  //  //back button function called from back button's ng-click="back()"
-  //  $rootScope.back = function () {
-  //    $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
-  //  };
-  //})
-
   .config(['gravatarServiceProvider', function (gravatarServiceProvider) {
     gravatarServiceProvider.defaults = {
       size: 100,

@@ -1,7 +1,9 @@
 <h2 translate="customer.list.headline.label"></h2>
 <p translate="customer.list.description"></p>
-<div class="item-list">
-    <div ng-repeat="item in customerListVm.preparedList"
+<div class="item-list"
+     ng-repeat="mainroute in ['admin', 'management']">
+    <div ng-if="('app.'+mainroute|includedByState)"
+         ng-repeat="item in customerListVm.preparedList"
          row-list-item="item"
-         row-list-route="admin.customer.detail({customerId:item.id})"></div>
+         row-list-route="app.{{mainroute}}.customer.detail({customerId:item.id})"></div>
 </div>

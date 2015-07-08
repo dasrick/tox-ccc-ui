@@ -1,12 +1,11 @@
 'use strict';
 
-var angular = require('angular');
 var RoutingConfig = require('./config');
 
 module.exports = angular.module('assignment', []);
 
-//angular.module('assignment').controller("InstanceListController", require('./controller/InstanceListController'));
-//angular.module('assignment').controller("InstanceDetailController", require('./controller/InstanceDetailController'));
+angular.module('assignment').controller('AssignmentListController', require('./controller/ListController'));
+angular.module('assignment').controller('AssignmentDetailController', require('./controller/DetailController'));
 //angular.module('assignment').service("InstanceService", require('./service/InstanceService'));
 angular.module('assignment').factory('AssignmentResource', function ($resource, EnvConfigService) {
   var apiUrl = EnvConfigService.get('apiUrl');

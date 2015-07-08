@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-sm-6 text-left">
-        <!--<a class="btn btn-mi24 btn-primary" ui-sref="admin.instance.list">-->
-            <!--<i class="fa fa-arrow-circle-left"></i>-->
-        <!--</a>-->
 
-        <button class="btn btn-mi24 btn-primary" ng-click="back()">
+        <a class="btn btn-mi24 btn-primary"
+           ng-repeat="mainroute in ['admin', 'management']"
+           ng-if="('app.'+mainroute|includedByState)"
+           ui-sref="app.{{mainroute}}.user.list">
             <i class="fa fa-arrow-circle-left"></i>
-        </button>
+        </a>
 
     </div>
     <div class="col-sm-6 text-right"></div>

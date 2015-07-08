@@ -9,6 +9,7 @@ describe('Components:Security:Controller:LoginController', function () {
   var SecurityService = jasmine.createSpyObj('SecurityService', ['login']);
   var $state = jasmine.createSpyObj('$state', ['go']);
   var UserService = jasmine.createSpyObj('UserService', ['getUser']);
+  var StorageService = jasmine.createSpyObj('StorageService', ['set']);
 
   beforeEach(function () {
     angular.mock.inject(function ($injector) {
@@ -18,7 +19,8 @@ describe('Components:Security:Controller:LoginController', function () {
       locals = {
         'SecurityService': SecurityService,
         '$state': $state,
-        'UserService': UserService
+        'UserService': UserService,
+        StorageService: StorageService
       };
       createController = function () {
         return $controller(LoginController, locals);
@@ -26,14 +28,14 @@ describe('Components:Security:Controller:LoginController', function () {
     });
   });
 
-  it('should log in an user and redirect after success to customer dashboard', function () {
+  it('should log in an user and redirect after success to management dashboard', function () {
     var controller = createController();
     controller.loginData = 'data';
     SecurityService.login.and.returnValue($q.when('true'));
     UserService.getUser.and.returnValue({customer: {id: 2342}});
     controller.login();
     $rootScope.$apply();
-    expect($state.go).toHaveBeenCalledWith('customer.dashboard.list', {customerId: 2342});
+    expect($state.go).toHaveBeenCalledWith('app.management.dashboard.list', {selectedCustomerId: 2342});
   });
 
 });

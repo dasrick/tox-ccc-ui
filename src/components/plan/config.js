@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'admin.plan': {
+  'app.admin.plan': {
     url: '/plan',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'admin.plan.list': {
+  'app.admin.plan.list': {
     url: '',
     views: {
       'data-header': {
@@ -28,7 +28,7 @@ module.exports = {
       }
     }
   },
-  'admin.plan.detail': {
+  'app.admin.plan.detail': {
     url: '/{planId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-@import (inline) "../../../node_modules/mi24-bootstrap/dist/css/mi24-bootstrap.css";
-@import (inline) "../../../node_modules/mi24-bootstrap/dist/css/mi24-theme.css";
-@import (inline) "../../../node_modules/font-awesome/css/font-awesome.min.css";
-//@import (inline) "../../../node_modules/ui-select/dist/select.min.css";
-@import (inline) "../../../node_modules/angular-loading-bar/build/loading-bar.min.css";
+@import (inline) '../../../node_modules/mi24-bootstrap/dist/css/mi24-bootstrap.css';
+@import (inline) '../../../node_modules/mi24-bootstrap/dist/css/mi24-theme.css';
+@import (inline) '../../../node_modules/font-awesome/css/font-awesome.min.css';
+@import (inline) '../../../node_modules/ui-select/dist/select.min.css';
+@import (inline) '../../../node_modules/angular-loading-bar/build/loading-bar.min.css';
 @import '_variables';
+@import '_angularjs';
 @import '_alerts';
 @import '_centerbox';
 @import '_item-list';
+@import '_ui-select';
 @import '_detail-view';
 @import '_loadingbar';
 @import '_header';
@@ -93,18 +95,7 @@
 
 // ENDE - auslagern
 
-// AngularJS CSS
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
-  display: none !important;
-}
 
-ng\:form {
-  display: block;
-}
-
-.ng-animate-block-transitions {
-  transition: 0s all !important;
-}
 
 @media (max-width: 767px) {
   body > div {

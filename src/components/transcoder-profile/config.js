@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'admin.transcoder-profile': {
+  'app.admin.transcoder-profile': {
     url: '/transcoder-profile',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'admin.transcoder-profile.list': {
+  'app.admin.transcoder-profile.list': {
     url: '',
     views: {
       'data-header': {
@@ -29,7 +29,7 @@ module.exports = {
       }
     }
   },
-  'admin.transcoder-profile.detail': {
+  'app.admin.transcoder-profile.detail': {
     url: '/{transcoderProfileId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {

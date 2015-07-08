@@ -1,32 +1,30 @@
 <ul class="nav navbar-nav pull-right">
+
     <li class="dropdown" dropdown is-open="status.isopenappmenu">
         <a title="{{'common.header.menu.app.title'|translate}}" dropdown-toggle ng-disabled="disabled">
             <i class="fa {{'common.header.menu.app.icon'|translate}}"></i>
             <span translate="common.header.menu.app.label"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li is-in-base-state="customer"
-                ng-class="{'active':isInBaseState['customer']}">
-                <a ui-sref="customer.dashboard.list" translate="common.section.customer.label"></a>
+            <li ng-class="{'active':('app.management'|includedByState)}">
+                <a ui-sref="app.management.dashboard.list({selectedCustomerId: headerRightVm.customer.selected.id})"
+                   translate="common.section.customer.label"></a>
             </li>
-            <li is-in-base-state="admin"
-                ng-class="{'active':isInBaseState['admin']}">
-                <a ui-sref="admin.instance.list" translate="common.section.admin.label"></a>
+            <li ng-class="{'active':('app.admin'|includedByState)}">
+                <a ui-sref="app.admin.product.list" translate="common.section.admin.label"></a>
             </li>
-            <!--
-            <li class="divider"></li>
-            -->
         </ul>
     </li>
 
+
     <li class="dropdown" dropdown is-open="status.isopenusermenu">
-        <a title="{{headerRightVm.currentUser.firstName}} {{headerRightVm.currentUser.lastName}}" dropdown-toggle ng-disabled="disabled">
+        <a title="{{headerRightVm.currentUser.firstName}} {{headerRightVm.currentUser.lastName}}" dropdown-toggle
+           ng-disabled="disabled">
             <img gravatar-src="'{{headerRightVm.currentUser.email}}'" class="gravatar">
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li is-in-base-state="profile"
-                ng-class="{'active':isInBaseState['profile']}">
-                <a ui-sref="profile.user.data" translate="common.section.profile.label"></a>
+            <li ng-class="{'active':('app.profile'|includedByState)}">
+                <a ui-sref="app.profile.user.data" translate="common.section.profile.label"></a>
             </li>
             <li class="divider"></li>
             <li>
@@ -37,4 +35,13 @@
         </ul>
     </li>
 
+</ul>
+
+<ul class="nav navbar-nav navbar-right" ng-if="('app.management'|includedByState)">
+    <ui-select ng-model="headerRightVm.customer.selected" theme="bootstrap" ng-disabled="disabled">
+        <ui-select-match placeholder="loading">{{$select.selected.name}}</ui-select-match>
+        <ui-select-choices repeat="c in headerRightVm.customers | filter: {name: $select.search}">
+            <div ng-bind-html="c.name | highlight: $select.search" class="option-value"></div>
+        </ui-select-choices>
+    </ui-select>
 </ul>

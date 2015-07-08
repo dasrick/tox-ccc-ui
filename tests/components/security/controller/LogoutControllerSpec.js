@@ -26,7 +26,7 @@ describe('Components:Security:Controller:LogoutController', function () {
     SecurityService.logout.and.returnValue($q.when('true'));
     controller.logout();
     $rootScope.$apply();
-    expect($state.go).toHaveBeenCalledWith('security.login');
+    expect($state.go).toHaveBeenCalledWith('app.security.login');
   });
 
 });

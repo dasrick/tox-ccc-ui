@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'profile.review': {
+  'app.profile.review': {
     url: '/review',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'profile.review.data': {
+  'app.profile.review.data': {
     url: '',
     views: {
       'data-body': {

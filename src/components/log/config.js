@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'customer.log': {
+  'app.management.log': {
     url: '/log',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'customer.log.list': {
+  'app.management.log.list': {
     url: '',
     views: {
       'data-body': {
@@ -25,7 +25,7 @@ module.exports = {
       }
     }
   },
-  'customer.log.detail': {
+  'app.management.log.detail': {
     url: '/path-for-id',
     views: {
       'data-body': {

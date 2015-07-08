@@ -1,0 +1,11 @@
+<header class="cs-3">
+    <aside class="col-left brand" ui-view="header-left"></aside>
+    <aside class="col-main" ui-view="header-middle"></aside>
+    <aside class="col-right" ui-view="header-right"></aside>
+</header>
+
+<main class="cs-1" ui-view="main"></main>
+
+<div class="global-alerts" ng-cloak>
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="alert.close()">{{alert.msg}}</alert>
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'customer.dashboard': {
+  'app.management.dashboard': {
     url: '/dashboard',
     abstract: true,
     views: {
@@ -10,12 +10,11 @@ module.exports = {
       }
     }
   },
-  'customer.dashboard.list': {
+  'app.management.dashboard.list': {
     url: '',
     views: {
       'data-body': {
         templateUrl: '/views/dashboard/list.html'
-        //controller: 'InstanceListController as vm'
       }
     }
   }

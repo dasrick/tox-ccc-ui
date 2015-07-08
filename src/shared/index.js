@@ -7,4 +7,5 @@ module.exports = require('angular')
   .factory('AlertService', require('./service/AlertService'))
   .factory('AlertInterceptor', require('./interceptor/AlertInterceptor'))
   .service('EnvConfigService', require('./service/EnvConfigService'))
+  .service('CustomerService', require('./service/CustomerService'))
   .service('UserService', require('./service/UserService'));

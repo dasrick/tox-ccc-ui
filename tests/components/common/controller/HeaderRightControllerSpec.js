@@ -1,14 +1,15 @@
 'use strict';
 
-var LogoutController = require('../../../../src/components/common/controller/HeaderRightController');
+var HeaderRightController = require('../../../../src/components/common/controller/HeaderRightController');
 
 describe('Components:Common:Controller:HeaderRightController', function () {
 
-  var createController, $q, $rootScope, locals;
+  var createController, $q, $rootScope, locals, customers;
 
   var $state = jasmine.createSpyObj('$state', ['go']);
   var SecurityService = jasmine.createSpyObj('SecurityService', ['logout']);
   var UserService = jasmine.createSpyObj('UserService', ['getUser']);
+  var CustomerService = jasmine.createSpyObj('CustomerService', ['getSelectedCustomer', 'clear']);
 
   beforeEach(function () {
     angular.mock.inject(function ($injector) {
@@ -16,12 +17,15 @@ describe('Components:Common:Controller:HeaderRightController', function () {
       $q = $injector.get('$q');
       $rootScope = $injector.get('$rootScope');
       locals = {
-        'SecurityService': SecurityService,
-        '$state': $state,
-        'UserService': UserService
+        $scope: $rootScope,
+        $state: $state,
+        SecurityService: SecurityService,
+        UserService: UserService,
+        CustomerService: CustomerService,
+        customers: customers
       };
       createController = function () {
-        return $controller(LogoutController, locals);
+        return $controller(HeaderRightController, locals);
       };
 
     });
@@ -32,7 +36,7 @@ describe('Components:Common:Controller:HeaderRightController', function () {
     SecurityService.logout.and.returnValue($q.when('true'));
     controller.logout();
     $rootScope.$apply();
-    expect($state.go).toHaveBeenCalledWith('security.login');
+    expect($state.go).toHaveBeenCalledWith('app.security.login');
   });
 
 });

@@ -2,7 +2,7 @@
 
 module.exports = {
   // TODO: seperate templates or dynamic solution inside of single templates for the three routes ...
-  'admin.user': {
+  'app.admin.user': {
     abstract: true,
     url: '/user',
     views: {
@@ -11,7 +11,7 @@ module.exports = {
       }
     }
   },
-  'admin.user.list': {
+  'app.admin.user.list': {
     url: '',
     views: {
       'data-header': {
@@ -29,7 +29,7 @@ module.exports = {
       }
     }
   },
-  'admin.user.detail': {
+  'app.admin.user.detail': {
     url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {
@@ -47,7 +47,7 @@ module.exports = {
       }
     }
   },
-  'customer.user': {
+  'app.management.user': {
     abstract: true,
     url: '/user',
     views: {
@@ -56,7 +56,7 @@ module.exports = {
       }
     }
   },
-  'customer.user.list': {
+  'app.management.user.list': {
     url: '',
     views: {
       'data-header': {
@@ -70,11 +70,11 @@ module.exports = {
     resolve: {
       UserResource: 'UserResource',
       users: function (UserResource, $stateParams) {
-        return UserResource.query({customerId: $stateParams.customerId}).$promise;
+        return UserResource.query({customer: $stateParams.selectedCustomerId}).$promise;
       }
     }
   },
-  'customer.user.detail': {
+  'app.management.user.detail': {
     url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {
@@ -92,7 +92,7 @@ module.exports = {
       }
     }
   },
-  'profile.user': {
+  'app.profile.user': {
     abstract: true,
     url: '/user',
     views: {
@@ -101,7 +101,7 @@ module.exports = {
       }
     }
   },
-  'profile.user.data': {
+  'app.profile.user.data': {
     url: '/data',
     views: {
       'data-body': {
@@ -116,7 +116,7 @@ module.exports = {
     //  }
     }
   },
-  'profile.user.password': {
+  'app.profile.user.password': {
     url: '/password',
     views: {
       'data-body': {

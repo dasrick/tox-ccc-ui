@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'security.login': {
+  'app.security.login': {
     url: '/login',
     views: {
       'content': {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'security.password-request': {
+  'app.security.password-request': {
     url: '/request-password',
     views: {
       'content': {
@@ -18,7 +18,7 @@ module.exports = {
       }
     }
   },
-  'security.password-set': {
+  'app.security.password-set': {
     url: '/set-password',
     views: {
       'content': {

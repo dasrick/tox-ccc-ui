@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-sm-6 text-left">
 
-        <a ng-if="$state.includes('admin.user')"
+        <a ng-if="$state.includes('app.admin.user')"
            class="btn btn-mi24 btn-success"
            ui-sref="admin.user.new"
            has-role="user_create"
            ng-show="hasRole['user_create']">
             <i class="fa fa-plus-square"></i>
         </a>
-        <a ng-if="$state.includes('customer.user')"
+        <a ng-if="$state.includes('app.management.user')"
            class="btn btn-mi24 btn-success"
            ui-sref="customer.user.new"
            has-role="user_create"

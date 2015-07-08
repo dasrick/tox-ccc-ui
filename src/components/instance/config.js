@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'admin.instance': {
+  'app.admin.instance': {
     url: '/instance',
     abstract: true,
     views: {
@@ -10,13 +10,13 @@ module.exports = {
       }
     }
   },
-  'admin.instance.list': {
+  'app.admin.instance.list': {
     url: '',
     views: {
-      'data-header@admin.instance': {
+      'data-header@app.admin.instance': {
         templateUrl: '/views/instance/list-header.html'
       },
-      'data-body@admin.instance': {
+      'data-body@app.admin.instance': {
         templateUrl: '/views/instance/list-body.html',
         controller: 'InstanceListController as instanceListVm'
       }
@@ -28,13 +28,13 @@ module.exports = {
       }
     }
   },
-  'admin.instance.detail': {
+  'app.admin.instance.detail': {
     url: '/{instanceId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header@admin.instance': {
+      'data-header@app.admin.instance': {
         templateUrl: '/views/instance/detail-header.html'
       },
-      'data-body@admin.instance': {
+      'data-body@app.admin.instance': {
         templateUrl: '/views/instance/detail-body.html',
         controller: 'InstanceDetailController as instanceDetailVm'
       }
@@ -46,13 +46,13 @@ module.exports = {
       }
     }
   },
-  'admin.instance.detail.edit': {
+  'app.admin.instance.detail.edit': {
     url: '/edit',
     views: {
-      'data-header@admin.instance': {
+      'data-header@app.admin.instance': {
         templateUrl: '/views/instance/form-header.html'
       },
-      'data-body@admin.instance': {
+      'data-body@app.admin.instance': {
         templateUrl: '/views/instance/form-body.html',
         controller: 'InstanceEditController as instanceEditVm'
       }

@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($http, UserService, AlertService, EnvConfigService) {
+module.exports = function ($http, UserService, AlertService, EnvConfigService, CustomerResource, CustomerService) {
   this.login = function (data) {
     var apiUrl = EnvConfigService.get('apiUrl');
     return $http.post(apiUrl + '/api/security/login', data)
@@ -13,6 +13,12 @@ module.exports = function ($http, UserService, AlertService, EnvConfigService) {
         var payload = JSON.parse(atob(data.token.split('.')[1]));
         var user = JSON.parse(payload.user);
         UserService.setUser(user);
+
+        // vielleicht setzt man hier auch gleich den selectedCustomer initial
+        CustomerResource.get({customerId: user.customer.id}, function(customer) {
+          CustomerService.setSelectedCustomer(customer);
+        });
+
       })
       .error(function (data, status, headers) {
         var msg = 'security.alert.login.unknown';

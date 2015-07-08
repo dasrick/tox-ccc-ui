@@ -8,8 +8,8 @@
                 </div>
                 <ul class="list-unstyled">
                     <li ng-repeat="type in ['dashboard', 'customer', 'user', 'assignment', 'log']"
-                        ng-class="{'selected':('customer.'+type|includedByState)}">
-                        <a ui-sref="customer.{{type}}.list"
+                        ng-class="{'selected':('app.management.'+type|includedByState)}">
+                        <a ui-sref="app.management.{{type}}.list"
                            title="{{type+'.sidebar-customer.title'|translate}}">
                             <i class="fa {{type+'.sidebar-customer.icon'|translate}}"></i>
                             <span class="title" translate="{{type}}.sidebar-customer.label"></span>

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'customer.assignment': {
+  'app.management.assignment': {
     url: '/assignment',
     abstract: true,
     views: {
@@ -10,21 +10,39 @@ module.exports = {
       }
     }
   },
-  'customer.assignment.list': {
+  'app.management.assignment.list': {
     url: '',
     views: {
+      'data-header': {
+        templateUrl: '/views/assignment/list-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/assignment/list.html'
-        //controller: 'InstanceListController as vm'
+        templateUrl: '/views/assignment/list-body.html',
+        controller: 'AssignmentListController as assignmentListVm'
+      }
+    },
+    resolve: {
+      AssignmentResource: 'AssignmentResource',
+      assignments: function (AssignmentResource, $stateParams) {
+        return AssignmentResource.query({customer: $stateParams.selectedCustomerId}).$promise;
       }
     }
   },
-  'customer.assignment.detail': {
-    url: '/path-for-id',
+  'app.management.assignment.detail': {
+    url: '/{assignmentId:[0-9a-zA-Z]{1,}}',
     views: {
+      'data-header': {
+        templateUrl: '/views/assignment/detail-header.html'
+      },
       'data-body': {
-        templateUrl: '/views/assignment/detail.html'
-        //controller: 'InstanceDetailController as vm'
+        templateUrl: '/views/assignment/detail-body.html',
+        controller: 'AssignmentDetailController as assignmentDetailVm'
+      }
+    },
+    resolve: {
+      AssignmentResource: 'AssignmentResource',
+      assignment: function (AssignmentResource, $stateParams) {
+        return AssignmentResource.get({assignmentId: $stateParams.assignmentId}).$promise;
       }
     }
   }

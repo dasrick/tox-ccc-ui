@@ -1,76 +1,116 @@
 'use strict';
 
 module.exports = {
-  'admin': {
+  'app': {
+    url: '',
+    abstract: true,
+    views: {
+      'app': {
+        templateUrl: '/views/common/app.html'
+      }
+    }
+  },
+  'app.admin': {
     url: '/admin',
     abstract: true,
     views: {
       'main': {
         templateUrl: '/views/common/sidebar-admin.html'
       },
-      'headerLeft': {
+      'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
-      'headerMiddle': {
+      'header-middle': {
         templateUrl: '/views/common/header-middle.html'
       },
-      'headerRight': {
+      'header-right': {
         templateUrl: '/views/common/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customers: function (CustomerResource) {
+        return CustomerResource.query().$promise;
+      //},
+      //
+      //CustomerService: 'CustomerService',
+      //customer: function (CustomerResource, CustomerService) {
+      //  var selectedCustomer = CustomerService.getSelectedCustomer();
+      //  return CustomerResource.get({customerId: selectedCustomer.id}).$promise;
+      }
     }
   },
-  'customer': {
-    url: '/customer/{customerId:[0-9]{1,}}',
+  'app.management': {
+    url: '/management/{selectedCustomerId:[0-9]{1,}}',
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/sidebar-customer.html'
+        templateUrl: '/views/common/sidebar-management.html'
       },
-      'headerLeft': {
+      'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
-      'headerMiddle': {
+      'header-middle': {
         templateUrl: '/views/common/header-middle.html'
       },
-      'headerRight': {
+      'header-right': {
         templateUrl: '/views/common/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customers: function (CustomerResource) {
+        return CustomerResource.query().$promise;
+      //},
+      //customer: function (CustomerResource, $stateParams) {
+      //  return CustomerResource.get({customerId: $stateParams.selectedCustomerId}).$promise;
+      }
     }
   },
-  'profile': {
+  'app.profile': {
     url: '/profile',
     abstract: true,
     views: {
       'main': {
         templateUrl: '/views/common/sidebar-profile.html'
       },
-      'headerLeft': {
+      'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
-      'headerMiddle': {
+      'header-middle': {
         templateUrl: '/views/common/header-middle.html'
       },
-      'headerRight': {
+      'header-right': {
         templateUrl: '/views/common/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customers: function (CustomerResource) {
+        return CustomerResource.query().$promise;
+      //},
+      //CustomerService: 'CustomerService',
+      //customer: function (CustomerResource, CustomerService) {
+      //  var selectedCustomer = CustomerService.getSelectedCustomer();
+      //  return CustomerResource.get({customerId: selectedCustomer.id}).$promise;
+      }
     }
   },
-  'security': {
+  'app.security': {
     url: '',
     abstract: true,
     views: {
       'main': {
         templateUrl: '/views/template/1col-centerbox.html'
       },
-      'headerLeft': {
-        templateUrl: '/views/template/header-left.html',
-        controller: 'HeaderLeftController as headerLeftVm'
+      'header-left': {
+        templateUrl: '/views/template/header-left-noauh.html'
       }
     }
   }

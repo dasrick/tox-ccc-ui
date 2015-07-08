@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  'admin.product': {
+  'app.admin.product': {
     url: '/product',
     abstract: true,
     views: {
@@ -10,7 +10,7 @@ module.exports = {
       }
     }
   },
-  'admin.product.list': {
+  'app.admin.product.list': {
     url: '',
     views: {
       'data-header': {
@@ -28,7 +28,7 @@ module.exports = {
       }
     }
   },
-  'admin.product.detail': {
+  'app.admin.product.detail': {
     url: '/{productId:[0-9a-zA-Z]{1,}}',
     views: {
       'data-header': {
