@@ -1,5 +1,8 @@
 {
   "player-skin.sidebar-admin.label": "Player Skins",
   "player-skin.sidebar-admin.title": "Player Skins",
-  "player-skin.sidebar-admin.icon": "fa-play-circle"
+  "player-skin.sidebar-admin.icon": "fa-play-circle",
+
+  "player-skin.list.headline.label": "Player-Skin-Liste",
+  "player-skin.list.description": "In dieser Liste befinden sich alle erzeugten Player-Skins. Diese teilen sich in zwei Gruppen. Die sogenannten 'Standard-Player-Skins' werden automatisch allen existierenden VideoManagern zugeordnet. Die 'Individuellen Player-Skins' müssen nach dem Erzeugen den jeweiliegn VideoManagern manuell zugeordnet werden."
 }

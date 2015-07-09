@@ -1,5 +1,8 @@
 {
   "product.sidebar-admin.label": "Produkte",
   "product.sidebar-admin.title": "Produkte",
-  "product.sidebar-admin.icon": "fa-cube"
+  "product.sidebar-admin.icon": "fa-cube",
+
+  "product.list.headline.label": "Produktverwaltungsliste",
+  "product.list.description": "In dieser Liste befinden sich die buchbaren Features und die Produktvorlagen. Hier können verschiedene Produktpakete erzeugt werden, die dann für verschiedene Kunden gebucht werden können."
 }

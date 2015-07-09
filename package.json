@@ -47,7 +47,7 @@
     "clean-css": "^3.3.5",
     "express": "^4.13.1",
     "font-awesome": "^4.3.0",
-    "fs-extra": "^0.21.0",
+    "fs-extra": "^0.22.0",
     "glob": "^5.0.13",
     "jscs": "^1.13.1",
     "jshint": "^2.8.0",

@@ -1,5 +1,8 @@
 {
   "plan.sidebar-admin.label": "Tarife",
   "plan.sidebar-admin.title": "Tarife",
-  "plan.sidebar-admin.icon": "fa-money"
+  "plan.sidebar-admin.icon": "fa-money",
+
+  "plan.list.headline.label": "Tarifliste",
+  "plan.list.description": "In dieser Liste befinden sich alle erzeugten Tarife. Auch hier können Kombipakete erzeugt werden, welche dann im Zusammenhang mit einem Produkt verwendet werden können."
 }
