@@ -8,22 +8,40 @@
 [![Heroku Badge](http://img.shields.io/badge/deployed%20to-Heroku-7056bf.svg)](https://tox-ccc-ui.herokuapp.com)
 [![InchCI Badge](http://inch-ci.org/github/dasrick/tox-ccc-ui.svg?branch=master)](http://inch-ci.org/github/dasrick/tox-ccc-ui)
 
-## npm run
+## npm run ...
 
 Here are some calls ...
 
+The initial call will be almost
+
+    npm install
+
+The install call will automatically call the *build* task ... see next command
+
+To build all parts of the app
+
     npm run build
-    
-    # just check the codestyle with jscs
-    npm run codestyle   
-     
-    # or check the codestyle with jshint
-    npm run lint
-    
-    # to ste new version in package.json and tag the branch use
-    # the follwoing line or read this:
-    # https://www.npmjs.com/package/versiony#readme
+
+
+just check the codestyle with jscs or jshint
+
+    npm run jscs   
+    npm run lint   
+
+
+to set new version in package.json and tag the branch use the following command or(and) read this: 
+[npm package version](https://www.npmjs.com/package/versiony#readme)
+
     npm version patch
-    
-    # to run only the karma test use
+
+
+to run only the karma test use
+
     npm run test:karma
+
+
+To start the local web server ...
+
+    npm run start
+
+This web server will be reachable at [localhost:3000](http://localhost:3000)
