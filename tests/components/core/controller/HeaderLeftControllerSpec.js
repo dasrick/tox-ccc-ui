@@ -1,8 +1,8 @@
 'use strict';
 
-var HeaderLeftController = require('../../../../src/components/common/controller/HeaderLeftController');
+var HeaderLeftController = require('../../../../src/components/core/controller/HeaderLeftController');
 
-describe('Components:Common:Controller:HeaderLeftController', function () {
+describe('Components:Core:Controller:HeaderLeftController', function () {
 
   var createController, $q, $rootScope, locals;
 

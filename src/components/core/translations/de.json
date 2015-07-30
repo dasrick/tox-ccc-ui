@@ -1,0 +1,20 @@
+{
+  "core.application.label": "CustomerControlCenter",
+  "core.application.title": "CCC",
+
+  "core.header.menu.app.icon": "fa-th-large",
+  "core.header.menu.app.label": "Menü",
+  "core.header.menu.app.title": "Menü, das viel kann",
+
+  "core.header.logout.icon": "fa-sign-out",
+  "core.header.logout.label": "Logout",
+  "core.header.logout.title": "Hier können Sie sich vom System abmelden.",
+
+  "core.section.admin.label": "Globale Einstellungen",
+  "core.section.customer.label": "Kunden-Verwaltung",
+  "core.section.profile.label": "Profil-Einstellungen",
+
+  "core.icon.active.title": "Aktivierungs-Status",
+  "core.icon.in-use.title": "Verwendungs-Status",
+  "core.icon.under-review.title": "Überprüfungs-Status"
+}

@@ -1,17 +1,17 @@
 <ul class="nav navbar-nav pull-right">
 
     <li class="dropdown" dropdown is-open="status.isopenappmenu">
-        <a title="{{'common.header.menu.app.title'|translate}}" dropdown-toggle ng-disabled="disabled">
-            <i class="fa {{'common.header.menu.app.icon'|translate}}"></i>
-            <span translate="common.header.menu.app.label"></span>
+        <a title="{{'core.header.menu.app.title'|translate}}" dropdown-toggle ng-disabled="disabled">
+            <i class="fa {{'core.header.menu.app.icon'|translate}}"></i>
+            <span translate="core.header.menu.app.label"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
             <li ng-class="{'active':('app.management'|includedByState)}">
                 <a ui-sref="app.management.dashboard.list({selectedCustomerId: headerRightVm.customer.selected.id})"
-                   translate="common.section.customer.label"></a>
+                   translate="core.section.customer.label"></a>
             </li>
             <li ng-class="{'active':('app.admin'|includedByState)}">
-                <a ui-sref="app.admin.product.list" translate="common.section.admin.label"></a>
+                <a ui-sref="app.admin.product.list" translate="core.section.admin.label"></a>
             </li>
         </ul>
     </li>
@@ -24,13 +24,13 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
             <li ng-class="{'active':('app.profile'|includedByState)}">
-                <a ui-sref="app.profile.user.data" translate="common.section.profile.label"></a>
+                <a ui-sref="app.profile.user.data" translate="core.section.profile.label"></a>
             </li>
             <li class="divider"></li>
             <li>
-                <a title="{{'common.header.logout.title'|translate}}"
+                <a title="{{'core.header.logout.title'|translate}}"
                    ng-click="headerRightVm.logout()"
-                   translate="common.header.logout.label"></a>
+                   translate="core.header.logout.label"></a>
             </li>
         </ul>
     </li>

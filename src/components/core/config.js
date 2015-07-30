@@ -6,7 +6,7 @@ module.exports = {
     abstract: true,
     views: {
       'app': {
-        templateUrl: '/views/common/app.html'
+        templateUrl: '/views/core/app.html'
       }
     }
   },
@@ -15,17 +15,17 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/sidebar-admin.html'
+        templateUrl: '/views/core/sidebar-admin.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
-        templateUrl: '/views/common/header-middle.html'
+        templateUrl: '/views/core/header-middle.html'
       },
       'header-right': {
-        templateUrl: '/views/common/header-right.html',
+        templateUrl: '/views/core/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
     },
@@ -47,17 +47,17 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/sidebar-management.html'
+        templateUrl: '/views/core/sidebar-management.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
-        templateUrl: '/views/common/header-middle.html'
+        templateUrl: '/views/core/header-middle.html'
       },
       'header-right': {
-        templateUrl: '/views/common/header-right.html',
+        templateUrl: '/views/core/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
     },
@@ -76,17 +76,17 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/common/sidebar-profile.html'
+        templateUrl: '/views/core/sidebar-profile.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
-        templateUrl: '/views/common/header-middle.html'
+        templateUrl: '/views/core/header-middle.html'
       },
       'header-right': {
-        templateUrl: '/views/common/header-right.html',
+        templateUrl: '/views/core/header-right.html',
         controller: 'HeaderRightController as headerRightVm'
       }
     },

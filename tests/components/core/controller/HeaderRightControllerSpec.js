@@ -1,8 +1,8 @@
 'use strict';
 
-var HeaderRightController = require('../../../../src/components/common/controller/HeaderRightController');
+var HeaderRightController = require('../../../../src/components/core/controller/HeaderRightController');
 
-describe('Components:Common:Controller:HeaderRightController', function () {
+describe('Components:Core:Controller:HeaderRightController', function () {
 
   var createController, $q, $rootScope, locals, customers;
 
