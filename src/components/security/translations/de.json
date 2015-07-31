@@ -2,6 +2,7 @@
   "security.sidebar-customer.label": "Produkte",
   "security.sidebar-customer.title": "Produkte",
   "security.sidebar-customer.icon": "fa-cubes",
+
   "security.form.login.header": "Anmeldung",
   "security.form.login.msg": "Geben Sie hier bitte ihre Login-Daten ein.",
   "security.form.request-password.header": "Passwort anfordern",
@@ -14,7 +15,10 @@
   "security.form.forgot-password.label": "Passwort vergessen?",
   "security.form.request-password.label": "Passwort anfordern",
   "security.form.save-password.label": "Passwort setzen",
-  "security.alert.login.unknown": "Es ist ein unbekannter Fehler beim Login aufgetreten.",
-  "security.alert.login.unauthorized": "Ihre Zugansdaten sind inkorrekt",
-  "security.alert.login.user_locked": "Ihr Zugang ist gesperrt. Wenden Sie sich bitte an Ihren Adminsitrator."
+
+  "security.msg.login.error.unknown": "Es ist ein unbekannter Fehler beim Login aufgetreten.",
+  "security.msg.login.error.unauthorized": "Ihre Zugansdaten sind inkorrekt",
+  "security.msg.login.error.user_locked": "Ihr Zugang ist gesperrt. Wenden Sie sich bitte an Ihren Adminsitrator.",
+  "security.msg.request-password.success": "success",
+  "security.msg.request-password.error": "error"
 }

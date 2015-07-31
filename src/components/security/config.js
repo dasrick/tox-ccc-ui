@@ -14,7 +14,8 @@ module.exports = {
     url: '/request-password',
     views: {
       'content': {
-        templateUrl: '/views/security/request-password.html'
+        templateUrl: '/views/security/request-password.html',
+        controller: 'SecurityRequestPasswordController as requestPasswordVm'
       }
     }
   },
