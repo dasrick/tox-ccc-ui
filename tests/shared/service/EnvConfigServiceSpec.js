@@ -12,26 +12,26 @@ describe('Shared:Service:EnvConfigService', function () {
     });
   });
 
-  var _environments = {
-    karma: {
-      host: 'localhost:9876',
-      config: {
-        apiUrl: 'https://ccc.mi24.dev'
-      }
-    },
-    local: {
-      host: 'localhost:3000',
-      config: {
-        apiUrl: 'https://ccc.mi24.dev'
-      }
-    },
-    stage: {
-      host: 'tox-ccc-ui.herokuapp.com',
-      config: {
-        apiUrl: 'https://ccc-qa.video-cdn.net'
-      }
-    }
-  };
+  //var _environments = {
+  //  karma: {
+  //    host: 'localhost:9876',
+  //    config: {
+  //      apiUrl: 'https://ccc.mi24.dev'
+  //    }
+  //  },
+  //  local: {
+  //    host: 'localhost:3000',
+  //    config: {
+  //      apiUrl: 'https://ccc.mi24.dev'
+  //    }
+  //  },
+  //  stage: {
+  //    host: 'tox-ccc-ui.herokuapp.com',
+  //    config: {
+  //      apiUrl: 'https://ccc-qa.video-cdn.net'
+  //    }
+  //  }
+  //};
 
   //it('should call getEnvironment return null', function () {
   //  var environment = EnvConfigServiceInstance.getEnvironment();
