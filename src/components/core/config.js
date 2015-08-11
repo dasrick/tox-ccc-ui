@@ -16,7 +16,7 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/core/sidebar-admin.html'
+        templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
@@ -34,12 +34,6 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customers: function (CustomerResource) {
         return CustomerResource.query().$promise;
-      //},
-      //
-      //CustomerService: 'CustomerService',
-      //customer: function (CustomerResource, CustomerService) {
-      //  var selectedCustomer = CustomerService.getSelectedCustomer();
-      //  return CustomerResource.get({customerId: selectedCustomer.id}).$promise;
       }
     }
   },
@@ -48,7 +42,7 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/core/sidebar-management.html'
+        templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
@@ -66,9 +60,6 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customers: function (CustomerResource) {
         return CustomerResource.query().$promise;
-      //},
-      //customer: function (CustomerResource, $stateParams) {
-      //  return CustomerResource.get({customerId: $stateParams.selectedCustomerId}).$promise;
       }
     }
   },
@@ -77,7 +68,7 @@ module.exports = {
     abstract: true,
     views: {
       'main': {
-        templateUrl: '/views/core/sidebar-profile.html'
+        templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
         templateUrl: '/views/template/header-left.html',
@@ -95,11 +86,6 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customers: function (CustomerResource) {
         return CustomerResource.query().$promise;
-      //},
-      //CustomerService: 'CustomerService',
-      //customer: function (CustomerResource, CustomerService) {
-      //  var selectedCustomer = CustomerService.getSelectedCustomer();
-      //  return CustomerResource.get({customerId: selectedCustomer.id}).$promise;
       }
     }
   },
@@ -111,7 +97,7 @@ module.exports = {
         templateUrl: '/views/template/1col-centerbox.html'
       },
       'header-left': {
-        templateUrl: '/views/template/header-left-noauh.html'
+        templateUrl: '/views/template/header-left-noauth.html'
       }
     }
   }

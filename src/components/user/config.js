@@ -1,24 +1,11 @@
 'use strict';
 
 module.exports = {
-  // TODO: seperate templates or dynamic solution inside of single templates for the three routes ...
   'app.admin.user': {
-    abstract: true,
     url: '/user',
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.admin.user.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/user/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/user/list-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/user/list.html',
         controller: 'UserListController as userListVm'
       }
     },
@@ -32,11 +19,8 @@ module.exports = {
   'app.admin.user.detail': {
     url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/user/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/user/detail-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/user/detail.html',
         controller: 'UserDetailController as userDetailVm'
       }
     },
@@ -48,22 +32,10 @@ module.exports = {
     }
   },
   'app.management.user': {
-    abstract: true,
     url: '/user',
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.management.user.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/user/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/user/list-body.html',
+      'content@app.management': {
+        templateUrl: '/views/user/list.html',
         controller: 'UserListController as userListVm'
       }
     },
@@ -77,11 +49,8 @@ module.exports = {
   'app.management.user.detail': {
     url: '/{userId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/user/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/user/detail-body.html',
+      'content@app.management': {
+        templateUrl: '/views/user/detail.html',
         controller: 'UserDetailController as userDetailVm'
       }
     },
@@ -93,11 +62,10 @@ module.exports = {
     }
   },
   'app.profile.user': {
-    abstract: true,
     url: '/user',
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
+      'content@app.profile': {
+        templateUrl: '/views/user/list.html'
       }
     }
   },
@@ -105,23 +73,15 @@ module.exports = {
     url: '/data',
     views: {
       'data-body': {
-        templateUrl: '/views/user/list-body.html'
-        //controller: 'UserListController as vm'
+        templateUrl: '/views/user/data.html'
       }
-    //},
-    //resolve: {
-    //  UserResource: 'UserResource',
-    //  users: function (UserResource) {
-    //    return UserResource.query().$promise;
-    //  }
     }
   },
   'app.profile.user.password': {
     url: '/password',
     views: {
       'data-body': {
-        templateUrl: '/views/user/detail-body.html'
-        //controller: 'UserDetailController as vm'
+        templateUrl: '/views/user/password.html'
       }
     }
   }

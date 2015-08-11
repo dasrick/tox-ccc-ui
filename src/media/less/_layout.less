@@ -1,0 +1,74 @@
+.app-sidebar-folded {
+  .hidden-folded {
+    display: none !important;
+  }
+  .visible-folded {
+    display: inherit;
+  }
+
+  .level-list>li>ul>li>a {
+    text-align: center;
+    & > i {
+      font-size: 18px;
+      margin: 0;
+    }
+    & > span {
+      display: none;
+    }
+  }
+}
+
+// media queries ///////////////////////////////////////////////////////////////////////////////////////////////////////
+@media (min-width: 768px) {
+  .getAsideWidth(@col-left-sm-witdh, @col-right-sm-witdh);
+  .app-sidebar-folded {
+    .getAsideWidth(@col-left-folded-sm-witdh, @col-right-folded-sm-witdh);
+  }
+}
+// currently no changes inside different screen sizes ...
+//@media (min-width: 992px) {
+//  .getAsideWidth(@col-left-md-witdh, @col-right-md-witdh);
+//  .app-sidebar-folded {
+//    .getAsideWidth(@col-left-folded-md-witdh, @col-right-folded-md-witdh);
+//  }
+//}
+//
+//@media (min-width: 1200px) {
+//  .getAsideWidth(@col-left-lg-witdh, @col-right-lg-witdh);
+//  .app-sidebar-folded {
+//    .getAsideWidth(@col-left-folded-lg-witdh, @col-right-folded-lg-witdh);
+//  }
+//}
+
+// mixin ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+.getAsideWidth(@col-left-width, @col-right-width) {
+  header,
+  main {
+    > aside {
+      &.col-left {
+        width: @col-left-width;
+        left: 0;
+      }
+      &.col-main {
+        left: @col-left-width;
+        right: @col-right-width;
+      }
+      &.col-right {
+        width: @col-right-width;
+        right: 0;
+      }
+      &.col-main-right {
+        left: @col-left-width;
+        right: 0;
+      }
+      &.col-main-left {
+        left: 0;
+        right: @col-right-width;
+      }
+      &.col-main-full {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}

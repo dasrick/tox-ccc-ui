@@ -1,0 +1,34 @@
+<section class="section-head">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <!--
+                    <a
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.admin.product.create"
+                       has-role="product_create"
+                       ng-show="hasRole['product_create']">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+            -->
+        </div>
+        <div class="col-sm-6 text-right">
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-list"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="section-body">
+    <h2 translate="product.list.headline.label"></h2>
+    <p translate="product.list.description"></p>
+    <div class="item-list">
+        <div ng-repeat="item in productListVm.preparedList"
+             row-list-item="item"
+             row-list-route="app.admin.product.detail({productId:item.id})"></div>
+    </div>
+</section>
+<!--<section class="section-foot"></section>-->
+

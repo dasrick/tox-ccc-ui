@@ -53,7 +53,7 @@ angular.module('tox-ccc-ui-app', requires)
       UserService = $injector.get('UserService');
       $state = $injector.get('$state');
       if (UserService.isLoggedIn() === true) {
-        $state.go('app.management.dashboard.list');
+        $state.go('app.management.dashboard');
       } else {
         $state.go('app.security.login');
       }

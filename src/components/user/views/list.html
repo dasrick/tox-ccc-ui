@@ -1,0 +1,43 @@
+<section class="section-head">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+
+            <a ng-if="$state.includes('app.admin.user')"
+               class="btn btn-mi24 btn-success"
+               ui-sref="admin.user.new"
+               has-role="user_create"
+               ng-show="hasRole['user_create']">
+                <i class="fa fa-plus-square"></i>
+            </a>
+            <a ng-if="$state.includes('app.management.user')"
+               class="btn btn-mi24 btn-success"
+               ui-sref="customer.user.new"
+               has-role="user_create"
+               ng-show="hasRole['user_create']">
+                <i class="fa fa-plus-square"></i>
+            </a>
+
+        </div>
+        <div class="col-sm-6 text-right">
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-list"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="section-body">
+    <h2 translate="user.list.headline.label"></h2>
+    <p translate="user.list.description"></p>
+    <div class="item-list"
+         ng-repeat="mainroute in ['admin', 'management']">
+        <div ng-if="('app.'+mainroute|includedByState)"
+             ng-repeat="item in userListVm.preparedList"
+             row-list-item="item"
+             row-list-route="app.{{mainroute}}.user.detail({userId:item.id})"></div>
+    </div>
+</section>
+<!--<section class="section-foot"></section>-->
+

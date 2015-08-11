@@ -3,21 +3,9 @@
 module.exports = {
   'app.management.assignment': {
     url: '/assignment',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.management.assignment.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/assignment/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/assignment/list-body.html',
+      'content@app.management': {
+        templateUrl: '/views/assignment/list.html',
         controller: 'AssignmentListController as assignmentListVm'
       }
     },
@@ -31,11 +19,8 @@ module.exports = {
   'app.management.assignment.detail': {
     url: '/{assignmentId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/assignment/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/assignment/detail-body.html',
+      'content@app.management': {
+        templateUrl: '/views/assignment/detail.html',
         controller: 'AssignmentDetailController as assignmentDetailVm'
       }
     },

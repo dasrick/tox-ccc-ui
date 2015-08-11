@@ -3,21 +3,9 @@
 module.exports = {
   'app.admin.product': {
     url: '/product',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.admin.product.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/product/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/product/list-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/product/list.html',
         controller: 'ProductListController as productListVm'
       }
     },
@@ -31,11 +19,8 @@ module.exports = {
   'app.admin.product.detail': {
     url: '/{productId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/product/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/product/detail-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/product/detail.html',
         controller: 'ProductDetailController as productDetailVm'
       }
     },

@@ -3,21 +3,9 @@
 module.exports = {
   'app.admin.transcoder-profile': {
     url: '/transcoder-profile',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.admin.transcoder-profile.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/transcoder-profile/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/transcoder-profile/list-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/transcoder-profile/list.html',
         controller: 'TranscoderProfileListController as transcoderProfileListVm'
       }
     },
@@ -32,11 +20,8 @@ module.exports = {
   'app.admin.transcoder-profile.detail': {
     url: '/{transcoderProfileId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/transcoder-profile/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/transcoder-profile/detail-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/transcoder-profile/detail.html',
         controller: 'TranscoderProfileDetailController as transcoderProfileDetailVm'
       }
     },

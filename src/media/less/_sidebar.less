@@ -1,0 +1,36 @@
+.sidebar {
+
+  .panel-group {
+    margin-bottom: 0;
+  }
+
+  .panel {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .panel-heading {
+    padding: 13px 15px;
+    height: 40px;
+
+  }
+
+  .panel-default > .panel-heading {
+    //background-color: transparent;
+    //border: none;
+
+    background-color: #333;
+    &.hover {
+      background-color: #444;
+    }
+  }
+
+  .panel-title {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  .panel-group .panel + .panel {
+    margin-top: 1px;
+  }
+}

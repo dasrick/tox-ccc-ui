@@ -1,0 +1,124 @@
+<aside class="cs-2 col-left sidebar">
+    <!--<section class="section-head"></section>-->
+    <section class="section-body">
+
+        <ul class="list-unstyled level-list">
+            <li>
+                <a class="heading" ng-click="coreVm.toggleSection('management')">
+                    <span class="title" translate="core.section.management.label"></span>
+                    <i class="pull-right fa"
+                       ng-class="(coreVm.showSection.management) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </a>
+                <ul ng-init="coreVm.showSection.management = ('app.management'|includedByState)"
+                    ng-show="coreVm.showSection.management"
+                    class="list-unstyled">
+                    <li ng-repeat="type in ['dashboard', 'customer', 'user', 'assignment', 'log']"
+                        ng-class="{'selected':('app.management.'+type|includedByState)}"
+                        ng-show="type != 'customer' || (coreVm.selectedCustomer.type == 'admin' || coreVm.selectedCustomer.type == 'partner')">
+                        <a ui-sref="app.management.{{type}}({selectedCustomerId:coreVm.selectedCustomer.id})"
+                           title="{{type+'.sidebar-customer.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-customer.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-customer.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-if="coreVm.currentUser.customer.type == 'admin'">
+                <a class="heading" ng-click="coreVm.toggleSection('admin')">
+                    <span class="title" translate="core.section.admin.label"></span>
+                    <i class="pull-right fa"
+                       ng-class="(coreVm.showSection.admin) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </a>
+                <ul ng-init="coreVm.showSection.admin = ('app.admin'|includedByState)"
+                    ng-show="coreVm.showSection.admin"
+                    class="list-unstyled">
+                    <li ng-repeat="type in ['product', 'instance', 'plan', 'player-skin', 'transcoder-profile', 'customer', 'user']"
+                        ng-class="{'selected':('app.admin.'+type|includedByState)}">
+                        <a ui-sref="app.admin.{{type}}"
+                           title="{{type+'.sidebar-admin.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-admin.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-admin.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="heading" ng-click="coreVm.toggleSection('profile')">
+                    <span class="title" translate="core.section.profile.label"></span>
+                    <i class="pull-right fa"
+                       ng-class="(coreVm.showSection.profile) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </a>
+                <ul ng-init="coreVm.showSection.profile = ('app.profile'|includedByState)"
+                    ng-show="coreVm.showSection.profile"
+                    class="list-unstyled">
+                    <li ng-repeat="type in ['user', 'customer', 'review']"
+                        ng-class="{'selected':('app.profile.'+type|includedByState)}">
+                        <a ui-sref="app.profile.{{type}}"
+                           title="{{type+'.sidebar-profile.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-profile.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-profile.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!--
+        <accordion close-others="true">
+            <accordion-group ng-init="status.management = ('app.management'|includedByState)"
+                             is-open="status.management" class="list-unstyled level-list">
+                <accordion-heading>
+                    <span class="title" translate="core.section.customer.label"></span>
+                    <i class="pull-right fa" ng-class="(status.management) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </accordion-heading>
+                <ul class="list-unstyled">
+                    <li ng-repeat="type in ['dashboard', 'customer', 'user', 'assignment', 'log']"
+                        ng-class="{'selected':('app.management.'+type|includedByState)}"
+                        ng-show="type != 'customer' || (coreVm.selectedCustomer.type == 'admin' || coreVm.selectedCustomer.type == 'partner')">
+                        <a ui-sref="app.management.{{type}}.list({selectedCustomerId:coreVm.selectedCustomer.id})"
+                           title="{{type+'.sidebar-customer.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-customer.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-customer.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </accordion-group>
+            <accordion-group ng-init="status.administration = ('app.admin'|includedByState)"
+                             is-open="status.administration" class="list-unstyled level-list">
+                <accordion-heading>
+                    <span class="title" translate="core.section.admin.label"></span>
+                    <i class="pull-right fa" ng-class="(status.administration) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </accordion-heading>
+                <ul class="list-unstyled">
+                    <li ng-repeat="type in ['product', 'instance', 'plan', 'player-skin', 'transcoder-profile', 'customer', 'user']"
+                        ng-class="{'selected':('app.admin.'+type|includedByState)}">
+                        <a ui-sref="app.admin.{{type}}.list"
+                           title="{{type+'.sidebar-admin.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-admin.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-admin.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </accordion-group>
+            <accordion-group ng-init="status.profile = ('app.profile'|includedByState)"
+                             is-open="status.profile" class="list-unstyled level-list">
+                <accordion-heading>
+                    <span class="title" translate="core.section.profile.label"></span>
+                    <i class="pull-right fa" ng-class="(status.profile) ? 'fa-angle-up' : 'fa-angle-down'"></i>
+                </accordion-heading>
+                <ul class="list-unstyled">
+                    <li ng-repeat="type in ['user', 'customer', 'review']"
+                        ng-class="{'selected':('app.profile.'+type|includedByState)}">
+                        <a ui-sref="app.profile.{{type}}.data"
+                           title="{{type+'.sidebar-profile.title'|translate}}">
+                            <i class="fa {{type+'.sidebar-profile.icon'|translate}}"></i>
+                            <span class="title" translate="{{type}}.sidebar-profile.label"></span>
+                        </a>
+                    </li>
+                </ul>
+            </accordion-group>
+        </accordion>
+        -->
+    </section>
+</aside>
+<aside class="col-main-right" ui-view="content"></aside>

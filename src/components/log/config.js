@@ -3,19 +3,9 @@
 module.exports = {
   'app.management.log': {
     url: '/log',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.management.log.list': {
-    url: '',
-    views: {
-      'data-body': {
+      'content@app.management': {
         templateUrl: '/views/log/list.html'
-        //controller: 'InstanceListController as vm'
       }
     },
     resolve: {
@@ -28,9 +18,8 @@ module.exports = {
   'app.management.log.detail': {
     url: '/path-for-id',
     views: {
-      'data-body': {
+      'content@app.management': {
         templateUrl: '/views/log/detail.html'
-        //controller: 'InstanceDetailController as vm'
       }
     }
   }

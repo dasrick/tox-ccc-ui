@@ -1,0 +1,33 @@
+<section class="section-head">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <!--
+                    <a
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.management.assignment.create"
+                       has-role="assignment_create"
+                       ng-show="hasRole['assignment_create']">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+            -->
+        </div>
+        <div class="col-sm-6 text-right">
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-list"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="section-body">
+    <h2 translate="assignment.list.headline.label"></h2>
+    <p translate="assignment.list.description"></p>
+    <div class="item-list">
+        <div ng-repeat="item in assignmentListVm.preparedList"
+             row-list-item="item"
+             row-list-route="app.management.assignment.detail({assignmentId:item.id})"></div>
+    </div>
+</section>
+<!--<section class="section-foot"></section>-->

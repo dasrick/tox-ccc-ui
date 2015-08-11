@@ -10,7 +10,7 @@ module.exports = function (SecurityService, $state, UserService) {
   vm.login = function () {
     SecurityService.login(vm.loginData).then(function () {
       var user = UserService.getUser();
-      $state.go('app.management.dashboard.list', {selectedCustomerId: user.customer.id});
+      $state.go('app.management.dashboard', {selectedCustomerId: user.customer.id});
     });
   };
 };

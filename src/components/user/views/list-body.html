@@ -1,9 +1,0 @@
-<h2 translate="user.list.headline.label"></h2>
-<p translate="user.list.description"></p>
-<div class="item-list"
-     ng-repeat="mainroute in ['admin', 'management']">
-    <div ng-if="('app.'+mainroute|includedByState)"
-         ng-repeat="item in userListVm.preparedList"
-         row-list-item="item"
-         row-list-route="app.{{mainroute}}.user.detail({userId:item.id})"></div>
-</div>

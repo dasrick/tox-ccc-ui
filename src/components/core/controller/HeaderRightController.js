@@ -13,7 +13,7 @@ module.exports = function ($scope, $state, SecurityService, UserService, Custome
   $scope.$watch('headerRightVm.customer.selected', function (customer, oldCustomer) {
     if ((customer != null) && oldCustomer.id !== customer.id) {
       CustomerService.setSelectedCustomer(customer);
-      $state.go('.', {selectedCustomerId: customer.id});
+      $state.go('.', {selectedCustomerId: customer.id}, {'reload':true});
     }
   });
 

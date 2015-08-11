@@ -1,0 +1,61 @@
+<section class="section-head">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <a ui-sref="app.admin.instance"
+               tooltip-placement="bottom"
+               tooltip-popup-delay="1000"
+               tooltip-append-to-body="true"
+               tooltip="[de] Zurück zur Liste">
+                <button class="btn btn-mi24 btn-info">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </button>
+            </a>
+            <a ng-click="instanceDetailVm.reset()"
+               tooltip-placement="bottom"
+               tooltip-popup-delay="1000"
+               tooltip-append-to-body="true"
+               tooltip="[de] Zurücksetzen">
+                <button class="btn btn-mi24 btn-warning">
+                    <i class="fa fa-undo"></i>
+                </button>
+            </a>
+            <a ng-click="instanceDetailVm.save()"
+               tooltip-placement="bottom"
+               tooltip-popup-delay="1000"
+               tooltip-append-to-body="true"
+               tooltip="[de] Speichern">
+                <button class="btn btn-mi24 btn-primary">
+                    <i class="fa fa-save"></i>
+                </button>
+            </a>
+        </div>
+        <div class="col-sm-6 text-right"></div>
+    </div>
+</section>
+
+<section class="section-body">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h2 translate="instance.common.singular.title"></h2></div>
+        <div class="panel-body">
+            <form name="form" novalidate>
+                <div ng-repeat="(fieldKey, fieldValue) in instanceDetailVm.fields"
+                     class="form-group" ng-class="{'has-error': form.fieldKey.$error.required}">
+                    <label class="control-label"
+                           for="{{fieldKey}}"
+                           translate="instance.form.{{fieldKey}}.label"
+                           popover="{{ 'instance.form.' + fieldKey + '.tooltip' | translate}}"
+                           popover-trigger="mouseenter"
+                           popover-placement="right"></label>
+                    <input id="{{fieldKey}}"
+                           name="{{fieldKey}}"
+                           type="{{fieldValue.inputType}}"
+                           class="form-control"
+                           ng-model="instanceDetailVm.instance[fieldKey]"
+                           required="{{fieldValue.required}}"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!--<section class="section-foot"></section>-->

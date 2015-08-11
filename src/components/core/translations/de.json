@@ -1,6 +1,7 @@
 {
   "core.application.label": "CustomerControlCenter",
   "core.application.title": "CCC",
+  "core.application.icon": "fa-circle-o-notch",
 
   "core.header.menu.app.icon": "fa-th-large",
   "core.header.menu.app.label": "Menü",
@@ -11,7 +12,7 @@
   "core.header.logout.title": "Hier können Sie sich vom System abmelden.",
 
   "core.section.admin.label": "Globale Einstellungen",
-  "core.section.customer.label": "Kunden-Verwaltung",
+  "core.section.management.label": "Kunden-Verwaltung",
   "core.section.profile.label": "Profil-Einstellungen",
 
   "core.icon.active.title": "Aktivierungs-Status",

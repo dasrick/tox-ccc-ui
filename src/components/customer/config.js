@@ -3,21 +3,9 @@
 module.exports = {
   'app.admin.customer': {
     url: '/customer',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.admin.customer.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/customer/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/customer/list-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/customer/list.html',
         controller: 'CustomerListController as customerListVm'
       }
     },
@@ -31,11 +19,8 @@ module.exports = {
   'app.admin.customer.detail': {
     url: '/{customerId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/customer/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/customer/detail-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/customer/detail.html',
         controller: 'CustomerDetailController as customerDetailVm'
       }
     },
@@ -48,21 +33,9 @@ module.exports = {
   },
   'app.management.customer': {
     url: '/customer',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.management.customer.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/customer/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/customer/list-body.html',
+      'content@app.management': {
+        templateUrl: '/views/customer/list.html',
         controller: 'CustomerListController as customerListVm'
       }
     },
@@ -76,11 +49,8 @@ module.exports = {
   'app.management.customer.detail': {
     url: '/{customerId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/customer/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/customer/detail-body.html',
+      'content@app.management': {
+        templateUrl: '/views/customer/detail.html',
         controller: 'CustomerDetailController as customerDetailVm'
       }
     },
@@ -93,18 +63,17 @@ module.exports = {
   },
   'app.profile.customer': {
     url: '/customer',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
+      'content@app.profile': {
+        templateUrl: '/views/customer/list.html'
       }
     }
   },
   'app.profile.customer.data': {
     url: '',
     views: {
-      'data-body': {
-        templateUrl: '/views/customer/list.html'
+      'content@app.profile': {
+        templateUrl: '/views/customer/detail.html'
       }
     }
   }

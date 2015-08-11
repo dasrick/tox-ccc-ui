@@ -7,14 +7,16 @@
 @import (inline) '../../../node_modules/angular-loading-bar/build/loading-bar.min.css';
 @import '_variables';
 @import '_angularjs';
+@import '_layout';
 @import '_alerts';
 @import '_centerbox';
 @import '_item-list';
 @import '_ui-select';
 @import '_detail-view';
 @import '_loadingbar';
-@import '_header';
 @import '_section-body';
+@import '_header';
+@import '_sidebar';
 
 // START - auslagern
 
@@ -25,17 +27,26 @@
 .level-list li > a .fa {
   width: 1.2em;
   margin-right: .5em;
+  &.pull-right {
+    margin-right: 0;
+    text-align: right;
+  }
 }
+
 .cs-1 .btn-mi24 {
   &.border-right {
     border-right: 1px solid #e8e8e8;
   }
 }
+
 .cs-1 .level-list > li {
+  a {
+    cursor: pointer;
+  }
   > .heading {
     color: #0f0;
     text-shadow: 0 -1px 0 #f00;
-    cursor: default;
+    //cursor: default;
   }
   > ul > li {
     &:hover {
@@ -48,26 +59,41 @@
 }
 
 .cs-2 .level-list > li {
+  border-bottom: 1px solid lighten(#3b3b3b, 10%);
+  //&:first-child {
+  //  border-top: none;
+  //}
+  a {
+    cursor: pointer;
+  }
   > .heading {
     color: #888;
     text-shadow: 0 -1px 0 #111;
-    cursor: default;
+    //cursor: default;
   }
   > ul > li {
+    &:last-child {
+      border-bottom: none;
+    }
+    @bg-color: #282828;
+    background-color: darken(@bg-color, 0%);
     &:hover {
-      background-color: darken(#333333, 5%);
+      background-color: darken(@bg-color, 5%);
     }
     &.selected {
-      background-color: darken(#333333, 10%);
+      background-color: darken(@bg-color, 10%);
     }
   }
 }
 
 .cs-3 .level-list > li {
+  a {
+    cursor: pointer;
+  }
   > .heading {
     color: #0f0;
     text-shadow: 0 -1px 0 #f00;
-    cursor: default;
+    //cursor: default;
   }
   > ul > li {
     &:hover {
@@ -95,8 +121,6 @@
 
 // ENDE - auslagern
 
-
-
 @media (max-width: 767px) {
   body > div {
     display: none;
@@ -115,5 +139,12 @@
   .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
+  }
+}
+
+
+.panel-control {
+  .panel-body {
+    padding: 0;
   }
 }

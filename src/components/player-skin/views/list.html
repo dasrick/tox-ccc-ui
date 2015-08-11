@@ -1,0 +1,32 @@
+<section class="section-head">
+    <div class="row">
+        <div class="col-sm-6 text-left">
+            <!--
+            <a class="btn btn-mi24 btn-success"
+               ui-sref="app.admin.player-skin.create"
+               has-role="player_skin_create"
+               ng-show="hasRole['player_skin_create']">
+                <i class="fa fa-plus-square"></i>
+            </a>
+            -->
+        </div>
+        <div class="col-sm-6 text-right">
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-large"></i>
+            </button>
+            <button class="btn btn-mi24 btn-primary">
+                <i class="fa fa-th-list"></i>
+            </button>
+        </div>
+    </div>
+</section>
+<section class="section-body">
+    <h2 translate="player-skin.list.headline.label"></h2>
+    <p translate="player-skin.list.description"></p>
+    <div class="item-list">
+        <div ng-repeat="item in playerSkinListVm.preparedList"
+             row-list-item="item"
+             row-list-route="app.admin.player-skin.detail({playerSkinId:item.id})"></div>
+    </div>
+</section>
+<!--<section class="section-foot"></section>-->

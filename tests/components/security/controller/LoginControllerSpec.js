@@ -35,7 +35,7 @@ describe('Components:Security:Controller:LoginController', function () {
     UserService.getUser.and.returnValue({customer: {id: 2342}});
     controller.login();
     $rootScope.$apply();
-    expect($state.go).toHaveBeenCalledWith('app.management.dashboard.list', {selectedCustomerId: 2342});
+    expect($state.go).toHaveBeenCalledWith('app.management.dashboard', {selectedCustomerId: 2342});
   });
 
 });

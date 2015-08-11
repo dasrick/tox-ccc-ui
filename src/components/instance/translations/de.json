@@ -8,5 +8,20 @@
   "instance.edit.title": "Instanz bearbeiten",
 
   "instance.list.headline.label": "Instanzenliste",
-  "instance.list.description": "In dieser Liste befinden sich alle Instanzen, auf denen Produkte ausgerollt werden können. Derzeit betrifft dies den VideoManager, wobei man bei der Buchung eines solchen die jeweils gewünschte Instanz angeben kann."
+  "instance.list.description": "In dieser Liste befinden sich alle Instanzen, auf denen Produkte ausgerollt werden können. Derzeit betrifft dies den VideoManager, wobei man bei der Buchung eines solchen die jeweils gewünschte Instanz angeben kann.",
+
+  "instance.form.name.label": "Name",
+  "instance.form.name.tooltip": "Name",
+  "instance.form.baseUrl.label": "Base-URL",
+  "instance.form.baseUrl.tooltip": "Base-URL",
+  "instance.form.authUrl.label": "Auth-URL",
+  "instance.form.authUrl.tooltip": "Auth-URL",
+  "instance.form.authClientId.label": "Auth-Client-Id",
+  "instance.form.authClientId.tooltip": "Auth-Client-Id",
+  "instance.form.authClientSecret.label": "Auth-Client-Secret",
+  "instance.form.authClientSecret.tooltip": "Auth-Client-Secret",
+  "instance.form.authUsername.label": "Auth-Client-User",
+  "instance.form.authUsername.tooltip": "Auth-Client-User",
+  "instance.form.authPassword.label": "Auth-Client-Password",
+  "instance.form.authPassword.tooltip": "Auth-Client-Password"
 }

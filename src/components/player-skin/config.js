@@ -3,21 +3,9 @@
 module.exports = {
   'app.admin.player-skin': {
     url: '/player-skin',
-    abstract: true,
     views: {
-      'content': {
-        templateUrl: '/views/template/base.html'
-      }
-    }
-  },
-  'app.admin.player-skin.list': {
-    url: '',
-    views: {
-      'data-header': {
-        templateUrl: '/views/player-skin/list-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/player-skin/list-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/player-skin/list.html',
         controller: 'PlayerSkinListController as playerSkinListVm'
       }
     },
@@ -32,11 +20,8 @@ module.exports = {
   'app.admin.player-skin.detail': {
     url: '/{playerSkinId:[0-9a-zA-Z]{1,}}',
     views: {
-      'data-header': {
-        templateUrl: '/views/player-skin/detail-header.html'
-      },
-      'data-body': {
-        templateUrl: '/views/player-skin/detail-body.html',
+      'content@app.admin': {
+        templateUrl: '/views/player-skin/detail.html',
         controller: 'PlayerSkinDetailController as playerSkinDetailVm'
       }
     },
