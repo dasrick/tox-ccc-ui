@@ -53,7 +53,7 @@ describe('Components:Security:Service:SecurityService', function () {
     $httpBackend.expectPOST(apiUrl + '/api/security/login', 'data');
     SecurityServiceInstance.login('data');
     $httpBackend.flush();
-    expect(AlertService.add).toHaveBeenCalledWith('danger', msg, 10000);
+    expect(AlertService.add).toHaveBeenCalledWith('danger', msg);
   });
 
   it('should try to login an user and return error 401', function () {
@@ -63,7 +63,7 @@ describe('Components:Security:Service:SecurityService', function () {
     $httpBackend.expectPOST(apiUrl + '/api/security/login', 'data');
     SecurityServiceInstance.login('data');
     $httpBackend.flush();
-    expect(AlertService.add).toHaveBeenCalledWith('danger', msg, 10000);
+    expect(AlertService.add).toHaveBeenCalledWith('danger', msg);
   });
 
   it('should try to login an user and return error 401 and header "locked"', function () {
@@ -75,7 +75,7 @@ describe('Components:Security:Service:SecurityService', function () {
     $httpBackend.expectPOST(apiUrl + '/api/security/login', 'data');
     SecurityServiceInstance.login('data');
     $httpBackend.flush();
-    expect(AlertService.add).toHaveBeenCalledWith('danger', msg, 10000);
+    expect(AlertService.add).toHaveBeenCalledWith('danger', msg);
   });
 
   it('should logout an user', function () {

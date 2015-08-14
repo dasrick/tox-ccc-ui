@@ -29,7 +29,7 @@ module.exports = function ($http, UserService, AlertService, EnvConfigService, C
             msg = 'security.msg.login.error.user_locked';
           }
         }
-        AlertService.add('danger', msg, 10000);
+        AlertService.add('danger', msg);
       });
   };
 
@@ -45,11 +45,11 @@ module.exports = function ($http, UserService, AlertService, EnvConfigService, C
     return $http.put(apiUrl + '/api/security/request-password/' + encodeURIComponent(email), data)
       .success(function () {
         var msg = 'security.msg.request-password.success';
-        AlertService.add('success', msg, 3000);
+        AlertService.add('success', msg);
       })
       .error(function () {
         var msg = 'security.msg.request-password.error';
-        AlertService.add('danger', msg, 10000);
+        AlertService.add('danger', msg);
       });
   };
 };

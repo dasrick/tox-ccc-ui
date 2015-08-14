@@ -14,6 +14,7 @@ require('angular-translate');
 require('angular-translate-loader-partial');
 require('angular-cache');
 require('angular-resource');
+require('mi-angular-alert-service');
 require('ui-select');
 var requires = [
   'ui.bootstrap',
@@ -24,6 +25,7 @@ var requires = [
   'ngSanitize',
   'pascalprecht.translate',
   'angular-cache',
+  'mi.AlertService',
   'ngResource',
   'ui.select',
   require('./shared').name,
@@ -44,9 +46,9 @@ angular.module('tox-ccc-ui-app', requires)
     }];
     $httpProvider.interceptors.push('jwtInterceptor');
   })
-  .config(function ($httpProvider) {
-    $httpProvider.interceptors.push('AlertInterceptor');
-  })
+  //.config(function ($httpProvider) {
+  //  $httpProvider.interceptors.push('AlertInterceptor');
+  //})
   .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
       var $state, UserService;
@@ -101,6 +103,12 @@ angular.module('tox-ccc-ui-app', requires)
     //gravatarServiceProvider.protocol = 'my-protocol';
   }
   ])
+  .constant('ALERT_LEVELS', {
+    danger: {timeout: 10000},
+    warning: {timeout: 5000},
+    success: {timeout: 3000},
+    info: {timeout: 3000}
+  })
 ;
 
 angular.bootstrap(document, ['tox-ccc-ui-app']);
