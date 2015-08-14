@@ -5,7 +5,8 @@
         <ul class="list-unstyled level-list">
             <li>
                 <a class="heading" ng-click="coreVm.toggleSection('management')">
-                    <span class="title" translate="core.section.management.label"></span>
+                    <i class="visible-folded fa {{'core.section.management.icon'|translate}}" title="{{'core.section.management.title'|translate}}"></i>
+                    <span class="title" translate="core.section.management.label" title="{{'core.section.management.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.management) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>
@@ -25,7 +26,8 @@
             </li>
             <li ng-if="coreVm.currentUser.customer.type == 'admin'">
                 <a class="heading" ng-click="coreVm.toggleSection('admin')">
-                    <span class="title" translate="core.section.admin.label"></span>
+                    <i class="visible-folded fa {{'core.section.admin.icon'|translate}}" title="{{'core.section.admin.title'|translate}}"></i>
+                    <span class="title" translate="core.section.admin.label" title="{{'core.section.admin.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.admin) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>
@@ -44,7 +46,8 @@
             </li>
             <li>
                 <a class="heading" ng-click="coreVm.toggleSection('profile')">
-                    <span class="title" translate="core.section.profile.label"></span>
+                    <i class="visible-folded fa {{'core.section.profile.icon'|translate}}" title="{{'core.section.profile.title'|translate}}"></i>
+                    <span class="title" translate="core.section.profile.label" title="{{'core.section.profile.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.profile) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>

@@ -1,3 +1,6 @@
+.visible-folded {
+  display: none;
+}
 .app-sidebar-folded {
   .hidden-folded {
     display: none !important;
@@ -6,14 +9,27 @@
     display: inherit;
   }
 
-  .level-list>li>ul>li>a {
-    text-align: center;
-    & > i {
-      font-size: 18px;
-      margin: 0;
+  .level-list > li {
+    > a {
+      text-align: center;
+      > i:first-child {
+        font-size: 18px;
+        margin: 0;
+      }
+      > i:last-child,
+      > span {
+        display: none;
+      }
     }
-    & > span {
-      display: none;
+    > ul > li > a {
+      text-align: center;
+      > i {
+        font-size: 18px;
+        margin: 0;
+      }
+      > span {
+        display: none;
+      }
     }
   }
 }
@@ -25,6 +41,7 @@
     .getAsideWidth(@col-left-folded-sm-witdh, @col-right-folded-sm-witdh);
   }
 }
+
 // currently no changes inside different screen sizes ...
 //@media (min-width: 992px) {
 //  .getAsideWidth(@col-left-md-witdh, @col-right-md-witdh);
