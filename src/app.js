@@ -5,28 +5,28 @@ var angular = require('angular');
 process.env.appversion = require('../package.json').version;
 
 require('angular-bootstrap');
+require('angular-cache');
 require('angular-gravatar');
-require('angular-loading-bar');
-require('angular-route');
 require('angular-jwt');
+require('angular-loading-bar');
+require('angular-resource');
 require('angular-sanitize');
 require('angular-translate');
 require('angular-translate-loader-partial');
-require('angular-cache');
-require('angular-resource');
+require('angular-ui-router');
 require('mi-angular-alert-service');
 require('ui-select');
 var requires = [
   'ui.bootstrap',
+  'angular-cache',
   'ui.gravatar',
-  'angular-loading-bar',
-  'ui.router',
   'angular-jwt',
+  'angular-loading-bar',
+  'ngResource',
   'ngSanitize',
   'pascalprecht.translate',
-  'angular-cache',
+  'ui.router',
   'mi.AlertService',
-  'ngResource',
   'ui.select',
   require('./shared').name,
   require('./components').name
