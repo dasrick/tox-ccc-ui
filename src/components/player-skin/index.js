@@ -1,20 +1,23 @@
 'use strict';
 
-var angular = require('angular');
-var RoutingConfig = require('./config');
+//var angular = require('angular');
+var ModuleName = 'player-skin',
+  RoutingConfig = require('./config');
 
-module.exports = angular.module('player-skin', []);
+module.exports = angular.module(ModuleName, [])
 
-angular.module('player-skin').controller('PlayerSkinListController', require('./controller/ListController'));
-angular.module('player-skin').controller('PlayerSkinDetailController', require('./controller/DetailController'));
-angular.module('player-skin').factory('PlayerSkinResource', function ($resource, EnvConfigService) {
-  var apiUrl = EnvConfigService.get('apiUrl');
-  return $resource(apiUrl + '/api/player-skins/:playerSkinId', {playerSkinId: '@id', type: '@type'}, {});
-});
-angular.module('player-skin').config(function ($stateProvider, $translatePartialLoaderProvider) {
-  angular.forEach(RoutingConfig, function (config, name) {
-    $stateProvider.state(name, config);
-  });
-  $translatePartialLoaderProvider.addPart('player-skin');
-});
+  .controller('PlayerSkinListController', require('./controller/ListController'))
+  .controller('PlayerSkinDetailController', require('./controller/DetailController'))
 
+  .factory('PlayerSkinResource', function ($resource, EnvConfigService) {
+    var apiUrl = EnvConfigService.get('apiUrl');
+    return $resource(apiUrl + '/api/player-skins/:playerSkinId', {playerSkinId: '@id', type: '@type'}, {});
+  })
+
+  .config(function ($stateProvider, $translatePartialLoaderProvider) {
+    angular.forEach(RoutingConfig, function (config, name) {
+      $stateProvider.state(name, config);
+    });
+    $translatePartialLoaderProvider.addPart(ModuleName);
+  })
+;

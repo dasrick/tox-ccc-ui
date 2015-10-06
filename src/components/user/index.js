@@ -1,20 +1,23 @@
 'use strict';
 
-var angular = require('angular');
-var RoutingConfig = require('./config');
+//var angular = require('angular');
+var ModuleName = 'user',
+  RoutingConfig = require('./config');
 
-module.exports = angular.module('user', []);
+module.exports = angular.module(ModuleName, [])
 
-angular.module('user').controller('UserListController', require('./controller/ListController'));
-angular.module('user').controller('UserDetailController', require('./controller/DetailController'));
-angular.module('user').factory('UserResource', function ($resource, EnvConfigService) {
-  var apiUrl = EnvConfigService.get('apiUrl');
-  return $resource(apiUrl + '/api/users/:userId', {userId: '@id', customer: '@customer'}, {});
-});
-angular.module('user').config(function ($stateProvider, $translatePartialLoaderProvider) {
-  angular.forEach(RoutingConfig, function (config, name) {
-    $stateProvider.state(name, config);
-  });
-  $translatePartialLoaderProvider.addPart('user');
-});
+  .controller('UserListController', require('./controller/ListController'))
+  .controller('UserDetailController', require('./controller/DetailController'))
 
+  .factory('UserResource', function ($resource, EnvConfigService) {
+    var apiUrl = EnvConfigService.get('apiUrl');
+    return $resource(apiUrl + '/api/users/:userId', {userId: '@id', customer: '@customer'}, {});
+  })
+
+  .config(function ($stateProvider, $translatePartialLoaderProvider) {
+    angular.forEach(RoutingConfig, function (config, name) {
+      $stateProvider.state(name, config);
+    });
+    $translatePartialLoaderProvider.addPart(ModuleName);
+  })
+;

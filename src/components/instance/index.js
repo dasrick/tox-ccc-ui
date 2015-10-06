@@ -1,22 +1,25 @@
 'use strict';
 
-var angular = require('angular');
-var RoutingConfig = require('./config');
+//var angular = require('angular');
+var ModuleName = 'instance',
+  RoutingConfig = require('./config');
 
-module.exports = angular.module('instance', []);
+module.exports = angular.module(ModuleName, [])
 
-angular.module('instance').controller('InstanceListController', require('./controller/ListController'));
-angular.module('instance').controller('InstanceDetailController', require('./controller/DetailController'));
-angular.module('instance').controller('InstanceNewController', require('./controller/NewController'));
-angular.module('instance').controller('InstanceEditController', require('./controller/EditController'));
-angular.module('instance').factory('InstanceResource', function ($resource, EnvConfigService) {
-  var apiUrl = EnvConfigService.get('apiUrl');
-  return $resource(apiUrl + '/api/vmproinstance/:instanceId', {instanceId: '@id'}, {});
-});
-angular.module('instance').config(function ($stateProvider, $translatePartialLoaderProvider) {
-  angular.forEach(RoutingConfig, function (config, name) {
-    $stateProvider.state(name, config);
-  });
-  $translatePartialLoaderProvider.addPart('instance');
-});
+  .controller('InstanceListController', require('./controller/ListController'))
+  .controller('InstanceDetailController', require('./controller/DetailController'))
+  .controller('InstanceNewController', require('./controller/NewController'))
+  .controller('InstanceEditController', require('./controller/EditController'))
 
+  .factory('InstanceResource', function ($resource, EnvConfigService) {
+    var apiUrl = EnvConfigService.get('apiUrl');
+    return $resource(apiUrl + '/api/vmproinstance/:instanceId', {instanceId: '@id'}, {});
+  })
+
+  .config(function ($stateProvider, $translatePartialLoaderProvider) {
+    angular.forEach(RoutingConfig, function (config, name) {
+      $stateProvider.state(name, config);
+    });
+    $translatePartialLoaderProvider.addPart(ModuleName);
+  })
+;
