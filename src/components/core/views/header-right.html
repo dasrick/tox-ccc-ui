@@ -1,48 +1,9 @@
 <ul class="nav navbar-nav pull-right">
-
-    <!--
-    <li class="dropdown" dropdown is-open="status.isopenappmenu">
-        <a title="{{'core.header.menu.app.title'|translate}}" dropdown-toggle ng-disabled="disabled">
-            <i class="fa {{'core.header.menu.app.icon'|translate}}"></i>
-            <span translate="core.header.menu.app.label"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li ng-class="{'active':('app.management'|includedByState)}">
-                <a ui-sref="app.management.dashboard({selectedCustomerId: headerRightVm.customer.selected.id})"
-                   translate="core.section.customer.label"></a>
-            </li>
-            <li ng-class="{'active':('app.admin'|includedByState)}">
-                <a ui-sref="app.admin.product" translate="core.section.admin.label"></a>
-            </li>
-        </ul>
-    </li>
-
-
-    <li class="dropdown" dropdown is-open="status.isopenusermenu">
-        <a title="{{headerRightVm.currentUser.firstName}} {{headerRightVm.currentUser.lastName}}" dropdown-toggle
-           ng-disabled="disabled">
-            <img gravatar-src="'{{headerRightVm.currentUser.email}}'" class="gravatar">
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li ng-class="{'active':('app.profile'|includedByState)}">
-                <a ui-sref="app.profile.user.data" translate="core.section.profile.label"></a>
-            </li>
-            <li class="divider"></li>
-            <li>
-                <a title="{{'core.header.logout.title'|translate}}"
-                   ng-click="headerRightVm.logout()"
-                   translate="core.header.logout.label"></a>
-            </li>
-        </ul>
-    </li>
-    -->
-
     <li>
         <a class="no-label" title="{{'core.header.logout.title'|translate}}" ng-click="headerRightVm.logout()">
             <i class="fa {{'core.header.logout.icon'|translate}}"></i>
         </a>
     </li>
-
 </ul>
 
 <ul class="nav navbar-nav navbar-right" ng-if="('app.management'|includedByState)">

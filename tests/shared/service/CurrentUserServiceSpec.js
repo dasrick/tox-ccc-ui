@@ -8,7 +8,7 @@ describe('Shared:Service:CurrentUserService', function () {
   var Cache, jwtHelper;
   var testToken = 'accessToken';
   var testUser = {id:23,name:'foo',customer:{id:42,type:'admin'}};
-  var testCustomer = {id:42,type:'admin',name:'bar'}
+  var testCustomer = {id:42,type:'admin',name:'bar'};
 
   beforeEach(function () {
     angular.mock.inject(function ($injector) {

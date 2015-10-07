@@ -6,7 +6,6 @@ process.env.appversion = require('../package.json').version;
 
 require('angular-bootstrap');
 require('angular-cache');
-require('angular-gravatar');
 require('angular-jwt');
 require('angular-loading-bar');
 require('angular-resource');
@@ -19,7 +18,6 @@ require('ui-select');
 var requires = [
   'ui.bootstrap',
   'angular-cache',
-  'ui.gravatar',
   'angular-jwt',
   'angular-loading-bar',
   'ngResource',
@@ -34,7 +32,7 @@ var requires = [
 
 angular.module('tox-ccc-ui-app', requires)
 
-  // put jwt token into requests
+  // put jwt token into requests ///////////////////////////////////////////////////////////////////////////////////////
   .config(function ($httpProvider, jwtInterceptorProvider) {
     jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
       //
@@ -49,7 +47,7 @@ angular.module('tox-ccc-ui-app', requires)
     $httpProvider.interceptors.push('jwtInterceptor');
   })
 
-  // redirect for unknown routes
+  // redirect for unknown routes ///////////////////////////////////////////////////////////////////////////////////////
   .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
       var $state, CurrentUserService;
@@ -65,7 +63,7 @@ angular.module('tox-ccc-ui-app', requires)
     $resourceProvider.defaults.stripTrailingSlashes = true;
   })
 
-  // check routes for auth and redirect if needed
+  // check routes for auth and redirect if needed //////////////////////////////////////////////////////////////////////
   .run(function ($rootScope, $injector) {
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       var requireAuth = toState.data.requireAuth;
@@ -83,8 +81,9 @@ angular.module('tox-ccc-ui-app', requires)
       }
     });
   })
+  // ===================================================================================================================
 
-
+  // translation stuff /////////////////////////////////////////////////////////////////////////////////////////////////
   .config(function ($translateProvider) {
     $translateProvider.useSanitizeValueStrategy('escaped');
     $translateProvider.useLoader('$translatePartialLoader', {
@@ -109,28 +108,22 @@ angular.module('tox-ccc-ui-app', requires)
       return $translateProvider.preferredLanguage('de');
     }
   })
+  // ===================================================================================================================
+
+  // angular-loading-bar ///////////////////////////////////////////////////////////////////////////////////////////////
   .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
   }])
-  .config(['gravatarServiceProvider', function (gravatarServiceProvider) {
-    gravatarServiceProvider.defaults = {
-      size: 100,
-      'default': 'mm'  // Mystery man as default for missing avatars
-    };
+  // ===================================================================================================================
 
-    // Use https endpoint
-    gravatarServiceProvider.secure = true;
-
-    // Force protocol
-    //gravatarServiceProvider.protocol = 'my-protocol';
-  }
-  ])
+  // mi-angular-alert-service //////////////////////////////////////////////////////////////////////////////////////////
   .constant('ALERT_LEVELS', {
     danger: {timeout: 10000},
     warning: {timeout: 5000},
     success: {timeout: 3000},
     info: {timeout: 3000}
   })
+  // ===================================================================================================================
 ;
 
 angular.bootstrap(document, ['tox-ccc-ui-app']);
