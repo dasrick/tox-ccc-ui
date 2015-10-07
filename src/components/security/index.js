@@ -7,11 +7,11 @@ var ModuleName = 'security',
 module.exports = angular.module(ModuleName, [])
 
   .controller('SecurityLoginController', require('./controller/LoginController'))
-  .controller('SecurityLogoutController', require('./controller/LogoutController'))
+  .controller('SecurityRequestPasswordController', require('./controller/RequestPasswordController'))
   .controller('SecurityRequestPasswordController', require('./controller/RequestPasswordController'))
 
   .factory('PermissionService', require('./service/PermissionService'))
-  .service('SecurityService', require('./service/SecurityService'))
+  .factory('AuthService', require('./service/AuthService'))
 
   .directive('hasRole', require('./directive/HasRole'))
   .directive('hasType', require('./directive/HasType'))

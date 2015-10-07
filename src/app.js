@@ -33,8 +33,10 @@ var requires = [
 ];
 
 angular.module('tox-ccc-ui-app', requires)
+
+  // put jwt token into requests
   .config(function ($httpProvider, jwtInterceptorProvider) {
-    jwtInterceptorProvider.tokenGetter = ['UserService', function (UserService) {
+    jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
       //
       // CCC Frontend erweitern siehe
       // https://github.com/auth0/angular-jwt
@@ -42,27 +44,47 @@ angular.module('tox-ccc-ui-app', requires)
       // CCC Backend erweitern siehe
       // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
       //
-      return UserService.getToken();
+      return CurrentUserService.getAccessToken();
     }];
     $httpProvider.interceptors.push('jwtInterceptor');
   })
-  //.config(function ($httpProvider) {
-  //  $httpProvider.interceptors.push('AlertInterceptor');
-  //})
+
+  // redirect for unknown routes
   .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
-      var $state, UserService;
-      UserService = $injector.get('UserService');
+      var $state, CurrentUserService;
+      CurrentUserService = $injector.get('CurrentUserService');
       $state = $injector.get('$state');
-      if (UserService.isLoggedIn() === true) {
+      if (CurrentUserService.isLoggedIn() === true) {
         $state.go('app.management.dashboard');
       } else {
+        CurrentUserService.logout();
         $state.go('app.security.login');
       }
     });
     $resourceProvider.defaults.stripTrailingSlashes = true;
-    //$locationProvider.html5Mode(true).hashPrefix('!');
   })
+
+  // check routes for auth and redirect if needed
+  .run(function ($rootScope, $injector) {
+    $rootScope.$on('$stateChangeStart', function (event, toState) {
+      var requireAuth = toState.data.requireAuth;
+      if (requireAuth === false) {
+        return;
+      } else {
+        var $state, CurrentUserService;
+        CurrentUserService = $injector.get('CurrentUserService');
+        $state = $injector.get('$state');
+        if (!CurrentUserService.getAccessToken()) {
+          event.preventDefault();
+          CurrentUserService.logout();
+          $state.go('security.login', {}, {'reload': true});
+        }
+      }
+    });
+  })
+
+
   .config(function ($translateProvider) {
     $translateProvider.useSanitizeValueStrategy('escaped');
     $translateProvider.useLoader('$translatePartialLoader', {

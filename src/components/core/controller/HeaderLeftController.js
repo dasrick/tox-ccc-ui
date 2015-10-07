@@ -2,8 +2,8 @@
 /**
  * @ngInject
  */
-module.exports = function (CustomerService) {
+module.exports = function (CurrentUserService) {
   var vm = this;
   vm.customer = {};
-  vm.customer.selected = CustomerService.getSelectedCustomer();
+  vm.selectedCustomer = CurrentUserService.getSelectedCustomer();
 };

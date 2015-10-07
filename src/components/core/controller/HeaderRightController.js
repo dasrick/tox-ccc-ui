@@ -3,24 +3,25 @@
 /**
  * @ngInject
  */
-module.exports = function ($scope, $state, SecurityService, UserService, CustomerService, customers) {
+module.exports = function ($scope, $state, CurrentUserService, customers) {
   var vm = this;
-  vm.currentUser = UserService.getUser();
+  vm.currentUser = CurrentUserService.getUser();
   vm.customers = customers;
-  vm.customer = {};
-  vm.customer.selected = CustomerService.getSelectedCustomer();
+  vm.selectedCustomer = CurrentUserService.getSelectedCustomer();
+  vm.logout = logout;
 
-  $scope.$watch('headerRightVm.customer.selected', function (customer, oldCustomer) {
-    if ((customer != null) && oldCustomer.id !== customer.id) {
-      CustomerService.setSelectedCustomer(customer);
-      $state.go('.', {selectedCustomerId: customer.id}, {'reload':true});
+  ////////////
+
+  function logout() {
+    CurrentUserService.logout();
+    $state.go('app.security.login', {}, {'reload': true});
+  }
+
+  $scope.$watch('headerRightVm.selectedCustomer', function (newCustomer, oldCustomer) {
+    if ((newCustomer != null) && oldCustomer.id !== newCustomer.id) {
+      CurrentUserService.setSelectedCustomer(newCustomer);
+      $state.go('.', {selectedCustomerId: newCustomer.id}, {'reload':true});
     }
   });
-
-  vm.logout = function () {
-    SecurityService.logout();
-    CustomerService.clear();
-    $state.go('app.security.login');
-  };
 
 };

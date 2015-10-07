@@ -6,7 +6,7 @@ describe('Components:Core:Controller:HeaderLeftController', function () {
 
   var createController, $q, $rootScope, locals;
 
-  var CustomerService = jasmine.createSpyObj('CustomerService', ['getSelectedCustomer']);
+  var CurrentUserService = jasmine.createSpyObj('CurrentUserService', ['getSelectedCustomer']);
 
   beforeEach(function () {
     angular.mock.inject(function ($injector) {
@@ -14,7 +14,7 @@ describe('Components:Core:Controller:HeaderLeftController', function () {
       $q = $injector.get('$q');
       $rootScope = $injector.get('$rootScope');
       locals = {
-        'CustomerService': CustomerService
+        CurrentUserService: CurrentUserService
       };
       createController = function () {
         return $controller(HeaderLeftController, locals);

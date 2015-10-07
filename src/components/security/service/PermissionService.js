@@ -3,11 +3,11 @@
 /**
  * @ngInject
  */
-module.exports = function (UserService) {
+module.exports = function (CurrentUserService) {
   return {
     hasRole: function (roleName) {
       var user;
-      user = UserService.getUser();
+      user = CurrentUserService.getUser();
       if (!user) {
         return false;
       }
@@ -15,7 +15,7 @@ module.exports = function (UserService) {
     },
     hasType: function (typeName) {
       var user;
-      user = UserService.getUser();
+      user = CurrentUserService.getUser();
       if (!user) {
         return false;
       }

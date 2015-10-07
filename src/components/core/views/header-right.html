@@ -46,7 +46,7 @@
 </ul>
 
 <ul class="nav navbar-nav navbar-right" ng-if="('app.management'|includedByState)">
-    <ui-select ng-model="headerRightVm.customer.selected" theme="bootstrap" ng-disabled="disabled">
+    <ui-select ng-model="headerRightVm.selectedCustomer" theme="bootstrap" ng-disabled="disabled">
         <ui-select-match placeholder="loading">{{$select.selected.name}}</ui-select-match>
         <ui-select-choices repeat="c in headerRightVm.customers | filter: {name: $select.search}">
             <div ng-bind-html="c.name | highlight: $select.search" class="option-value"></div>

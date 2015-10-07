@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function (UserService, CustomerService) {
+module.exports = function (CurrentUserService) {
   var vm = this;
   vm.appversion = process.env.appversion;
   vm.settings = {
@@ -15,9 +15,9 @@ module.exports = function (UserService, CustomerService) {
     profile: false
   };
 
-  if (UserService.isLoggedIn() === true) {
-    vm.currentUser = UserService.getUser();
-    vm.selectedCustomer = CustomerService.getSelectedCustomer();
+  if (CurrentUserService.isLoggedIn() === true) {
+    vm.currentUser = CurrentUserService.getUser();
+    vm.selectedCustomer = CurrentUserService.getSelectedCustomer();
   }
 
   function toggleSection(section) {
