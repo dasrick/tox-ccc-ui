@@ -2,15 +2,26 @@
 
 var InstanceDetailController = require('../../../../src/components/instance/controller/DetailController');
 
-describe('Components:Instance:Controller:InstanceDetailController', function () {
+describe('Components:Instance:Controller:DetailController', function () {
 
-  var createController, instance;
+  var createController, $rootScope;
+  var instance, $scope, $state, AlertService;
 
   beforeEach(function () {
+    $state = jasmine.createSpyObj('$state', ['go']);
+    AlertService = jasmine.createSpyObj('AlertService', ['add']);
     angular.mock.inject(function ($injector) {
+      $rootScope = $injector.get('$rootScope');
+      $scope = $rootScope.$new();
       var $controller = $injector.get('$controller');
       createController = function () {
-        return $controller(InstanceDetailController, {instance: instance});
+        var locals = {
+          instance: instance,
+          $scope: $scope,
+          $state: $state,
+          AlertService: AlertService
+        };
+        return $controller(InstanceDetailController, locals);
       };
     });
   });

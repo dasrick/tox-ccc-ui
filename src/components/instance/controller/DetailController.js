@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function (instance) {
+module.exports = function (instance, $scope, $state, AlertService) {
   var vm = this;
   vm.instanceOriginal = angular.copy(instance);
   vm.instance = instance;
@@ -42,13 +42,25 @@ module.exports = function (instance) {
     }
   };
 
+  //////////
+
   function reset() {
     vm.instance = vm.instanceOriginal;
+    $scope.formInstance.$setPristine(); // $scope ... nessesary for reset of form validation foo
   }
 
   function save() {
-    console.log('save');
-    console.log('vm.instance.name: ', vm.instance.name);
-    console.log('instance.name: ', instance.name);
+    //console.log('save');
+    //console.log('vm.instance: ', vm.instance);
+    //console.log('instance: ', instance);
+
+    if (angular.isDefined(instance.id)) {
+      console.log('it should be an UPDATE');
+    } else {
+      console.log('it should be a CREATE');
+      //instance.$save(); // IT WORKS
+      AlertService.add('success', 'instance.msg.create.success');
+      $state.go('^', {}, {reload: true});
+    }
   }
 };

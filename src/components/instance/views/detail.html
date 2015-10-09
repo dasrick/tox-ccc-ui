@@ -1,35 +1,43 @@
 <section class="section-head">
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <a ui-sref="app.admin.instance"
-               tooltip-placement="bottom"
-               tooltip-popup-delay="1000"
-               tooltip-append-to-body="true"
-               tooltip="[de] Zurück zur Liste">
-                <button class="btn btn-mi24 btn-info">
-                    <i class="fa fa-arrow-circle-left"></i>
-                </button>
-            </a>
-            <a ng-click="instanceDetailVm.reset()"
-               tooltip-placement="bottom"
-               tooltip-popup-delay="1000"
-               tooltip-append-to-body="true"
-               tooltip="[de] Zurücksetzen">
-                <button class="btn btn-mi24 btn-warning">
-                    <i class="fa fa-undo"></i>
-                </button>
-            </a>
-            <a ng-click="instanceDetailVm.save()"
-               tooltip-placement="bottom"
-               tooltip-popup-delay="1000"
-               tooltip-append-to-body="true"
-               tooltip="[de] Speichern">
-                <button class="btn btn-mi24 btn-primary">
-                    <i class="fa fa-save"></i>
-                </button>
-            </a>
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <a class="btn btn-mi24 btn-info"
+                       ui-sref="app.admin.instance"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-warning"
+                       ng-click="instanceDetailVm.reset()"
+                       ng-disabled="formInstance.$pristine"
+                       has-type="admin"
+                       has-role="instance_edit"
+                       ng-show="hasType['admin'] && hasRole['instance_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurücksetzen">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-click="instanceDetailVm.save()"
+                       ng-disabled="formInstance.$invalid || formInstance.$pristine"
+                       has-type="admin"
+                       has-role="instance_edit"
+                       ng-show="hasType['admin'] && hasRole['instance_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 text-right"></div>
     </div>
 </section>
 
@@ -37,9 +45,10 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h2 translate="instance.common.singular.title"></h2></div>
         <div class="panel-body">
-            <form name="form" novalidate>
+            <form class="form" id="formInstance" name="formInstance" novalidate>
                 <div ng-repeat="(fieldKey, fieldValue) in instanceDetailVm.fields"
-                     class="form-group" ng-class="{'has-error': form.fieldKey.$error.required}">
+                     class="form-group"
+                     ng-class="{'has-error':formInstance[fieldKey].$invalid && !formInstance[fieldKey].$pristine }">
                     <label class="control-label"
                            for="{{fieldKey}}"
                            translate="instance.form.{{fieldKey}}.label"

@@ -30,5 +30,20 @@ module.exports = {
         return InstanceResource.get({instanceId: $stateParams.instanceId}).$promise;
       }
     }
+  },
+  'app.admin.instance.create': {
+    //url: '/{instanceId:[0-9a-zA-Z]{1,}}',
+    views: {
+      'content@app.admin': {
+        templateUrl: '/views/instance/detail.html',
+        controller: 'InstanceDetailController as instanceDetailVm'
+      }
+    },
+    resolve: {
+      InstanceResource: 'InstanceResource',
+      instance: function (InstanceResource) {
+        return new InstanceResource();
+      }
+    }
   }
 };

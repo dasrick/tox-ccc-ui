@@ -8,7 +8,8 @@ module.exports = function () {
       local: {
         host: 'localhost:3000',
         config: {
-          apiUrl: 'https://ccc-qa.video-cdn.net'
+          apiUrl: 'https://ccc.mi24.dev'
+          //apiUrl: 'https://ccc-qa.video-cdn.net'
         }
       },
       stage: {
