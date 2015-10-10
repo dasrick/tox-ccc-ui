@@ -2,58 +2,94 @@
 /**
  * @ngInject
  */
-module.exports = function (instance, $scope, $state, AlertService) {
+module.exports = function (instance, $scope, $state, AlertService, $translate) {
   var vm = this;
-  vm.instance = instance;
-  vm.instanceOriginal = angular.copy(instance);
+  // functions
   vm.reset = reset;
   vm.save = save;
-
-  // the key is used for translation and data binding
-  // the other properties should be self-explanatory
-  vm.fields = {
-    name: {
-      inputType: 'text',
-      required: true
-    },
-    baseUrl: {
-      inputType: 'text',
-      required: true
-    },
-    authUrl: {
-      inputType: 'text',
-      required: true
-    },
-    authClientId: {
-      inputType: 'text',
-      required: true
-    },
-    authClientSecret: {
-      inputType: 'text',
-      required: true
-    },
-    authUsername: {
-      inputType: 'text',
-      required: true
-    },
-    authPassword: {
-      inputType: 'text',
-      required: true
-    }
-  };
+  // variables
+  vm.originalModel = angular.copy(instance);
+  vm.model = instance;
+  vm.options = {};
+  vm.fields = getFields();
+  vm.originalFields = angular.copy(vm.fields);
 
   //////////
 
+  function getFields() {
+    return [
+      {
+        key: 'name',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.name.label'),
+          placeholder: $translate.instant('instance.form.name.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'baseUrl',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.baseUrl.label'),
+          placeholder: $translate.instant('instance.form.baseUrl.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'authUrl',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.authUrl.label'),
+          placeholder: $translate.instant('instance.form.authUrl.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'authClientId',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.authClientId.label'),
+          placeholder: $translate.instant('instance.form.authClientId.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'authClientSecret',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.authClientSecret.label'),
+          placeholder: $translate.instant('instance.form.authClientSecret.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'authUsername',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.authUsername.label'),
+          placeholder: $translate.instant('instance.form.authUsername.placeholder'),
+          required: true
+        }
+      },
+      {
+        key: 'authPassword',
+        type: 'input',
+        templateOptions: {
+          label: $translate.instant('instance.form.authPassword.label'),
+          placeholder: $translate.instant('instance.form.authPassword.placeholder'),
+          required: true
+        }
+      }
+    ];
+  }
+
   function reset() {
-    vm.instance = vm.instanceOriginal;
+    vm.model = vm.originalModel;
     $scope.formInstance.$setPristine(); // $scope ... nessesary for reset of form validation foo
   }
 
   function save() {
-    //console.log('save');
-    //console.log('vm.instance: ', vm.instance);
-    //console.log('instance: ', instance);
-
     if (angular.isDefined(instance.id)) {
       console.log('it should be an UPDATE');
     } else {

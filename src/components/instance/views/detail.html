@@ -47,23 +47,11 @@
             <h2 translate="instance.common.singular.title"></h2>
         </div>
         <div class="panel-body">
-            <form class="form" id="formInstance" name="formInstance" novalidate>
-                <div ng-repeat="(fieldKey, fieldValue) in instanceDetailVm.fields"
-                     class="form-group"
-                     ng-class="{'has-error':formInstance[fieldKey].$invalid && !formInstance[fieldKey].$pristine }">
-                    <label class="control-label"
-                           for="{{fieldKey}}"
-                           translate="instance.form.{{fieldKey}}.label"
-                           popover="{{ 'instance.form.' + fieldKey + '.tooltip' | translate}}"
-                           popover-trigger="mouseenter"
-                           popover-placement="right"></label>
-                    <input id="{{fieldKey}}"
-                           name="{{fieldKey}}"
-                           type="{{fieldValue.inputType}}"
-                           class="form-control"
-                           ng-model="instanceDetailVm.instance[fieldKey]"
-                           required="{{fieldValue.required}}"/>
-                </div>
+            <form name="formInstance">
+                <formly-form model="instanceDetailVm.model"
+                             fields="instanceDetailVm.fields"
+                             options="instanceDetailVm.options">
+                </formly-form>
             </form>
         </div>
     </div>

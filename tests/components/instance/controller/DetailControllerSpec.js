@@ -5,11 +5,13 @@ var InstanceDetailController = require('../../../../src/components/instance/cont
 describe('Components:Instance:Controller:DetailController', function () {
 
   var createController, $rootScope;
-  var instance, $scope, $state, AlertService;
+  var instance, $scope, $state, AlertService, $translate;
+
 
   beforeEach(function () {
     $state = jasmine.createSpyObj('$state', ['go']);
     AlertService = jasmine.createSpyObj('AlertService', ['add']);
+    $translate = jasmine.createSpyObj('$translate', ['instant']);
     angular.mock.inject(function ($injector) {
       $rootScope = $injector.get('$rootScope');
       $scope = $rootScope.$new();
@@ -19,7 +21,8 @@ describe('Components:Instance:Controller:DetailController', function () {
           instance: instance,
           $scope: $scope,
           $state: $state,
-          AlertService: AlertService
+          AlertService: AlertService,
+          $translate: $translate
         };
         return $controller(InstanceDetailController, locals);
       };
@@ -29,7 +32,7 @@ describe('Components:Instance:Controller:DetailController', function () {
   it('should init the instance', function () {
     instance = 'instance';
     var controller = createController();
-    expect(controller.instance).toBe('instance');
+    expect(controller.model).toBe('instance');
   });
 
 });
