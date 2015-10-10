@@ -1,15 +1,20 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 module.exports = require('angular')
   .module('shared', [])
 
   .directive('isInBaseState', require('./directive/IsInBaseState'))
   .directive('rowListItem', require('./directive/RowListItem'))
 
-  //.factory('AlertService', require('./service/AlertService'))
-  //.factory('AlertInterceptor', require('./interceptor/AlertInterceptor'))
-
-  .service('EnvConfigService', require('./service/EnvConfigService'))
   .factory('CurrentUserService', require('./service/CurrentUserService'))
+  .service('EnvConfigService', require('./service/EnvConfigService')) // the last one who is using this ... AuthService
 
+  // mi-angular-resource-builder ///////////////////////////////////////////////////////////////////////////////////////
+  .config(function (ResourceBuilderProvider) {
+    var resources = require('./resource/index');
+    ResourceBuilderProvider.addResources(resources);
+  })
+  // ===================================================================================================================
 ;

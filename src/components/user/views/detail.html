@@ -1,6 +1,69 @@
-<section class="section-head"></section>
+<section class="section-head">
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <a ng-if="('app.management.user'|includedByState)"
+                       class="btn btn-mi24 btn-info"
+                       ui-sref="app.management.user"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a ng-if="('app.admin.user'|includedByState)"
+                       class="btn btn-mi24 btn-info"
+                       ui-sref="app.admin.user"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-warning"
+                       ng-click="userDetailVm.reset()"
+                       ng-disabled="formUser.$pristine"
+                       has-type="admin"
+                       has-role="user_edit"
+                       ng-show="hasType['admin'] && hasRole['user_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurücksetzen">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-click="userDetailVm.save()"
+                       ng-disabled="formUser.$invalid || formUser.$pristine"
+                       has-type="admin"
+                       has-role="user_edit"
+                       ng-show="hasType['admin'] && hasRole['user_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section-body">
-    user detail
-    <pre>{{userDetailVm.user}}</pre>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 translate="user.common.singular.title"></h2>
+        </div>
+        <div class="panel-body">
+            <form name="formUser">
+                <formly-form model="userDetailVm.model"
+                             fields="userDetailVm.fields"
+                             options="userDetailVm.options">
+                </formly-form>
+            </form>
+        </div>
+    </div>
 </section>
 <!--<section class="section-foot"></section>-->

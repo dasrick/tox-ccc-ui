@@ -1,6 +1,5 @@
 'use strict';
 
-//var angular = require('angular');
 var ModuleName = 'core',
   RoutingConfig = require('./config');
 

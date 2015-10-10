@@ -1,4 +1,7 @@
 'use strict';
+/**
+ * @ngInject
+ */
 
 var angular = require('angular');
 
@@ -6,6 +9,8 @@ process.env.appversion = require('../package.json').version;
 
 require('angular-bootstrap');
 require('angular-cache');
+require('angular-formly');
+require('angular-formly-templates-bootstrap');
 require('angular-jwt');
 require('angular-loading-bar');
 require('angular-resource');
@@ -14,10 +19,13 @@ require('angular-translate');
 require('angular-translate-loader-partial');
 require('angular-ui-router');
 require('mi-angular-alert-service');
+require('mi-angular-resource-builder');
 require('ui-select');
 var requires = [
   'ui.bootstrap',
   'angular-cache',
+  'formly',
+  'formlyBootstrap',
   'angular-jwt',
   'angular-loading-bar',
   'ngResource',
@@ -25,6 +33,7 @@ var requires = [
   'pascalprecht.translate',
   'ui.router',
   'mi.AlertService',
+  'mi.ResourceBuilder',
   'ui.select',
   require('./shared').name,
   require('./components').name

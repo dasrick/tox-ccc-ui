@@ -4,8 +4,8 @@
  */
 module.exports = function (instance, $scope, $state, AlertService) {
   var vm = this;
-  vm.instanceOriginal = angular.copy(instance);
   vm.instance = instance;
+  vm.instanceOriginal = angular.copy(instance);
   vm.reset = reset;
   vm.save = save;
 

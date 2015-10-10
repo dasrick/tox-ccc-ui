@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  // admin part ////////////////////////////////////////////////////////////////////////////////////////////////////////
   'app.admin.user': {
     url: '/user',
     views: {
@@ -31,6 +32,21 @@ module.exports = {
       }
     }
   },
+  'app.admin.user.create': {
+    views: {
+      'content@app.admin': {
+        templateUrl: '/views/user/detail.html',
+        controller: 'UserDetailController as userDetailVm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      user: function (UserResource) {
+        return new UserResource();
+      }
+    }
+  },
+  // management part ///////////////////////////////////////////////////////////////////////////////////////////////////
   'app.management.user': {
     url: '/user',
     views: {
@@ -61,6 +77,21 @@ module.exports = {
       }
     }
   },
+  'app.management.user.create': {
+    views: {
+      'content@app.management': {
+        templateUrl: '/views/user/detail.html',
+        controller: 'UserDetailController as userDetailVm'
+      }
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      user: function (UserResource) {
+        return new UserResource();
+      }
+    }
+  },
+  // profile part //////////////////////////////////////////////////////////////////////////////////////////////////////
   'app.profile.user': {
     url: '/user',
     views: {

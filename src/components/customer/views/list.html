@@ -1,37 +1,70 @@
-
 <section class="section-head">
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <!--
-            <a
-               class="btn btn-mi24 btn-success"
-               ui-sref="app.admin.customer.create"
-               has-role="customer_create"
-               ng-show="hasRole['customer_create']">
-                <i class="fa fa-plus-square"></i>
-            </a>
-            -->
-        </div>
-        <div class="col-sm-6 text-right">
-            <button class="btn btn-mi24 btn-primary">
-                <i class="fa fa-th-large"></i>
-            </button>
-            <button class="btn btn-mi24 btn-primary">
-                <i class="fa fa-th-list"></i>
-            </button>
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <a ng-if="('app.admin'|includedByState)"
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.admin.customer.create"
+                       has-type="admin"
+                       has-role="customer_create"
+                       ng-show="hasType['admin'] && hasRole['customer_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Neu anlegen">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                    <a ng-if="('app.management'|includedByState)"
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.management.customer.create"
+                       has-type="admin"
+                       has-role="customer_create"
+                       ng-show="hasType['admin'] && hasRole['customer_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Neu anlegen">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <a class="btn btn-mi24 btn-primary"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Liste in Kacheln">
+                        <i class="fa fa-th-large"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-primary"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Liste in Zeilen">
+                        <i class="fa fa-th-list"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <section class="section-body">
-    <h2 translate="customer.list.headline.label"></h2>
-    <p translate="customer.list.description"></p>
-    <div class="item-list"
-         ng-repeat="mainroute in ['admin', 'management']">
-        <div ng-if="('app.'+mainroute|includedByState)"
-             ng-repeat="item in customerListVm.preparedList"
-             row-list-item="item"
-             row-list-route="app.{{mainroute}}.customer.detail({customerId:item.id})"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 translate="customer.list.headline.label"></h2>
+
+            <p translate="customer.list.description"></p>
+        </div>
+        <div class="panel-body">
+            <div class="item-list"
+                 ng-repeat="mainroute in ['admin', 'management']">
+                <div ng-if="('app.'+mainroute|includedByState)"
+                     ng-repeat="item in customerListVm.preparedList"
+                     row-list-item="item"
+                     row-list-route="app.{{mainroute}}.customer.detail({customerId:item.id})"></div>
+            </div>
+        </div>
     </div>
 </section>
 <!--<section class="section-foot"></section>-->
-

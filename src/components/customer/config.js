@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  // admin part ////////////////////////////////////////////////////////////////////////////////////////////////////////
   'app.admin.customer': {
     url: '/customer',
     views: {
@@ -31,6 +32,21 @@ module.exports = {
       }
     }
   },
+  'app.admin.customer.create': {
+    views: {
+      'content@app.admin': {
+        templateUrl: '/views/customer/detail.html',
+        controller: 'CustomerDetailController as customerDetailVm'
+      }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customer: function (CustomerResource) {
+        return new CustomerResource();
+      }
+    }
+  },
+  // management part ///////////////////////////////////////////////////////////////////////////////////////////////////
   'app.management.customer': {
     url: '/customer',
     views: {
@@ -61,6 +77,21 @@ module.exports = {
       }
     }
   },
+  'app.management.customer.create': {
+    views: {
+      'content@app.management': {
+        templateUrl: '/views/customer/detail.html',
+        controller: 'CustomerDetailController as customerDetailVm'
+      }
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      customer: function (CustomerResource) {
+        return new CustomerResource();
+      }
+    }
+  },
+  // profile part //////////////////////////////////////////////////////////////////////////////////////////////////////
   'app.profile.customer': {
     url: '/customer',
     views: {

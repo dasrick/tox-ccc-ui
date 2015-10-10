@@ -9,6 +9,24 @@
   "customer.sidebar-profile.title": "Firma",
   "customer.sidebar-profile.icon": "fa-building",
 
+  "customer.common.singular.title": "Kunde",
+  "customer.common.plural.title": "Kunden",
+
   "customer.list.headline.label": "Kundenliste",
-  "customer.list.description": "Kunden sind in der Regel Firmen, welche als Basis zur Buchung von Produkten verwendet werden."
+  "customer.list.description": "Kunden sind in der Regel Firmen, welche als Basis zur Buchung von Produkten verwendet werden.",
+
+  "customer.form.name.label": "Unternehmen/ Verband",
+  "customer.form.phone.label": "Telefon",
+  "customer.form.fax.label": "Fax",
+  "customer.form.type.label": "Type",
+  "customer.form.address.street.label": "Straße",
+  "customer.form.address.zip.label": "Postleitzahl",
+  "customer.form.address.city.label": "Stadt",
+  "customer.form.address.country.label": "Land",
+  "customer.form.contact.label": "Kontakt",
+  "customer.form.contact.title.label" : "Titel",
+  "customer.form.contact.salutation.label" : "Anrede",
+  "customer.form.contact.firstName.label" : "Vorname",
+  "customer.form.contact.lastName.label" : "Nachname",
+  "customer.form.contact.email.label" : "E-Mail"
 }

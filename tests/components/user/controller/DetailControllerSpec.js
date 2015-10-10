@@ -4,13 +4,28 @@ var UserDetailController = require('../../../../src/components/user/controller/D
 
 describe('Components:User:Controller:DetailController', function () {
 
-  var createController, user;
+  var createController, $rootScope;
+  var user, $scope, $state, AlertService, $translate, CurrentUserService;
 
   beforeEach(function () {
+    $state = jasmine.createSpyObj('$state', ['go']);
+    AlertService = jasmine.createSpyObj('AlertService', ['add']);
+    $translate = jasmine.createSpyObj('$translate', ['instant']);
+    CurrentUserService = jasmine.createSpyObj('CurrentUserService', ['getSelectedCustomer']);
     angular.mock.inject(function ($injector) {
+      $rootScope = $injector.get('$rootScope');
+      $scope = $rootScope.$new();
       var $controller = $injector.get('$controller');
       createController = function () {
-        return $controller(UserDetailController, {user: user});
+        var locals = {
+          user: user,
+          $scope: $scope,
+          $state: $state,
+          AlertService: AlertService,
+          $translate: $translate,
+          CurrentUserService: CurrentUserService
+        };
+        return $controller(UserDetailController, locals);
       };
     });
   });
@@ -18,7 +33,7 @@ describe('Components:User:Controller:DetailController', function () {
   it('should init the User', function () {
     user = 'user';
     var controller = createController();
-    expect(controller.user).toBe('user');
+    expect(controller.model).toBe('user');
   });
 
 });
