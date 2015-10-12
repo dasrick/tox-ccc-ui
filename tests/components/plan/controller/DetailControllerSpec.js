@@ -4,13 +4,26 @@ var PlanDetailController = require('../../../../src/components/plan/controller/D
 
 describe('Components:Plan:Controller:DetailController', function () {
 
-  var createController, plan;
+  var createController, $rootScope;
+  var plan, $scope, $state, AlertService, $translate;
 
   beforeEach(function () {
+    $state = jasmine.createSpyObj('$state', ['go']);
+    AlertService = jasmine.createSpyObj('AlertService', ['add']);
+    $translate = jasmine.createSpyObj('$translate', ['instant']);
     angular.mock.inject(function ($injector) {
+      $rootScope = $injector.get('$rootScope');
+      $scope = $rootScope.$new();
       var $controller = $injector.get('$controller');
       createController = function () {
-        return $controller(PlanDetailController, {plan: plan});
+        var locals = {
+          plan: plan,
+          $scope: $scope,
+          $state: $state,
+          AlertService: AlertService,
+          $translate: $translate
+        };
+        return $controller(PlanDetailController, locals);
       };
     });
   });
@@ -18,7 +31,7 @@ describe('Components:Plan:Controller:DetailController', function () {
   it('should init the Plan', function () {
     plan = 'plan';
     var controller = createController();
-    expect(controller.plan).toBe('plan');
+    expect(controller.model).toBe('plan');
   });
 
 });

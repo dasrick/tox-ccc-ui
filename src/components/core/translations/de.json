@@ -23,5 +23,7 @@
 
   "core.icon.active.title": "Aktivierungs-Status",
   "core.icon.in-use.title": "Verwendungs-Status",
-  "core.icon.under-review.title": "Überprüfungs-Status"
+  "core.icon.under-review.title": "Überprüfungs-Status",
+
+  "core.msg.review.description": "Dieser Datensatz kann nicht bearbeitet werden, da dieser derzeit einen Review-Prozess durchläuft."
 }

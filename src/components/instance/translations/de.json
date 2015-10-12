@@ -6,9 +6,6 @@
   "instance.common.singular.title": "Instanz",
   "instance.common.plural.title": "Instanzen",
 
-  "instance.edit.label": "Instanz bearbeiten",
-  "instance.edit.title": "Instanz bearbeiten",
-
   "instance.list.headline.label": "Instanzenliste",
   "instance.list.description": "In dieser Liste befinden sich alle Instanzen, auf denen Produkte ausgerollt werden können. Derzeit betrifft dies den VideoManager, wobei man bei der Buchung eines solchen die jeweils gewünschte Instanz angeben kann.",
 

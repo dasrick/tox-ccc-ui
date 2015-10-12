@@ -7,7 +7,6 @@ describe('Components:Instance:Controller:DetailController', function () {
   var createController, $rootScope;
   var instance, $scope, $state, AlertService, $translate;
 
-
   beforeEach(function () {
     $state = jasmine.createSpyObj('$state', ['go']);
     AlertService = jasmine.createSpyObj('AlertService', ['add']);

@@ -3,6 +3,25 @@
   "plan.sidebar-admin.title": "Tarife",
   "plan.sidebar-admin.icon": "fa-money",
 
+  "plan.common.singular.title": "Tarif",
+  "plan.common.plural.title": "Tarif",
+
   "plan.list.headline.label": "Tarifliste",
-  "plan.list.description": "In dieser Liste befinden sich alle erzeugten Tarife. Auch hier können Kombipakete erzeugt werden, welche dann im Zusammenhang mit einem Produkt verwendet werden können."
+  "plan.list.description": "In dieser Liste befinden sich alle erzeugten Tarife. Auch hier können Kombipakete erzeugt werden, welche dann im Zusammenhang mit einem Produkt verwendet werden können.",
+
+  "plan.form.title.label": "Titel",
+  "plan.form.title.placeholder": "Tragen Sie bitte einen Titel für den Tarif ein",
+
+  "plan.form.hosting_enabled.label": "Hosting",
+  "plan.form.hosting.value.label": "Hosting (in Videominuten)",
+  "plan.form.hosting.value.placeholder": "Geben sie einen Wert für das Hosting an.",
+
+  "plan.form.traffic_enabled.label": "Traffic aktivieren",
+  "plan.form.traffic.value.label": "Traffic (in gewählter Einheit)",
+  "plan.form.traffic.value.placeholder": "Geben sie einen Wert für Traffic an.",
+  "plan.form.traffic.unit.label": "Einheit",
+
+  "plan.form.user_enabled.label": "User aktivieren",
+  "plan.form.user.value.label": "Anzahl der User",
+  "plan.form.user.value.placeholder": "Geben sie einen Wert für User an."
 }

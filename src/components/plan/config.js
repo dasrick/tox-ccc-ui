@@ -30,5 +30,19 @@ module.exports = {
         return PlanResource.get({planId: $stateParams.planId}).$promise;
       }
     }
+  },
+  'app.admin.plan.create': {
+    views: {
+      'content@app.admin': {
+        templateUrl: '/views/plan/detail.html',
+        controller: 'PlanDetailController as planDetailVm'
+      }
+    },
+    resolve: {
+      PlanResource: 'PlanResource',
+      plan: function (PlanResource) {
+        return new PlanResource();
+      }
+    }
   }
 };

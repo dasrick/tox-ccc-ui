@@ -1,16 +1,66 @@
 <section class="section-head">
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <a class="btn btn-mi24 btn-primary"
-               ui-sref="app.admin.plan">
-                <i class="fa fa-arrow-circle-left"></i>
-            </a>
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <a class="btn btn-mi24 btn-info"
+                       ui-sref="app.admin.plan"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-warning"
+                       ng-click="planDetailVm.reset()"
+                       ng-disabled="formInstance.$pristine"
+                       has-type="admin"
+                       has-role="plan_edit"
+                       ng-show="hasType['admin'] && hasRole['plan_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Zurücksetzen">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-click="planDetailVm.save()"
+                       ng-disabled="formInstance.$invalid || formInstance.$pristine"
+                       has-type="admin"
+                       has-role="plan_edit"
+                       ng-show="hasType['admin'] && hasRole['plan_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 text-right"></div>
     </div>
 </section>
+
 <section class="section-body">
-    plan detail
-    <pre>{{planDetailVm.plan}}</pre>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div ng-if="planDetailVm.underReview" class="alert alert-danger" role="alert">
+                <p>
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>
+                    <span translate="core.msg.review.description"></span>
+                </p>
+            </div>
+            <h2 translate="plan.common.singular.title"></h2>
+        </div>
+        <div class="panel-body">
+            <form name="formInstance">
+                <formly-form model="planDetailVm.model"
+                             fields="planDetailVm.fields"
+                             options="planDetailVm.options">
+                </formly-form>
+            </form>
+        </div>
+    </div>
 </section>
+
 <!--<section class="section-foot"></section>-->

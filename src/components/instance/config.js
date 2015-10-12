@@ -32,7 +32,6 @@ module.exports = {
     }
   },
   'app.admin.instance.create': {
-    //url: '/{instanceId:[0-9a-zA-Z]{1,}}',
     views: {
       'content@app.admin': {
         templateUrl: '/views/instance/detail.html',
