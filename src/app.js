@@ -7,7 +7,6 @@ var angular = require('angular');
 
 process.env.appversion = require('../package.json').version;
 
-require('angular-bootstrap');
 require('angular-cache');
 require('angular-formly');
 require('angular-formly-templates-bootstrap');
@@ -17,12 +16,12 @@ require('angular-resource');
 require('angular-sanitize');
 require('angular-translate');
 require('angular-translate-loader-partial');
+require('angular-ui-bootstrap');
 require('angular-ui-router');
 require('mi-angular-alert-service');
 require('mi-angular-resource-builder');
 require('ui-select');
 var requires = [
-  'ui.bootstrap',
   'angular-cache',
   'formly',
   'formlyBootstrap',
@@ -31,6 +30,7 @@ var requires = [
   'ngResource',
   'ngSanitize',
   'pascalprecht.translate',
+  'ui.bootstrap',
   'ui.router',
   'mi.AlertService',
   'mi.ResourceBuilder',
@@ -76,9 +76,7 @@ angular.module('tox-ccc-ui-app', requires)
   .run(function ($rootScope, $injector) {
     $rootScope.$on('$stateChangeStart', function (event, toState) {
       var requireAuth = toState.data.requireAuth;
-      if (requireAuth === false) {
-        return;
-      } else {
+      if (requireAuth !== false) {
         var $state, CurrentUserService;
         CurrentUserService = $injector.get('CurrentUserService');
         $state = $injector.get('$state');

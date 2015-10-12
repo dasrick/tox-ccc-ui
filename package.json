@@ -16,7 +16,7 @@
   "devDependencies": {
     "airbrake": "~0.3.8",
     "angular": "^1.4.7",
-    "angular-bootstrap": "^0.12.2",
+    "angular-ui-bootstrap": "^0.14.1",
     "angular-cache": "~4.3.2",
     "angular-formly": "^7.1.2",
     "angular-formly-templates-bootstrap": "^6.1.5",
