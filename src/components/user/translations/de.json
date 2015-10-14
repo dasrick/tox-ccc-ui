@@ -9,6 +9,17 @@
   "user.sidebar-profile.label": "Meine Daten",
   "user.sidebar-profile.title": "Meine Daten",
 
+  "user.common.singular.title": "Benutzer",
+  "user.common.plural.title": "Benutzer",
+
   "user.list.headline.label": "Benutzerliste",
-  "user.list.description": "Benutzer werden benötigt, um sich im Customer Control Center anmelden zu können. Mit diesem Benutzer können je nach Berechtigung weitere Aktionen innerhalb des Customer Control Centers ausgelöst werden."
+  "user.list.description": "Benutzer werden benötigt, um sich im Customer Control Center anmelden zu können. Mit diesem Benutzer können je nach Berechtigung weitere Aktionen innerhalb des Customer Control Centers ausgelöst werden.",
+
+  "user.form.firstName.label": "Vorname",
+  "user.form.firstName.placeholder": "Geben Sie einen Vornamen an",
+  "user.form.lastName.label": "Nachname",
+  "user.form.lastName.placeholder": "Geben Sie einen Nachnamen an",
+  "user.form.email.label": "E-Mail",
+  "user.form.email.placeholder": "Geben Sie eine E-Mail-Adresse an",
+  "user.form.locale.label": "Sprache"
 }

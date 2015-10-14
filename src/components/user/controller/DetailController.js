@@ -14,36 +14,36 @@ module.exports = function (user, $scope, $state, AlertService, $translate, Curre
   vm.fields = getFields();
   vm.originalFields = angular.copy(vm.fields);
 
-  var userResponse = {
-    'id': '55cd815f53767e01008b457b',
-    'firstName': 'Gerolf',
-    'lastName': 'Graf',
-    'email': 'test@ccc.mi24.dev',
-    'enabled': true,
-    'locale': 'de',
-    'customer': {
-      'id': 15,
-      'name': 'SecurityCustomerAdmin',
-      'type': 'admin',
-      'contact': {
-        'firstName': 'Elwira',
-        'lastName': 'Gertz',
-        'email': 'heinzjoachim.steinberg@trubin.com',
-        'title': 'B.Eng.',
-        'salutation': 'Univ.Prof.',
-        'phone': '+4930330966000',
-        'fax': '+4930330966099'
-      },
-      'address': {'street': 'Hans-Martin-D\u00f6rr-Allee 0', 'zip': '76954', 'city': 'Uffenheim', 'country': 'CY'},
-      'phone': '+4930330966000',
-      'fax': '+4930330966099',
-      'reviewStatus': 'none'
-    },
-    'roles': ['user', 'admin'],
-    'locked': false,
-    'reachableRoles': [],
-    'reviewStatus': 'none'
-  };
+  //var userResponse = {
+  //  'id': '55cd815f53767e01008b457b',
+  //  'firstName': 'Gerolf',
+  //  'lastName': 'Graf',
+  //  'email': 'test@ccc.mi24.dev',
+  //  'enabled': true,
+  //  'locale': 'de',
+  //  'customer': {
+  //    'id': 15,
+  //    'name': 'SecurityCustomerAdmin',
+  //    'type': 'admin',
+  //    'contact': {
+  //      'firstName': 'Elwira',
+  //      'lastName': 'Gertz',
+  //      'email': 'heinzjoachim.steinberg@trubin.com',
+  //      'title': 'B.Eng.',
+  //      'salutation': 'Univ.Prof.',
+  //      'phone': '+4930330966000',
+  //      'fax': '+4930330966099'
+  //    },
+  //    'address': {'street': 'Hans-Martin-D\u00f6rr-Allee 0', 'zip': '76954', 'city': 'Uffenheim', 'country': 'CY'},
+  //    'phone': '+4930330966000',
+  //    'fax': '+4930330966099',
+  //    'reviewStatus': 'none'
+  //  },
+  //  'roles': ['user', 'admin'],
+  //  'locked': false,
+  //  'reachableRoles': [],
+  //  'reviewStatus': 'none'
+  //};
 
   //////////
 
@@ -53,6 +53,11 @@ module.exports = function (user, $scope, $state, AlertService, $translate, Curre
     //if (angular.isDefined(vm.model.address) && angular.isDefined(vm.model.address.country)) {
     //  defaultValueCountry = vm.model.address.country;
     //}
+
+    var fieldDisabledEmail = false;
+    if (angular.isDefined(vm.model.id)) {
+      fieldDisabledEmail = true;
+    }
 
     return [
       {
@@ -80,7 +85,8 @@ module.exports = function (user, $scope, $state, AlertService, $translate, Curre
           label: $translate.instant('user.form.email.label'),
           placeholder: $translate.instant('user.form.email.placeholder'),
           required: true,
-          type: 'email'
+          type: 'email',
+          disabled: fieldDisabledEmail
         }
       },
       {
