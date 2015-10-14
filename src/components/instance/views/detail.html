@@ -44,6 +44,12 @@
 <section class="section-body">
     <div class="panel panel-default">
         <div class="panel-heading">
+            <div ng-if="planDetailVm.underReview" class="alert alert-danger" role="alert">
+                <p>
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>
+                    <span translate="core.msg.review.description"></span>
+                </p>
+            </div>
             <h2 translate="instance.common.singular.title"></h2>
         </div>
         <div class="panel-body">

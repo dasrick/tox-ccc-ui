@@ -13,10 +13,16 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
   vm.options = {};
   vm.fields = getFields();
   vm.originalFields = angular.copy(vm.fields);
+  vm.underReview = (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none');
 
   //////////
 
   function getFields() {
+    // case of reviewStatus
+    var fieldDisabled = false;
+    if (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none') {
+      fieldDisabled = true;
+    }
     return [
       {
         key: 'name',
@@ -24,7 +30,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.name.label'),
           placeholder: $translate.instant('instance.form.name.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -33,7 +40,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.baseUrl.label'),
           placeholder: $translate.instant('instance.form.baseUrl.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -42,7 +50,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.authUrl.label'),
           placeholder: $translate.instant('instance.form.authUrl.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -51,7 +60,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.authClientId.label'),
           placeholder: $translate.instant('instance.form.authClientId.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -60,7 +70,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.authClientSecret.label'),
           placeholder: $translate.instant('instance.form.authClientSecret.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -69,7 +80,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.authUsername.label'),
           placeholder: $translate.instant('instance.form.authUsername.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -78,7 +90,8 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
         templateOptions: {
           label: $translate.instant('instance.form.authPassword.label'),
           placeholder: $translate.instant('instance.form.authPassword.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       }
     ];
