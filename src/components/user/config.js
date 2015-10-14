@@ -29,6 +29,12 @@ module.exports = {
       UserResource: 'UserResource',
       user: function (UserResource, $stateParams) {
         return UserResource.get({userId: $stateParams.userId}).$promise;
+      },
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -43,6 +49,12 @@ module.exports = {
       UserResource: 'UserResource',
       user: function (UserResource) {
         return new UserResource();
+      },
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -74,6 +86,12 @@ module.exports = {
       UserResource: 'UserResource',
       user: function (UserResource, $stateParams) {
         return UserResource.get({userId: $stateParams.userId}).$promise;
+      },
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -88,6 +106,12 @@ module.exports = {
       UserResource: 'UserResource',
       user: function (UserResource) {
         return new UserResource();
+      },
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   },

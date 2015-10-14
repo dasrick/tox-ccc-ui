@@ -96,15 +96,16 @@ module.exports = {
     url: '/customer',
     views: {
       'content@app.profile': {
-        templateUrl: '/views/customer/list.html'
+        templateUrl: '/views/customer/detail.html',
+        controller: 'CustomerDetailController as customerDetailVm'
       }
-    }
-  },
-  'app.profile.customer.data': {
-    url: '',
-    views: {
-      'content@app.profile': {
-        templateUrl: '/views/customer/detail.html'
+    },
+    resolve: {
+      CustomerResource: 'CustomerResource',
+      CurrentUserService: 'CurrentUserService',
+      customer: function (CustomerResource, CurrentUserService) {
+        var customerId = CurrentUserService.getUser().customer.id;
+        return CustomerResource.get({customerId: customerId}).$promise;
       }
     }
   }

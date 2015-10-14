@@ -3,14 +3,17 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <!--
                     <a class="btn btn-mi24 btn-success"
-                       ui-sref="app.admin.player-skin.create"
+                       ui-sref="app.admin.transcoder-profile.create"
+                       has-type="admin"
                        has-role="transcoderprofile_create"
-                       ng-show="hasRole['transcoderprofile_create']">
+                       ng-show="hasType['admin'] && hasRole['transcoderprofile_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Neu anlegen">
                         <i class="fa fa-plus-square"></i>
                     </a>
-                    -->
                 </div>
                 <div class="col-sm-6 text-right">
                     <button class="btn btn-mi24 btn-primary">
@@ -40,4 +43,3 @@
         </div>
     </div>
 </section>
-<!--<section class="section-foot"></section>-->

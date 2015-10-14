@@ -6,6 +6,7 @@ var resourceMap = {
   'AssignmentResource': './assignment',
   'CustomerResource': './customer',
   'InstanceResource': './instance',
+  'LocaleResource': './locale',
   'LogResource': './log',
   'PlanResource': './plan',
   'PlayerSkinResource': './player-skin',

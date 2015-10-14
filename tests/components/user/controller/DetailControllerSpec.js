@@ -5,13 +5,19 @@ var UserDetailController = require('../../../../src/components/user/controller/D
 describe('Components:User:Controller:DetailController', function () {
 
   var createController, $rootScope;
-  var user, $scope, $state, AlertService, $translate, CurrentUserService;
+  var user, locales, $scope, $state, AlertService, $translate, CurrentUserService;
+
+  locales = [
+    {name: 'foooo', short: 'fo'},
+    {name: 'baaar', short: 'ba'}
+  ];
 
   beforeEach(function () {
     $state = jasmine.createSpyObj('$state', ['go']);
     AlertService = jasmine.createSpyObj('AlertService', ['add']);
     $translate = jasmine.createSpyObj('$translate', ['instant']);
     CurrentUserService = jasmine.createSpyObj('CurrentUserService', ['getSelectedCustomer']);
+
     angular.mock.inject(function ($injector) {
       $rootScope = $injector.get('$rootScope');
       $scope = $rootScope.$new();
@@ -19,6 +25,7 @@ describe('Components:User:Controller:DetailController', function () {
       createController = function () {
         var locals = {
           user: user,
+          locales: locales,
           $scope: $scope,
           $state: $state,
           AlertService: AlertService,

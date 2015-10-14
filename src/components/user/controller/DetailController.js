@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function (user, $scope, $state, AlertService, $translate, CurrentUserService) {
+module.exports = function (user, locales, $scope, $state, AlertService, $translate, CurrentUserService) {
   var vm = this;
   // functions
   vm.reset = reset;
@@ -59,6 +59,16 @@ module.exports = function (user, $scope, $state, AlertService, $translate, Curre
       fieldDisabledEmail = true;
     }
 
+    // TODO vielleicht kann das in eine separate function
+    var optionsLocale = [];
+    function logArrayElements(element) {
+      optionsLocale.push({
+        name: element.name,
+        value: element.short
+      });
+    }
+    locales.forEach(logArrayElements);
+
     return [
       {
         key: 'firstName',
@@ -95,11 +105,7 @@ module.exports = function (user, $scope, $state, AlertService, $translate, Curre
         defaultValue: vm.model.locale,
         templateOptions: {
           label: $translate.instant('user.form.locale.label'),
-          options: [
-            // TODO localisierte Länderliste fehlt hier noch
-            {name: 'deutsch', value: 'de'},
-            {name: 'englisch', value: 'en'}
-          ]
+          options: optionsLocale
         }
       }
     ];

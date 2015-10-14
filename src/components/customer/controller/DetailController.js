@@ -23,6 +23,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
       defaultValueCountry = vm.model.address.country;
     }
 
+    var fieldDisabled = false;
+    var fieldDisabledType = false;
     var currentUser = CurrentUserService.getUser();
     var types = [
       {
@@ -37,6 +39,15 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         }
       );
     }
+    if (vm.model.id === currentUser.customer.id) {
+      types.push(
+        {
+          name: 'admin', // TODO und nicht einmal lokalisiert
+          value: 'admin'
+        }
+      );
+      fieldDisabledType = true;
+    }
 
     return [
       {
@@ -45,7 +56,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.name.label'),
           placeholder: $translate.instant('customer.form.name.placeholder'),
-          required: true
+          required: true,
+          disabled: fieldDisabled
         }
       },
       {
@@ -54,7 +66,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.address,
         templateOptions: {
           label: $translate.instant('customer.form.address.street.label'),
-          placeholder: $translate.instant('customer.form.address.street.placeholder')
+          placeholder: $translate.instant('customer.form.address.street.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -63,7 +76,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.address,
         templateOptions: {
           label: $translate.instant('customer.form.address.zip.label'),
-          placeholder: $translate.instant('customer.form.address.zip.placeholder')
+          placeholder: $translate.instant('customer.form.address.zip.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -72,7 +86,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.address,
         templateOptions: {
           label: $translate.instant('customer.form.address.city.label'),
-          placeholder: $translate.instant('customer.form.address.city.placeholder')
+          placeholder: $translate.instant('customer.form.address.city.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -81,7 +96,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.phone.label'),
           placeholder: $translate.instant('customer.form.phone.placeholder'),
-          type: 'tel'
+          type: 'tel',
+          disabled: fieldDisabled
         }
       },
       {
@@ -90,7 +106,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.fax.label'),
           placeholder: $translate.instant('customer.form.fax.placeholder'),
-          type: 'tel'
+          type: 'tel',
+          disabled: fieldDisabled
         }
       },
       {
@@ -106,7 +123,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
             {name: 'Frankreich', value: 'FR'},
             {name: 'Georgien', value: 'GE'},
             {name: 'Groß Britanien', value: 'UK'}
-          ]
+          ],
+          disabled: fieldDisabled
         }
       },
       {
@@ -115,7 +133,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         defaultValue: vm.model.type,
         templateOptions: {
           label: $translate.instant('customer.form.type.label'),
-          options: types
+          options: types,
+          disabled: fieldDisabledType
         }
       },
       {
@@ -128,7 +147,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.contact,
         templateOptions: {
           label: $translate.instant('customer.form.contact.title.label'),
-          placeholder: $translate.instant('customer.form.contact.title.placeholder')
+          placeholder: $translate.instant('customer.form.contact.title.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -137,7 +157,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.contact,
         templateOptions: {
           label: $translate.instant('customer.form.contact.salutation.label'),
-          placeholder: $translate.instant('customer.form.contact.salutation.placeholder')
+          placeholder: $translate.instant('customer.form.contact.salutation.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -146,7 +167,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.contact,
         templateOptions: {
           label: $translate.instant('customer.form.contact.firstName.label'),
-          placeholder: $translate.instant('customer.form.contact.firstName.placeholder')
+          placeholder: $translate.instant('customer.form.contact.firstName.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -155,7 +177,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         model: vm.model.contact,
         templateOptions: {
           label: $translate.instant('customer.form.contact.lastName.label'),
-          placeholder: $translate.instant('customer.form.contact.lastName.placeholder')
+          placeholder: $translate.instant('customer.form.contact.lastName.placeholder'),
+          disabled: fieldDisabled
         }
       },
       {
@@ -165,7 +188,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.contact.email.label'),
           placeholder: $translate.instant('customer.form.contact.email.placeholder'),
-          type: 'email'
+          type: 'email',
+          disabled: fieldDisabled
         }
       },
       {
@@ -175,7 +199,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.phone.label'),
           placeholder: $translate.instant('customer.form.phone.placeholder'),
-          type: 'tel'
+          type: 'tel',
+          disabled: fieldDisabled
         }
       },
       {
@@ -185,7 +210,8 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         templateOptions: {
           label: $translate.instant('customer.form.fax.label'),
           placeholder: $translate.instant('customer.form.fax.placeholder'),
-          type: 'tel'
+          type: 'tel',
+          disabled: fieldDisabled
         }
       }
     ];

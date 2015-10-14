@@ -28,11 +28,21 @@ module.exports = {
     resolve: {
       TranscoderProfileResource: 'TranscoderProfileResource',
       transcoderProfile: function (TranscoderProfileResource, $stateParams) {
-        // Extract instance ID from $stateParams
-        var transcoderProfileId = $stateParams.transcoderProfileId;
-        // Return a promise to make sure the customer is completely
-        // resolved before the controller is instantiated
-        return TranscoderProfileResource.get({transcoderProfileId: transcoderProfileId}).$promise;
+        return TranscoderProfileResource.get({transcoderProfileId: $stateParams.transcoderProfileId}).$promise;
+      }
+    }
+  },
+  'app.admin.transcoder-profile.create': {
+    views: {
+      'content@app.admin': {
+        templateUrl: '/views/transcoder-profile/detail.html',
+        controller: 'TranscoderProfileDetailController as transcoderProfileDetailVm'
+      }
+    },
+    resolve: {
+      TranscoderProfileResource: 'TranscoderProfileResource',
+      transcoderProfile: function (TranscoderProfileResource) {
+        return new TranscoderProfileResource();
       }
     }
   }
