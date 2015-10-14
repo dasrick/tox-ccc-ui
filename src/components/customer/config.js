@@ -29,6 +29,12 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customer: function (CustomerResource, $stateParams) {
         return CustomerResource.get({customerId: $stateParams.customerId}).$promise;
+      },
+      CountryResource: 'CountryResource',
+      CurrentUserService: 'CurrentUserService',
+      countries: function (CountryResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return CountryResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -43,6 +49,12 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customer: function (CustomerResource) {
         return new CustomerResource();
+      },
+      CountryResource: 'CountryResource',
+      CurrentUserService: 'CurrentUserService',
+      countries: function (CountryResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return CountryResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -74,6 +86,12 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customer: function (CustomerResource, $stateParams) {
         return CustomerResource.get({customerId: $stateParams.customerId}).$promise;
+      },
+      CountryResource: 'CountryResource',
+      CurrentUserService: 'CurrentUserService',
+      countries: function (CountryResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return CountryResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -88,6 +106,12 @@ module.exports = {
       CustomerResource: 'CustomerResource',
       customer: function (CustomerResource) {
         return new CustomerResource();
+      },
+      CountryResource: 'CountryResource',
+      CurrentUserService: 'CurrentUserService',
+      countries: function (CountryResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return CountryResource.query({locale: locale}).$promise;
       }
     }
   },
@@ -106,6 +130,11 @@ module.exports = {
       customer: function (CustomerResource, CurrentUserService) {
         var customerId = CurrentUserService.getUser().customer.id;
         return CustomerResource.get({customerId: customerId}).$promise;
+      },
+      CountryResource: 'CountryResource',
+      countries: function (CountryResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return CountryResource.query({locale: locale}).$promise;
       }
     }
   }

@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-module.exports = function (customer, $scope, $state, AlertService, $translate, CurrentUserService) {
+module.exports = function (customer, countries, $scope, $state, AlertService, $translate, CurrentUserService) {
   var vm = this;
   // functions
   vm.reset = reset;
@@ -22,6 +22,16 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
     if (angular.isDefined(vm.model.address) && angular.isDefined(vm.model.address.country)) {
       defaultValueCountry = vm.model.address.country;
     }
+
+    // TODO vielleicht kann das in eine separate function
+    var optionsCountry = [];
+    function logArrayElements(element) {
+      optionsCountry.push({
+        name: element.name,
+        value: element.short
+      });
+    }
+    countries.forEach(logArrayElements);
 
     var fieldDisabled = false;
     var fieldDisabledType = false;
@@ -117,13 +127,7 @@ module.exports = function (customer, $scope, $state, AlertService, $translate, C
         defaultValue: defaultValueCountry, //vm.model.address.country,
         templateOptions: {
           label: $translate.instant('customer.form.address.country.label'),
-          options: [
-            // TODO localisierte Länderliste fehlt hier noch
-            {name: 'Deutschland', value: 'DE'},
-            {name: 'Frankreich', value: 'FR'},
-            {name: 'Georgien', value: 'GE'},
-            {name: 'Groß Britanien', value: 'UK'}
-          ],
+          options: optionsCountry,
           disabled: fieldDisabled
         }
       },

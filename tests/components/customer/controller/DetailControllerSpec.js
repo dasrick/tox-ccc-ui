@@ -5,7 +5,12 @@ var CustomerDetailController = require('../../../../src/components/customer/cont
 describe('Components:Customer:Controller:DetailController', function () {
 
   var createController, $rootScope;
-  var customer, $scope, $state, AlertService, $translate, CurrentUserService;
+  var customer, countries, $scope, $state, AlertService, $translate, CurrentUserService;
+
+  countries = [
+    {name: 'foooo', short: 'fo'},
+    {name: 'baaar', short: 'ba'}
+  ];
 
   beforeEach(function () {
     $state = jasmine.createSpyObj('$state', ['go']);
@@ -19,6 +24,7 @@ describe('Components:Customer:Controller:DetailController', function () {
       createController = function () {
         var locals = {
           customer: customer,
+          countries: countries,
           $scope: $scope,
           $state: $state,
           AlertService: AlertService,
