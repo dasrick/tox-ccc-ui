@@ -13,6 +13,9 @@ module.exports = require('angular')
 
   // mi-angular-resource-builder ///////////////////////////////////////////////////////////////////////////////////////
   .config(function (ResourceBuilderProvider) {
+
+    console.log('shared foo env', process.env.NODE_ENV);
+
     var resources = require('./resource/index');
     ResourceBuilderProvider.addResources(resources);
   })
