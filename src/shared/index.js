@@ -13,10 +13,18 @@ module.exports = require('angular')
 
   // mi-angular-resource-builder ///////////////////////////////////////////////////////////////////////////////////////
   .config(function (ResourceBuilderProvider) {
-
-    console.log('shared foo env', process.env.NODE_ENV);
-
+    // unschön ...
+    var common = require('./common');
+    var config = common.config();
+    // append url based on environment
     var resources = require('./resource/index');
+    for (var resource in resources) {
+      if (resources.hasOwnProperty(resource)) {
+        if (resources[resource].hasOwnProperty('url')) {
+          resources[resource].url = config.apiUrl + resources[resource].url;
+        }
+      }
+    }
     ResourceBuilderProvider.addResources(resources);
   })
   // ===================================================================================================================
