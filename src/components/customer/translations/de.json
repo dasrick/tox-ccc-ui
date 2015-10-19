@@ -5,8 +5,8 @@
   "customer.sidebar-customer.label": "Kunden",
   "customer.sidebar-customer.title": "Kunden",
   "customer.sidebar-customer.icon": "fa-building",
-  "customer.sidebar-profile.label": "Firma",
-  "customer.sidebar-profile.title": "Firma",
+  "customer.sidebar-profile.label": "Meine Firma",
+  "customer.sidebar-profile.title": "Meine Firma",
   "customer.sidebar-profile.icon": "fa-building",
 
   "customer.common.singular.title": "Kunde",

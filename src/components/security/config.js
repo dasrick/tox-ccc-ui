@@ -11,19 +11,25 @@ module.exports = {
     }
   },
   'app.security.password-request': {
-    url: '/request-password',
+    url: '/password-request',
     views: {
       'content': {
-        templateUrl: '/views/security/request-password.html',
-        controller: 'SecurityRequestPasswordController as requestPasswordVm'
+        templateUrl: '/views/security/password-request.html',
+        controller: 'SecurityPasswordRequestController as passwordRequestVm'
       }
     }
   },
-  'app.security.password-set': {
-    url: '/set-password',
+  'app.security.password-reset': {
+    url: '/password-reset/{resetToken}',
     views: {
       'content': {
-        templateUrl: '/views/security/set-password.html'
+        templateUrl: '/views/security/password-reset.html',
+        controller: 'SecurityPasswordResetController as passwordResetVm'
+      }
+    },
+    resolve: {
+      resetToken: function ($stateParams) {
+        return $stateParams.resetToken;
       }
     }
   }

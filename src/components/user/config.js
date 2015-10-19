@@ -84,11 +84,11 @@ module.exports = {
     },
     resolve: {
       UserResource: 'UserResource',
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
       user: function (UserResource, $stateParams) {
         return UserResource.get({userId: $stateParams.userId}).$promise;
       },
-      LocaleResource: 'LocaleResource',
-      CurrentUserService: 'CurrentUserService',
       locales: function (LocaleResource, CurrentUserService) {
         var locale = CurrentUserService.getUser().locale;
         return LocaleResource.query({locale: locale}).$promise;
@@ -104,11 +104,11 @@ module.exports = {
     },
     resolve: {
       UserResource: 'UserResource',
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
       user: function (UserResource) {
         return new UserResource();
       },
-      LocaleResource: 'LocaleResource',
-      CurrentUserService: 'CurrentUserService',
       locales: function (LocaleResource, CurrentUserService) {
         var locale = CurrentUserService.getUser().locale;
         return LocaleResource.query({locale: locale}).$promise;
@@ -120,23 +120,21 @@ module.exports = {
     url: '/user',
     views: {
       'content@app.profile': {
-        templateUrl: '/views/user/list.html'
+        templateUrl: '/views/user/detail.html',
+        controller: 'UserDetailController as userDetailVm'
       }
-    }
-  },
-  'app.profile.user.data': {
-    url: '/data',
-    views: {
-      'data-body': {
-        templateUrl: '/views/user/data.html'
-      }
-    }
-  },
-  'app.profile.user.password': {
-    url: '/password',
-    views: {
-      'data-body': {
-        templateUrl: '/views/user/password.html'
+    },
+    resolve: {
+      UserResource: 'UserResource',
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      user: function (UserResource, CurrentUserService) {
+        var userId = CurrentUserService.getUser().id;
+        return UserResource.get({userId: userId}).$promise;
+      },
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   }

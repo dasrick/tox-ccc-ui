@@ -23,6 +23,7 @@ module.exports = function ($state, AuthService, CurrentUserService, AlertService
           redirect();
         });
       }, function (response) {
+        CurrentUserService.logout();
         var msg;
         switch (response.status) {
           case 400:
@@ -40,9 +41,11 @@ module.exports = function ($state, AuthService, CurrentUserService, AlertService
   }
 
   function redirect() {
-    if (CurrentUserService.isLoggedIn()) {
+    if (CurrentUserService.isLoggedIn() && angular.isDefined(CurrentUserService.getSelectedCustomer())) {
       var selectedCustomer = CurrentUserService.getSelectedCustomer();
       $state.go('app.management.dashboard', {selectedCustomerId: selectedCustomer.id}, {'reload': true});
+    } else {
+      CurrentUserService.logout();
     }
   }
 };

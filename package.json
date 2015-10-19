@@ -16,7 +16,6 @@
   "devDependencies": {
     "airbrake": "~0.3.8",
     "angular": "^1.4.7",
-    "angular-ui-bootstrap": "^0.14.1",
     "angular-cache": "~4.3.2",
     "angular-formly": "^7.1.2",
     "angular-formly-templates-bootstrap": "^6.1.5",
@@ -27,7 +26,9 @@
     "angular-sanitize": "^1.4.7",
     "angular-translate": "^2.8.1",
     "angular-translate-loader-partial": "^2.8.1",
+    "angular-ui-bootstrap": "^0.14.1",
     "angular-ui-router": "~0.2.15",
+    "angular-validation-match": "^1.5.2",
     "api-check": "^7.5.3",
     "bootstrap": "^3.3.5",
     "clean-css": "^3.4.5",

@@ -18,6 +18,7 @@ require('angular-translate');
 require('angular-translate-loader-partial');
 require('angular-ui-bootstrap');
 require('angular-ui-router');
+require('angular-validation-match');
 require('mi-angular-alert-service');
 require('mi-angular-resource-builder');
 require('ui-select');
@@ -32,6 +33,7 @@ var requires = [
   'pascalprecht.translate',
   'ui.bootstrap',
   'ui.router',
+  'validation.match',
   'mi.AlertService',
   'mi.ResourceBuilder',
   'ui.select',
@@ -42,17 +44,59 @@ var requires = [
 angular.module('tox-ccc-ui-app', requires)
 
   // put jwt token into requests ///////////////////////////////////////////////////////////////////////////////////////
-  .config(function ($httpProvider, jwtInterceptorProvider) {
-    jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
-      //
-      // CCC Frontend erweitern siehe
-      // https://github.com/auth0/angular-jwt
-      //
-      // CCC Backend erweitern siehe
-      // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
-      //
-      return CurrentUserService.getAccessToken();
-    }];
+  //.config(function ($httpProvider, jwtInterceptorProvider) {
+  //  jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
+  //    //
+  //    // CCC Frontend erweitern siehe
+  //    // https://github.com/auth0/angular-jwt
+  //    //
+  //    // CCC Backend erweitern siehe
+  //    // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
+  //    //
+  //    return CurrentUserService.getAccessToken();
+  //  }];
+  //  $httpProvider.interceptors.push('jwtInterceptor');
+  //})
+  .config(function Config($httpProvider, jwtInterceptorProvider) {
+    var refreshPromise;
+    jwtInterceptorProvider.tokenGetter = ['$q', 'config', 'CurrentUserService', 'AuthService', '$state',
+      function ($q, config, CurrentUserService, AuthService, $state) {
+        var apiAuthRequired = config.url.indexOf('/api/') >= 0;
+
+        console.log('url: ', config.url);
+        console.log('apiAuthRequired: ', apiAuthRequired);
+
+        var accessTokenAvailable = angular.isDefined(CurrentUserService.getAccessToken());
+
+        console.log('accessTokenAvailable: ', accessTokenAvailable);
+
+        if (!accessTokenAvailable || !apiAuthRequired) {
+          return null;
+        }
+        if (CurrentUserService.isExpired()) {
+          // a refresh is currently in progress
+          if (angular.isDefined(refreshPromise)) {
+            return refreshPromise.promise;
+          }
+          refreshPromise = $q.defer();
+          AuthService.refresh(CurrentUserService.getRefreshToken()).then(
+            function (response) {
+              CurrentUserService.setResponseData(response);
+              refreshPromise.resolve(CurrentUserService.getAccessToken());
+              refreshPromise = undefined;
+            },
+            function () {
+              refreshPromise.reject();
+              refreshPromise = undefined;
+              CurrentUserService.logout();
+              $state.go('app.security.login', {}, {'reload': true});
+            }
+          );
+          return refreshPromise.promise;
+        } else {
+          return CurrentUserService.getAccessToken();
+        }
+      }];
     $httpProvider.interceptors.push('jwtInterceptor');
   })
 
@@ -62,11 +106,11 @@ angular.module('tox-ccc-ui-app', requires)
       var $state, CurrentUserService;
       CurrentUserService = $injector.get('CurrentUserService');
       $state = $injector.get('$state');
-      if (CurrentUserService.isLoggedIn() === true) {
+      if (CurrentUserService.isLoggedIn()) {
         $state.go('app.management.dashboard');
       } else {
         CurrentUserService.logout();
-        $state.go('app.security.login');
+        $state.go('app.security.login', {}, {'reload': true});
       }
     });
     $resourceProvider.defaults.stripTrailingSlashes = true;
@@ -83,7 +127,7 @@ angular.module('tox-ccc-ui-app', requires)
         if (!CurrentUserService.getAccessToken()) {
           event.preventDefault();
           CurrentUserService.logout();
-          $state.go('security.login', {}, {'reload': true});
+          $state.go('app.security.login', {}, {'reload': true});
         }
       }
     });

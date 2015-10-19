@@ -8,7 +8,7 @@ describe('Components:Security:Controller:LoginController', function () {
 
   var $state = jasmine.createSpyObj('$state', ['go']);
   var AuthService = jasmine.createSpyObj('AuthService', ['login']);
-  var CurrentUserService = jasmine.createSpyObj('CurrentUserService', ['isLoggedIn', 'setResponseData', 'getUser']);
+  var CurrentUserService = jasmine.createSpyObj('CurrentUserService', ['isLoggedIn', 'setResponseData', 'getUser', 'logout']);
   var AlertService = jasmine.createSpyObj('AlertService', ['add']);
   var CustomerResource = jasmine.createSpyObj('CustomerResource', ['get']);
 

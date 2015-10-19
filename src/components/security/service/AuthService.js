@@ -9,7 +9,7 @@ function Auth($http, EnvConfigService) {
 
   return {
     login: login,
-    //refresh: refresh,
+    refresh: refresh,
     //register: register,
     passwordRequest: passwordRequest,
     passwordReset: passwordReset
@@ -23,13 +23,14 @@ function Auth($http, EnvConfigService) {
     return $http.post(httpUrl, httpData, httpConf);
   }
 
-  //function refresh(refreshToken,) {
-  //  var httpUrl = '/vam/rest/vms/auth/refresh/';
-  //  var httpData = {refreshToken: refreshToken};
-  //
-  //  return $http.post(httpUrl, httpData, httpConf);
-  //}
-  //
+  function refresh(refreshToken) {
+    // TODO ist im Backend noch nicht implementiert - deshalb ist das hier alles nur symbolish - nichts ist fix
+    var httpUrl = apiUrl + '/api/security/login';
+    var httpData = {refreshToken: refreshToken};
+
+    return $http.post(httpUrl, httpData, httpConf);
+  }
+
   //function register(httpData) {
   //  var httpUrl = '/vam/rest/vms/register';
   //

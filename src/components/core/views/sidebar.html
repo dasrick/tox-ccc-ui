@@ -3,8 +3,10 @@
         <ul class="list-unstyled level-list">
             <li>
                 <a class="heading" ng-click="coreVm.toggleSection('management')">
-                    <i class="visible-folded fa {{'core.section.management.icon'|translate}}" title="{{'core.section.management.title'|translate}}"></i>
-                    <span class="title" translate="core.section.management.label" title="{{'core.section.management.title'|translate}}"></span>
+                    <i class="visible-folded fa {{'core.section.management.icon'|translate}}"
+                       title="{{'core.section.management.title'|translate}}"></i>
+                    <span class="title" translate="core.section.management.label"
+                          title="{{'core.section.management.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.management) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>
@@ -16,7 +18,7 @@
                         ng-show="type != 'customer' || (coreVm.selectedCustomer.type == 'admin' || coreVm.selectedCustomer.type == 'partner')">
                         <a ui-sref="app.management.{{type}}({selectedCustomerId:coreVm.selectedCustomer.id})"
                            title="{{type+'.sidebar-customer.title'|translate}}">
-                            <i class="fa {{type+'.sidebar-customer.icon'|translate}}"></i>
+                            <i class="fa fa-fw {{type+'.sidebar-customer.icon'|translate}}"></i>
                             <span class="title" translate="{{type}}.sidebar-customer.label"></span>
                         </a>
                     </li>
@@ -24,8 +26,10 @@
             </li>
             <li ng-if="coreVm.currentUser.customer.type == 'admin'">
                 <a class="heading" ng-click="coreVm.toggleSection('admin')">
-                    <i class="visible-folded fa {{'core.section.admin.icon'|translate}}" title="{{'core.section.admin.title'|translate}}"></i>
-                    <span class="title" translate="core.section.admin.label" title="{{'core.section.admin.title'|translate}}"></span>
+                    <i class="visible-folded fa {{'core.section.admin.icon'|translate}}"
+                       title="{{'core.section.admin.title'|translate}}"></i>
+                    <span class="title" translate="core.section.admin.label"
+                          title="{{'core.section.admin.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.admin) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>
@@ -36,7 +40,7 @@
                         ng-class="{'selected':('app.admin.'+type|includedByState)}">
                         <a ui-sref="app.admin.{{type}}"
                            title="{{type+'.sidebar-admin.title'|translate}}">
-                            <i class="fa {{type+'.sidebar-admin.icon'|translate}}"></i>
+                            <i class="fa fa-fw {{type+'.sidebar-admin.icon'|translate}}"></i>
                             <span class="title" translate="{{type}}.sidebar-admin.label"></span>
                         </a>
                     </li>
@@ -44,8 +48,10 @@
             </li>
             <li>
                 <a class="heading" ng-click="coreVm.toggleSection('profile')">
-                    <i class="visible-folded fa {{'core.section.profile.icon'|translate}}" title="{{'core.section.profile.title'|translate}}"></i>
-                    <span class="title" translate="core.section.profile.label" title="{{'core.section.profile.title'|translate}}"></span>
+                    <i class="visible-folded fa {{'core.section.profile.icon'|translate}}"
+                       title="{{'core.section.profile.title'|translate}}"></i>
+                    <span class="title" translate="core.section.profile.label"
+                          title="{{'core.section.profile.title'|translate}}"></span>
                     <i class="pull-right fa"
                        ng-class="(coreVm.showSection.profile) ? 'fa-angle-up' : 'fa-angle-down'"></i>
                 </a>
@@ -56,7 +62,7 @@
                         ng-class="{'selected':('app.profile.'+type|includedByState)}">
                         <a ui-sref="app.profile.{{type}}"
                            title="{{type+'.sidebar-profile.title'|translate}}">
-                            <i class="fa {{type+'.sidebar-profile.icon'|translate}}"></i>
+                            <i class="fa fa-fw {{type+'.sidebar-profile.icon'|translate}}"></i>
                             <span class="title" translate="{{type}}.sidebar-profile.label"></span>
                         </a>
                     </li>

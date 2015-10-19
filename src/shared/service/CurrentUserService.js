@@ -10,8 +10,8 @@ function CurrentUserService(CacheFactory, jwtHelper) {
   return {
     getAccessToken: getAccessToken,
     setAccessToken: setAccessToken,
-    //getRefreshToken: getRefreshToken,
-    //setRefreshToken: setRefreshToken,
+    getRefreshToken: getRefreshToken,
+    setRefreshToken: setRefreshToken,
     getUser: getUser,
     setUser: setUser,
     getSelectedCustomer: getSelectedCustomer,
@@ -33,13 +33,13 @@ function CurrentUserService(CacheFactory, jwtHelper) {
     currentUserData.put('jwt_access_token', token);
   }
 
-  //function getRefreshToken() {
-  //  return currentUserData.get('jwt_refresh_token');
-  //}
-  //
-  //function setRefreshToken(token) {
-  //  currentUserData.put('jwt_refresh_token', token);
-  //}
+  function getRefreshToken() {
+    return currentUserData.get('jwt_refresh_token');
+  }
+
+  function setRefreshToken(token) {
+    currentUserData.put('jwt_refresh_token', token);
+  }
 
   function getUser() {
     return currentUserData.get('currentUser');

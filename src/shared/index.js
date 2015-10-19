@@ -9,13 +9,18 @@ module.exports = require('angular')
   .directive('rowListItem', require('./directive/RowListItem'))
 
   .factory('CurrentUserService', require('./service/CurrentUserService'))
-  .service('EnvConfigService', require('./service/EnvConfigService')) // the last one who is using this ... AuthService
+  .factory('EnvConfigService', require('./service/EnvConfigService')) // the only one who is using this ... AuthService
 
   // mi-angular-resource-builder ///////////////////////////////////////////////////////////////////////////////////////
   .config(function (ResourceBuilderProvider) {
     // unschön ...
     var common = require('./common');
     var config = common.config();
+
+    //var EnvConfigService = $injector.get('EnvConfigService');
+    //var apiUrl = EnvConfigService.get('apiUrl');
+    //console.log('apiUrl: ', apiUrl);
+
     // append url based on environment
     var resources = require('./resource/index');
     for (var resource in resources) {

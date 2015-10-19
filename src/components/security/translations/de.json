@@ -3,18 +3,34 @@
   "security.sidebar-customer.title": "Produkte",
   "security.sidebar-customer.icon": "fa-cubes",
 
+  "xsecurity.form.request-password.header": "Passwort anfordern",
+  "xsecurity.form.request-password.msg": "Geben Sie bitte Ihre Emailadresse an, um ein neues Passwort anzufordern.",
+  "xsecurity.form.set-password.header": "Passwort setzen",
+  "xsecurity.form.set-password.msg": "Geben Sie bitte zweimal das neue Passwort an.",
+
   "security.form.login.header": "Anmeldung",
   "security.form.login.msg": "Geben Sie hier bitte ihre Login-Daten ein.",
-  "security.form.request-password.header": "Passwort anfordern",
-  "security.form.request-password.msg": "Geben Sie bitte Ihre Emailadresse an, um ein neues Passwort anzufordern.",
-  "security.form.set-password.header": "Passwort setzen",
-  "security.form.set-password.msg": "Geben Sie bitte zweimal das neue Passwort an.",
-  "security.form.email.placeholder": "name@excample.com",
+
+  "security.form.password-request.header": "Passwort anfordern",
+  "security.form.password-request.msg": "Geben Sie bitte Ihre E-Mailadresse an, um ein neues Passwort anzufordern.",
+
+  "security.form.password-reset.header": "Passwort setzen",
+  "security.form.password-reset.msg": "Geben Sie bitte zweimal das neue Passwort an.",
+
+  "security.form.email.label": "E-Mail",
+  "security.form.email.placeholder": "name@example.com",
+  "security.form.password.label": "Passwort",
   "security.form.password.placeholder": "Passwort",
-  "security.form.login.label": "Anmelden",
-  "security.form.forgot-password.label": "Passwort vergessen?",
-  "security.form.request-password.label": "Passwort anfordern",
-  "security.form.save-password.label": "Passwort setzen",
+  "security.form.password-confirm.label": "Passwort wiederholen",
+  "security.form.password-confirm.placeholder": "Passwort wiederholen",
+  "security.form.password-confirm.error": "Keine Übereinstimmung",
+
+  "security.form.btn.register.label": "Aktivieren",
+  "security.form.btn.login.label": "Anmelden",
+  "security.form.btn.back-to-login.label": "Zurück zur Anmeldung",
+  "security.form.btn.password-forgot.label": "Passwort vergessen?",
+  "security.form.btn.password-request.label": "Passwort anfordern",
+  "security.form.btn.password-reset.label": "Passwort speichern",
 
   "security.msg.login.error.unknown": "Es ist ein unbekannter Fehler beim Login aufgetreten.",
   "security.msg.login.error.unauthorized": "Ihre Zugansdaten sind inkorrekt",

@@ -230,14 +230,18 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
     if (angular.isDefined(customer.id)) {
       console.log('it should be an UPDATE', customer);
     } else {
+      // prepare new object
       // parent is the currently selected customer
       customer.parent = {
         id: CurrentUserService.getSelectedCustomer().id
       };
       console.log('it should be a CREATE', customer);
-      //customer.$save(); // MAYBE IT WORKS
-      AlertService.add('success', 'customer.msg.create.success');
-      $state.go('^', {}, {reload: true});
     }
+    // TODO save-Methode müsste man mal zuschalten und prüfen
+    //customer.$save(); // MAYBE IT WORKS
+    AlertService.add('success', 'customer.msg.create.success');
+    // TODO Ziel ist je nach aktueller Route unterschiedlich
+    $state.go('^', {}, {reload: true}); // in route app.profile this can't work - '.'
   }
+
 };

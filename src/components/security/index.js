@@ -6,8 +6,8 @@ var ModuleName = 'security',
 module.exports = angular.module(ModuleName, [])
 
   .controller('SecurityLoginController', require('./controller/LoginController'))
-  .controller('SecurityRequestPasswordController', require('./controller/RequestPasswordController'))
-  .controller('SecurityRequestPasswordController', require('./controller/RequestPasswordController'))
+  .controller('SecurityPasswordRequestController', require('./controller/PasswordRequestController'))
+  .controller('SecurityPasswordResetController', require('./controller/PasswordResetController'))
 
   .factory('PermissionService', require('./service/PermissionService'))
   .factory('AuthService', require('./service/AuthService'))

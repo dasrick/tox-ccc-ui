@@ -61,12 +61,14 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
 
     // TODO vielleicht kann das in eine separate function
     var optionsLocale = [];
+
     function logArrayElements(element) {
       optionsLocale.push({
         name: element.name,
         value: element.short
       });
     }
+
     locales.forEach(logArrayElements);
 
     return [
@@ -121,14 +123,17 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
     if (angular.isDefined(user.id)) {
       console.log('it should be an UPDATE', user);
     } else {
+      // prepare new object
       // customer is the currently selected customer
       user.customer = {
         id: CurrentUserService.getSelectedCustomer().id
       };
       console.log('it should be a CREATE', user);
-      //user.$save(); // MAYBE IT WORKS
-      AlertService.add('success', 'user.msg.create.success');
-      $state.go('^', {}, {reload: true});
     }
+    // TODO save-Methode müsste man mal zuschalten und prüfen
+    //user.$save(); // MAYBE IT WORKS
+    AlertService.add('success', 'user.msg.create.success');
+    // TODO Ziel ist je nach aktueller Route unterschiedlich
+    $state.go('^', {}, {reload: true}); // in route app.profile this can't work - '.'
   }
 };
