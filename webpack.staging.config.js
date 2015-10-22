@@ -7,7 +7,7 @@ var dstPath = path.resolve(__dirname, 'web', 'js');
 var config = {
 
   // We change to normal source mapping
-  //devtool: 'cheap-module-source-map',
+  devtool: 'cheap-module-source-map',
   entry: srcPath,
   output: {
     path: dstPath,
@@ -29,7 +29,7 @@ var config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
+        'NODE_ENV': JSON.stringify('staging'),
         'appversion': JSON.stringify(require('./package.json').version)
       }
     }),
