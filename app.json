@@ -1,0 +1,7 @@
+{
+  "name":"tox-ccc-ui",
+  "description":"AngularJS frontend app for Customer Control Center of MovingImage24",
+  "scripts":{},
+  "env":{},
+  "addons":[]
+}
