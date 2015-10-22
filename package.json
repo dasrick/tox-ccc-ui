@@ -71,7 +71,7 @@
     "build:css": "lessc --autoprefix='last 2 versions,ie 9' src/media/less/style.less web/css/style.css && cleancss --source-map -o web/css/style.min.css web/css/style.css",
     "build:scripts-development": "webpack src/app.js web/js/app.js",
     "build:scripts-staging": "webpack src/app.js web/js/app.js",
-    "build:scripts-production": "webpack -p --config webpack.production.config.js",
+    "build:scripts-production": "webpack --config webpack.production.config.js",
     "build:views": "node scripts/copy.js src/**/views/*.html web/views/",
     "build:fonts": "npm run build:font-fontawesome && npm run build:font-sourcesanspro && npm run build:font-opensanscondensed",
     "build:font-fontawesome": "cp -R node_modules/font-awesome/fonts/* web/fonts/font-awesome",
