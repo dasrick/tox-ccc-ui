@@ -4,6 +4,8 @@ var path = require('path');
 var srcPath = path.resolve(__dirname, 'src', 'app.js');
 var dstPath = path.resolve(__dirname, 'web', 'js');
 
+console.log('webpack nodeEnv: ', process.env.NODE_ENV);
+
 var config = {
   // We change to normal source mapping
   devtool: 'cheap-module-source-map',
