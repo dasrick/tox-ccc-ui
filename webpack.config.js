@@ -4,7 +4,7 @@ var path = require('path');
 var srcPath = path.resolve(__dirname, 'src', 'app.js');
 var dstPath = path.resolve(__dirname, 'web', 'js');
 
-console.log('webpack nodeEnv: ', process.env.NODE_ENV);
+//console.log('webpack nodeEnv: ', process.env.NODE_ENV);
 
 var config = {
   // We change to normal source mapping
@@ -30,7 +30,7 @@ var config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        //'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         'appversion': JSON.stringify(require('./package.json').version)
       }
     }),
