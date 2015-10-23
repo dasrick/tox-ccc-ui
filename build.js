@@ -42,6 +42,7 @@ var config = {
 // environment switch //////////////////////////////////////////////////////////////////////////////////////////////////
 switch (nodeEnv) {
   case 'development':
+  case 'test':
     config.devtool = 'eval';
     break;
   case 'staging':
