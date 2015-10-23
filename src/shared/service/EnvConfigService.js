@@ -34,7 +34,7 @@ module.exports = function () {
 
   function getEnvironment() {
     var nodeEnv = process.env.NODE_ENV || 'development';
-    console.log('nodeEnv: ', nodeEnv);
+    console.log('EnvConfigService: nodeEnv: ', nodeEnv);
     return env[nodeEnv];
 
 
