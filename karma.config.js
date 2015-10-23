@@ -15,8 +15,8 @@ module.exports = function (karma) {
       dir: 'coverage/',
       reporters: [
         // reporters not supporting the `file` property
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' }
+        {type: 'html', subdir: 'report-html'},
+        {type: 'lcov', subdir: 'report-lcov'}
         // reporters supporting the `file` property, use `subdir` to directly
         // output them in the `dir` directory
         //{ type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
@@ -42,11 +42,17 @@ module.exports = function (karma) {
 
     webpack: {
       module: {
-        postLoaders: [{ // << add subject as webpack's postloader
-          test: /\.js$/,
-          exclude: /(tests|node_modules)\//,
-          loader: 'istanbul-instrumenter'
-        }]
+        postLoaders: [
+          { // << add subject as webpack's postloader
+            test: /\.js$/,
+            exclude: /(tests|node_modules)\//,
+            loader: 'istanbul-instrumenter'
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader'
+          }
+        ]
       }
     }
   });

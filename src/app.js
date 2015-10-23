@@ -5,6 +5,8 @@
 
 var angular = require('angular');
 
+//process.env.appversion = require('../package.json').version;
+
 require('angular-cache');
 require('angular-formly');
 require('angular-formly-templates-bootstrap');
