@@ -133,7 +133,10 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
     // TODO save-Methode müsste man mal zuschalten und prüfen
     //user.$save(); // MAYBE IT WORKS
     AlertService.add('success', 'user.msg.create.success');
-    // TODO Ziel ist je nach aktueller Route unterschiedlich
-    $state.go('^', {}, {reload: true}); // in route app.profile this can't work - '.'
+
+    // im falle vom app.profile.user muss nicht umgeleitet werden ...
+    if ($state.current.name !== 'app.profile.user') {
+      $state.go('^', {}, {reload: true});
+    }
   }
 };

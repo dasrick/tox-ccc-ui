@@ -63,29 +63,45 @@ angular.module('tox-ccc-ui-app', requires)
       function ($q, config, CurrentUserService, AuthService, $state) {
         var apiAuthRequired = config.url.indexOf('/api/') >= 0;
 
-        console.log('url: ', config.url);
-        console.log('apiAuthRequired: ', apiAuthRequired);
+        //console.log('url: ', config.url);
+        //console.log('apiAuthRequired: ', apiAuthRequired);
 
         var accessTokenAvailable = angular.isDefined(CurrentUserService.getAccessToken());
 
-        console.log('accessTokenAvailable: ', accessTokenAvailable);
+        //console.log('accessTokenAvailable: ', accessTokenAvailable);
 
         if (!accessTokenAvailable || !apiAuthRequired) {
           return null;
         }
+
+        console.log('auth needed for url: ', config.url);
+
         if (CurrentUserService.isExpired()) {
+
+          console.log('access-token isExpired');
+
           // a refresh is currently in progress
           if (angular.isDefined(refreshPromise)) {
+
+            console.log('refresh is currently in progress');
+
             return refreshPromise.promise;
           }
+
+          console.log('refresh will be fired now');
+
           refreshPromise = $q.defer();
           AuthService.refresh(CurrentUserService.getRefreshToken()).then(
             function (response) {
+              console.log('refresh call OK');
+
               CurrentUserService.setResponseData(response);
               refreshPromise.resolve(CurrentUserService.getAccessToken());
               refreshPromise = undefined;
             },
             function () {
+              console.log('refresh call FAILED');
+
               refreshPromise.reject();
               refreshPromise = undefined;
               CurrentUserService.logout();
@@ -170,9 +186,9 @@ angular.module('tox-ccc-ui-app', requires)
   // mi-angular-alert-service //////////////////////////////////////////////////////////////////////////////////////////
   .constant('ALERT_LEVELS', {
     danger: {timeout: 10000},
-    warning: {timeout: 5000},
-    success: {timeout: 3000},
-    info: {timeout: 3000}
+    warning: {timeout: 4000},
+    success: {timeout: 2000},
+    info: {timeout: 2000}
   })
   // ===================================================================================================================
 ;

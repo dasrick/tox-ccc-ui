@@ -25,12 +25,14 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
 
     // TODO vielleicht kann das in eine separate function
     var optionsCountry = [];
+
     function logArrayElements(element) {
       optionsCountry.push({
         name: element.name,
         value: element.short
       });
     }
+
     countries.forEach(logArrayElements);
 
     var fieldDisabled = false;
@@ -240,8 +242,11 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
     // TODO save-Methode müsste man mal zuschalten und prüfen
     //customer.$save(); // MAYBE IT WORKS
     AlertService.add('success', 'customer.msg.create.success');
-    // TODO Ziel ist je nach aktueller Route unterschiedlich
-    $state.go('^', {}, {reload: true}); // in route app.profile this can't work - '.'
+
+    // im falle vom app.profile.user muss nicht umgeleitet werden ...
+    if ($state.current.name !== 'app.profile.customer') {
+      $state.go('^', {}, {reload: true});
+    }
   }
 
 };
