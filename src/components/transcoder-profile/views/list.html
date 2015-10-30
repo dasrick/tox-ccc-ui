@@ -35,8 +35,15 @@
             <p translate="transcoder-profile.list.description"></p>
         </div>
         <div class="panel-body">
+            <h4 translate="transcoder-profile.common.plural.standard.title"></h4>
             <div class="item-list">
-                <div ng-repeat="item in transcoderProfileListVm.preparedList"
+                <div ng-repeat="item in transcoderProfileListVm.preparedDefaultList"
+                     row-list-item="item"
+                     row-list-route="app.admin.transcoder-profile.detail({transcoderProfileId:item.id})"></div>
+            </div>
+            <h4 translate="transcoder-profile.common.plural.custom.title"></h4>
+            <div class="item-list">
+                <div ng-repeat="item in transcoderProfileListVm.preparedCustomList"
                      row-list-item="item"
                      row-list-route="app.admin.transcoder-profile.detail({transcoderProfileId:item.id})"></div>
             </div>

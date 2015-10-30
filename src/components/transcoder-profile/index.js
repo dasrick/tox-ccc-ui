@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 var ModuleName = 'transcoder-profile',
   RoutingConfig = require('./config');
 
