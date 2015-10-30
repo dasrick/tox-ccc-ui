@@ -2,11 +2,12 @@
 /**
  * @ngInject
  */
-module.exports = function (instance, $scope, $state, AlertService, $translate) {
+module.exports = function (instance, $scope, $state, AlertService, $translate, InstanceResource) {
   var vm = this;
   // functions
   vm.reset = reset;
-  vm.save = save;
+  vm.create = create;
+  vm.update = update;
   // variables
   vm.originalModel = angular.copy(instance);
   vm.model = instance;
@@ -15,7 +16,43 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
   vm.originalFields = angular.copy(vm.fields);
   vm.underReview = (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none');
 
-  //////////
+  // public methods ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  function reset() {
+    vm.model = vm.originalModel;
+    $scope.formInstance.$setPristine(); // $scope ... nessesary for reset of form validation foo
+  }
+
+  function create() {
+    instance.$save(
+      function () {
+        AlertService.add('success', 'instance.msg.create.success');
+        $state.go('^', {}, {reload: true});
+      }, function () {
+        AlertService.add('danger', 'instance.msg.create.error');
+      }
+    );
+  }
+
+  function update(reviewer) {
+    var data = {
+      vmproInstance: instance,
+      review: {
+        reviewer: reviewer,
+        baseUrl: $state.href('app.profile.review', {}, {absolute: true})
+      }
+    };
+    InstanceResource.update({instanceId: instance.id}, data).$promise.then(
+      function () {
+        AlertService.add('success', 'instance.msg.update.success');
+        $state.go('^', {}, {reload: true});
+      }, function () {
+        AlertService.add('danger', 'instance.msg.update.error');
+      }
+    );
+  }
+
+  // private methods ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   function getFields() {
     // case of reviewStatus
@@ -97,19 +134,4 @@ module.exports = function (instance, $scope, $state, AlertService, $translate) {
     ];
   }
 
-  function reset() {
-    vm.model = vm.originalModel;
-    $scope.formInstance.$setPristine(); // $scope ... nessesary for reset of form validation foo
-  }
-
-  function save() {
-    if (angular.isDefined(instance.id)) {
-      console.log('it should be an UPDATE');
-    } else {
-      console.log('it should be a CREATE');
-      //instance.$save(); // IT WORKS
-      AlertService.add('success', 'instance.msg.create.success');
-      $state.go('^', {}, {reload: true});
-    }
-  }
 };

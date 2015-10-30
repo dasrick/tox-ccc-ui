@@ -12,6 +12,7 @@ angular.extend(resource, require('./player-skin'));
 angular.extend(resource, require('./product'));
 angular.extend(resource, require('./profile'));
 angular.extend(resource, require('./review'));
+angular.extend(resource, require('./reviewer'));
 angular.extend(resource, require('./transcoder-profile'));
 angular.extend(resource, require('./user'));
 

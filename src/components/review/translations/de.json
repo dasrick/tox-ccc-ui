@@ -1,5 +1,26 @@
 {
   "review.sidebar-profile.label": "Überprüfungen",
   "review.sidebar-profile.title": "Überprüfungen",
-  "review.sidebar-profile.icon": "fa-eye"
+  "review.sidebar-profile.icon": "fa-eye",
+
+  "review.common.singular.title": "Überprüfung",
+  "review.common.plural.title": "Überprüfungen",
+
+  "review.list.opener.headline.label": "Liste meiner Änderungen",
+  "review.list.opener.description": "Folgende Überprüfungen wurden meinerseits durch Änderung von Datensätzen, welche einen Review-Prozess (Überprüfung) bedingen, initiert.",
+
+  "review.list.reviewer.headline.label": "Liste der Überprüfungen",
+  "review.list.reviewer.description": "Folgende Überprüfungen wurden von anderen Benutzern initiert und sind durch mich zu überprüfen.",
+
+  "review.list.empty.headline.label": "Liste der Überprüfungen",
+  "review.list.empty.description": "Derzeit existieren keine Überprüfungen, die von Ihnen ausgelöst oder für die Sie als Überprüfer eingetragen wurden.",
+
+  "review.form.opener.label": "Initiator",
+  "review.form.action.label": "Aktion",
+  "review.form.type.label": "Objekt-Typ",
+  "review.form.name.label": "Name",
+
+  "review.msg.allow.success": "Überprüfung erfolgreich durchlaufen. Änderungen wurden genehmigt.",
+  "review.msg.deny.success": "Überprüfung erfolgreich durchlaufen. Änderungen wurden abgelehnt."
+
 }

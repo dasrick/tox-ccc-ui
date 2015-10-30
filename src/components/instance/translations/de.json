@@ -3,6 +3,8 @@
   "instance.sidebar-admin.label": "Instanzen",
   "instance.sidebar-admin.title": "Instanzen",
 
+  "vmpro_instance.common.singular.title": "Instanz",
+  "vmpro_instance.common.plural.title": "Instanzen",
   "instance.common.singular.title": "Instanz",
   "instance.common.plural.title": "Instanzen",
 
@@ -22,5 +24,10 @@
   "instance.form.authUsername.label": "Auth-Client-User",
   "instance.form.authUsername.tooltip": "Auth-Client-User",
   "instance.form.authPassword.label": "Auth-Client-Password",
-  "instance.form.authPassword.tooltip": "Auth-Client-Password"
+  "instance.form.authPassword.tooltip": "Auth-Client-Password",
+
+  "instance.msg.create.success": "Die Instanz wurde erfolgreich angelegt",
+  "instance.msg.create.error": "Beim Anlegen einer neuen Instanz ist ein Fehler aufgetreten",
+  "instance.msg.update.success": "Die Aktualisierung der Instanz wurde erfolgreich dem Überprüfungsprozess zugeordnet",
+  "instance.msg.update.error": "Beim Aktualisieren einer Instanz ist ein Fehler aufgetreten"
 }

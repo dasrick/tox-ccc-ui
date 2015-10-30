@@ -1,1 +1,67 @@
-review detail
+<section class="section-head">
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <a class="btn btn-mi24 btn-info"
+                       ui-sref="app.profile.review"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-danger"
+                       ng-click="reviewDetailVm.deny()"
+                       has-type="admin"
+                       ng-show="hasType['admin']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Ablehnen">
+                        <i class="fa fa-thumbs-down"></i>
+                    </a>
+                    <a class="btn btn-mi24 btn-success"
+                       ng-click="reviewDetailVm.allow()"
+                       has-type="admin"
+                       ng-show="hasType['admin']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zustimmen">
+                        <i class="fa fa-thumbs-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 translate="review.common.singular.title"></h2>
+        </div>
+        <div class="panel-body">
+            <form name="formInstance">
+                <formly-form model="reviewDetailVm.model"
+                             fields="reviewDetailVm.fields"
+                             options="reviewDetailVm.options">
+                </formly-form>
+            </form>
+
+            <hr>
+            <h4>changes</h4>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>vorher</h4>
+                    {{reviewDetailVm.review.reviewObject.currentObject | json}}
+                </div>
+                <div class="col-sm-6">
+                    <h4>nachher</h4>
+                    {{reviewDetailVm.review.reviewObject.draftObject | json}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

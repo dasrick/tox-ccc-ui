@@ -2,20 +2,59 @@
 /**
  * @ngInject
  */
-module.exports = function (plan, $scope, $state, AlertService, $translate) {
+module.exports = function (plan, $scope, $state, AlertService, $translate, PlanResource) {
   var vm = this;
   // functions
   vm.reset = reset;
-  vm.save = save;
+  vm.create = create;
+  vm.update = update;
   // variables
-  vm.originalModel = angular.copy(plan);
-  vm.model = plan;
+  vm.model = getPlanPrepared();
+  vm.originalModel = angular.copy(vm.model);
   vm.options = {};
   vm.fields = getFields();
   vm.originalFields = angular.copy(vm.fields);
   vm.underReview = (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none');
 
-  //////////
+  // public methods ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  function reset() {
+    vm.model = vm.originalModel;
+    $scope.formPlan.$setPristine(); // $scope ... nessesary for reset of form validation foo
+  }
+
+  function create() {
+    var planCleaned = getPlanCleaned();
+    PlanResource.save(planCleaned).$promise.then(
+      function () {
+        AlertService.add('success', 'plan.msg.create.success');
+        $state.go('^', {}, {reload: true});
+      }, function () {
+        AlertService.add('danger', 'plan.msg.create.error');
+      }
+    );
+  }
+
+  function update(reviewer) {
+    var planCleaned = getPlanCleaned();
+    var data = {
+      plan: planCleaned,
+      review: {
+        reviewer: reviewer,
+        baseUrl: $state.href('app.profile.review', {}, {absolute: true})
+      }
+    };
+    PlanResource.update({planId: planCleaned.id}, data).$promise.then(
+      function () {
+        AlertService.add('success', 'plan.msg.update.success');
+        $state.go('^', {}, {reload: true});
+      }, function () {
+        AlertService.add('danger', 'plan.msg.update.error');
+      }
+    );
+  }
+
+  // private methods ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   function getFields() {
     // case of reviewStatus
@@ -47,6 +86,11 @@ module.exports = function (plan, $scope, $state, AlertService, $translate) {
         }
       },
       {
+        noFormControl: true,
+        template: '<div class="alert alert-danger" role="alert"><p><i class="fa fa-fw fa-exclamation-triangle"></i><span translate="plan.form.msg.required"></span></p></div>',
+        'hideExpression': 'model.user_enabled || model.traffic_enabled || model.hosting_enabled'
+      },
+      {
         key: 'hosting_enabled',
         type: 'checkbox',
         defaultValue: (angular.isDefined(vm.model.hosting)),
@@ -63,6 +107,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate) {
           label: $translate.instant('plan.form.hosting.value.label'),
           placeholder: $translate.instant('plan.form.hosting.value.placeholder'),
           type: 'number',
+          min: 1,
           required: true,
           disabled: fieldDisabled
         },
@@ -89,6 +134,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate) {
           label: $translate.instant('plan.form.traffic.value.label'),
           placeholder: $translate.instant('plan.form.traffic.value.placeholder'),
           type: 'number',
+          min: 1,
           required: true,
           disabled: fieldDisabled
         },
@@ -98,6 +144,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate) {
         key: 'unit',
         type: 'select',
         defaultValue: defaultValueTrafficUnit,
+        model: vm.model.traffic,
         templateOptions: {
           label: $translate.instant('plan.form.traffic.unit.label'),
           options: trafifcUnits,
@@ -127,32 +174,89 @@ module.exports = function (plan, $scope, $state, AlertService, $translate) {
           label: $translate.instant('plan.form.user.value.label'),
           placeholder: $translate.instant('plan.form.user.value.placeholder'),
           type: 'number',
+          min: 1,
           required: true,
           disabled: fieldDisabled
         },
         'hideExpression': '!model.user_enabled'
-      },
-      {
-        noFormControl: true,
-        template: '<hr><h4 class="text-danger">' + $translate.instant('plan.form.msg.required') + '</h4>',
-        'hideExpression': 'model.user_enabled || model.traffic_enabled || model.hosting_enabled'
       }
     ];
   }
 
-  function reset() {
-    vm.model = vm.originalModel;
-    $scope.formInstance.$setPristine(); // $scope ... nessesary for reset of form validation foo
+  function getPlanPrepared() {
+    /*jshint camelcase: false */
+
+    var planPrepared = {
+      title: plan.title
+    };
+
+    if (angular.isDefined(plan.id)) {
+      planPrepared.id = plan.id;
+    }
+
+    if (angular.isDefined(plan.reviewStatus)) {
+      planPrepared.reviewStatus = plan.reviewStatus;
+    }
+
+    if (angular.isDefined(plan.hosting)) {
+      planPrepared.hosting_enabled = true;
+      planPrepared.hosting = plan.hosting;
+    } else {
+      planPrepared.hosting_enabled = false;
+      planPrepared.hosting = {
+        value: null,
+        unit: 'minutes'
+      };
+    }
+
+    if (angular.isDefined(plan.traffic)) {
+      planPrepared.traffic_enabled = true;
+      planPrepared.traffic = plan.traffic;
+    } else {
+      planPrepared.traffic_enabled = false;
+      planPrepared.traffic = {
+        value: null,
+        unit: null
+      };
+    }
+
+    if (angular.isDefined(plan.user)) {
+      planPrepared.user_enabled = true;
+      planPrepared.user = plan.user;
+    } else {
+      planPrepared.user_enabled = false;
+      planPrepared.user = {
+        value: null,
+        unit: 'item'
+      };
+    }
+
+    /*jshint camelcase: true */
+    return planPrepared;
   }
 
-  function save() {
-    if (angular.isDefined(plan.id)) {
-      console.log('it should be an UPDATE');
-    } else {
-      console.log('it should be a CREATE');
-      //plan.$save(); // IT WORKS
-      AlertService.add('success', 'plan.msg.create.success');
-      $state.go('^', {}, {reload: true});
+  function getPlanCleaned() {
+    /*jshint camelcase: false */
+    var planCleaned = angular.copy(vm.model);
+
+    if (vm.model.hosting_enabled !== true) {
+      delete planCleaned.hosting;
     }
+    delete planCleaned.hosting_enabled;
+
+    if (vm.model.traffic_enabled !== true) {
+      delete planCleaned.traffic;
+    }
+    delete planCleaned.traffic_enabled;
+
+    if (vm.model.user_enabled !== true) {
+      delete planCleaned.user;
+    }
+    delete planCleaned.user_enabled;
+
+    delete planCleaned.reviewStatus;
+
+    /*jshint camelcase: true */
+    return planCleaned;
   }
 };

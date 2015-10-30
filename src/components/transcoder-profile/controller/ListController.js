@@ -9,7 +9,7 @@ module.exports = function (transcoderProfiles) {
   angular.forEach(vm.transcoderProfiles, function (transcoderProfile) {
     vm.preparedList.push({
       id: transcoderProfile.key,
-      active: transcoderProfile.active,
+      state: (transcoderProfile.active) ? 'success' : 'default',
       inUse: transcoderProfile.inUse,
       custom: transcoderProfile.custom,
       reviewStatus: transcoderProfile.reviewStatus,

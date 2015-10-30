@@ -25,5 +25,11 @@
   "core.icon.in-use.title": "Verwendungs-Status",
   "core.icon.under-review.title": "Überprüfungs-Status",
 
+  "core.form.btn.cancel.label": "Abbrechen",
+  "core.form.btn.save.label": "Speichern",
+
+  "core.action.edit.label": "Aktualisieren",
+  "core.action.delete.label": "Löschen",
+
   "core.msg.review.description": "Dieser Datensatz kann nicht bearbeitet werden, da dieser derzeit einen Review-Prozess durchläuft."
 }

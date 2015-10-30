@@ -6,7 +6,8 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
   var vm = this;
   // functions
   vm.reset = reset;
-  vm.save = save;
+  vm.create = create;
+  vm.update = update;
   // variables
   vm.originalModel = angular.copy(customer);
   vm.model = customer;
@@ -14,7 +15,35 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
   vm.fields = getFields();
   vm.originalFields = angular.copy(vm.fields);
 
-  //////////
+  // public methods ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  function reset() {
+    vm.model = vm.originalModel;
+    $scope.formCustomer.$setPristine(); // $scope ... nessesary for reset of form validation foo
+  }
+
+  function create() {
+    customer.parent = {
+      id: CurrentUserService.getSelectedCustomer().id
+    };
+    customer.$save(function () {
+      AlertService.add('success', 'customer.msg.create.success');
+      if ($state.current.name !== 'app.profile.customer') {
+        $state.go('^', {}, {reload: true});
+      }
+    });
+  }
+
+  function update() {
+    customer.$update(function () {
+      AlertService.add('success', 'customer.msg.update.success');
+      if ($state.current.name !== 'app.profile.customer') {
+        $state.go('^', {}, {reload: true});
+      }
+    });
+  }
+
+  // private methods ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   function getFields() {
     // case CREATE - preset for country
@@ -40,13 +69,13 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
     var currentUser = CurrentUserService.getUser();
     var types = [
       {
-        name: 'consumer', // TODO und nicht einmal lokalisiert
+        name: $translate.instant('customer.type.consumer.label'),
         value: 'consumer'
       }];
     if (currentUser.customer.type === 'admin') {
       types.push(
         {
-          name: 'partner', // TODO und nicht einmal lokalisiert
+          name: $translate.instant('customer.type.partner.label'),
           value: 'partner'
         }
       );
@@ -54,7 +83,7 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
     if (vm.model.id === currentUser.customer.id) {
       types.push(
         {
-          name: 'admin', // TODO und nicht einmal lokalisiert
+          name: $translate.instant('customer.type.admin.label'),
           value: 'admin'
         }
       );
@@ -140,6 +169,7 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
         templateOptions: {
           label: $translate.instant('customer.form.type.label'),
           options: types,
+          required: true,
           disabled: fieldDisabledType
         }
       },
@@ -221,32 +251,6 @@ module.exports = function (customer, countries, $scope, $state, AlertService, $t
         }
       }
     ];
-  }
-
-  function reset() {
-    vm.model = vm.originalModel;
-    $scope.formCustomer.$setPristine(); // $scope ... nessesary for reset of form validation foo
-  }
-
-  function save() {
-    if (angular.isDefined(customer.id)) {
-      console.log('it should be an UPDATE', customer);
-    } else {
-      // prepare new object
-      // parent is the currently selected customer
-      customer.parent = {
-        id: CurrentUserService.getSelectedCustomer().id
-      };
-      console.log('it should be a CREATE', customer);
-    }
-    // TODO save-Methode müsste man mal zuschalten und prüfen
-    //customer.$save(); // MAYBE IT WORKS
-    AlertService.add('success', 'customer.msg.create.success');
-
-    // im falle vom app.profile.user muss nicht umgeleitet werden ...
-    if ($state.current.name !== 'app.profile.customer') {
-      $state.go('^', {}, {reload: true});
-    }
   }
 
 };

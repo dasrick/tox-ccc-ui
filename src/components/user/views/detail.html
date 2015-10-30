@@ -3,6 +3,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12 text-left">
+                    <!-- LIST -->
                     <a ng-if="('app.management.user'|includedByState)"
                        class="btn btn-mi24 btn-info"
                        ui-sref="app.management.user"
@@ -21,6 +22,7 @@
                        uib-tooltip="[de] Zurück zur Liste">
                         <i class="fa fa-arrow-circle-left"></i>
                     </a>
+                    <!-- RESET -->
                     <a class="btn btn-mi24 btn-warning"
                        ng-click="userDetailVm.reset()"
                        ng-disabled="formUser.$pristine"
@@ -33,9 +35,27 @@
                        uib-tooltip="[de] Zurücksetzen">
                         <i class="fa fa-undo"></i>
                     </a>
+                    <!-- CREATE -->
                     <a class="btn btn-mi24 btn-primary"
-                       ng-click="userDetailVm.save()"
-                       ng-disabled="formUser.$invalid || formUser.$pristine"
+                       ng-hide="userDetailVm.model.id"
+                       ng-disabled="(formUser.$invalid || formUser.$pristine)"
+                       ng-click="(formUser.$invalid || formUser.$pristine) || userDetailVm.create()"
+
+                       has-type="admin"
+                       has-role="user_create"
+                       ng-show="hasType['admin'] && hasRole['user_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                    <!-- UPDATE -->
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-show="userDetailVm.model.id"
+                       ng-disabled="(formUser.$invalid || formUser.$pristine)"
+                       ng-click="(formUser.$invalid || formUser.$pristine) || userDetailVm.update()"
+
                        has-type="admin"
                        has-role="user_edit"
                        ng-show="hasType['admin'] && hasRole['user_edit']"
@@ -66,4 +86,3 @@
         </div>
     </div>
 </section>
-<!--<section class="section-foot"></section>-->

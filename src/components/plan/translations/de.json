@@ -23,5 +23,11 @@
 
   "plan.form.user_enabled.label": "User aktivieren",
   "plan.form.user.value.label": "Anzahl der User",
-  "plan.form.user.value.placeholder": "Geben sie einen Wert für User an."
+  "plan.form.user.value.placeholder": "Geben sie einen Wert für User an.",
+
+  "plan.form.msg.required": "Es muss mindestens eine Tarif-Art gewählt werden",
+  "plan.msg.create.success": "Der Tarif wurde erfolgreich angelegt",
+  "plan.msg.create.error": "Beim Anlegen eines neuen Tarifs ist ein Fehler aufgetreten",
+  "plan.msg.update.success": "Die Aktualisierung des Tarifs wurde erfolgreich dem Überprüfungsprozess zugeordnet",
+  "plan.msg.update.error": "Beim Aktualisieren des Tarifs ist ein Fehler aufgetreten"
 }

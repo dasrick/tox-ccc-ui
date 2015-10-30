@@ -7,6 +7,7 @@ module.exports = angular.module(ModuleName, [])
 
   .controller('ReviewListController', require('./controller/ListController'))
   .controller('ReviewDetailController', require('./controller/DetailController'))
+  .filter('diff', require('./filter/Diff'))
 
   .config(function ($stateProvider, $translatePartialLoaderProvider) {
     angular.forEach(RoutingConfig, function (config, name) {

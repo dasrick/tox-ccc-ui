@@ -3,6 +3,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12 text-left">
+                    <!-- LIST -->
                     <a ng-if="('app.admin.customer'|includedByState)"
                        class="btn btn-mi24 btn-info"
                        ui-sref="app.admin.customer"
@@ -21,6 +22,7 @@
                        uib-tooltip="[de] Zurück zur Liste">
                         <i class="fa fa-arrow-circle-left"></i>
                     </a>
+                    <!-- RESET -->
                     <a class="btn btn-mi24 btn-warning"
                        ng-click="customerDetailVm.reset()"
                        ng-disabled="formCustomer.$pristine"
@@ -33,8 +35,23 @@
                        uib-tooltip="[de] Zurücksetzen">
                         <i class="fa fa-undo"></i>
                     </a>
+                    <!-- CREATE -->
                     <a class="btn btn-mi24 btn-primary"
-                       ng-click="customerDetailVm.save()"
+                       ng-hide="customerDetailVm.model.id"
+                       ng-disabled="formCustomer.$invalid || formCustomer.$pristine"
+                       has-type="admin"
+                       has-role="customer_create"
+                       ng-show="hasType['admin'] && hasRole['customer_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       ng-click="customerDetailVm.create()"
+                       uib-tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                    <!-- UPDATE -->
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-show="customerDetailVm.model.id"
                        ng-disabled="formCustomer.$invalid || formCustomer.$pristine"
                        has-type="admin"
                        has-role="customer_edit"
@@ -42,6 +59,7 @@
                        tooltip-placement="bottom"
                        tooltip-popup-delay="1000"
                        tooltip-append-to-body="true"
+                       ng-click="customerDetailVm.update()"
                        uib-tooltip="[de] Speichern">
                         <i class="fa fa-save"></i>
                     </a>
@@ -66,4 +84,3 @@
         </div>
     </div>
 </section>
-<!--<section class="section-foot"></section>-->

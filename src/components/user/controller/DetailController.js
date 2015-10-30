@@ -6,7 +6,8 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
   var vm = this;
   // functions
   vm.reset = reset;
-  vm.save = save;
+  vm.create = create;
+  vm.update = update;
   // variables
   vm.originalModel = angular.copy(user);
   vm.model = user;
@@ -14,38 +15,44 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
   vm.fields = getFields();
   vm.originalFields = angular.copy(vm.fields);
 
-  //var userResponse = {
-  //  'id': '55cd815f53767e01008b457b',
-  //  'firstName': 'Gerolf',
-  //  'lastName': 'Graf',
-  //  'email': 'test@ccc.mi24.dev',
-  //  'enabled': true,
-  //  'locale': 'de',
-  //  'customer': {
-  //    'id': 15,
-  //    'name': 'SecurityCustomerAdmin',
-  //    'type': 'admin',
-  //    'contact': {
-  //      'firstName': 'Elwira',
-  //      'lastName': 'Gertz',
-  //      'email': 'heinzjoachim.steinberg@trubin.com',
-  //      'title': 'B.Eng.',
-  //      'salutation': 'Univ.Prof.',
-  //      'phone': '+4930330966000',
-  //      'fax': '+4930330966099'
-  //    },
-  //    'address': {'street': 'Hans-Martin-D\u00f6rr-Allee 0', 'zip': '76954', 'city': 'Uffenheim', 'country': 'CY'},
-  //    'phone': '+4930330966000',
-  //    'fax': '+4930330966099',
-  //    'reviewStatus': 'none'
-  //  },
-  //  'roles': ['user', 'admin'],
-  //  'locked': false,
-  //  'reachableRoles': [],
-  //  'reviewStatus': 'none'
-  //};
+  // public methods ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  //////////
+  function reset() {
+    vm.model = vm.originalModel;
+    $scope.formUser.$setPristine(); // $scope ... nessesary for reset of form validation foo
+  }
+
+  function create() {
+    user.customer = {
+      id: CurrentUserService.getSelectedCustomer().id
+    };
+    user.baseUrl = $state.href('app.security.password-reset', {}, {absolute: true});
+    user.$save(
+      function () {
+        AlertService.add('success', 'user.msg.create.success');
+        if ($state.current.name !== 'app.profile.user') {
+          $state.go('^', {}, {reload: true});
+        }
+      }, function () {
+        AlertService.add('danger', 'user.msg.create.error');
+      }
+    );
+  }
+
+  function update() {
+    user.$update(
+      function () {
+        AlertService.add('success', 'user.msg.update.success');
+        if ($state.current.name !== 'app.profile.user') {
+          $state.go('^', {}, {reload: true});
+        }
+      }, function () {
+        AlertService.add('danger', 'user.msg.update.error');
+      }
+    );
+  }
+
+  // private methods ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   function getFields() {
     //// case CREATE - preset for country
@@ -107,36 +114,11 @@ module.exports = function (user, locales, $scope, $state, AlertService, $transla
         defaultValue: vm.model.locale,
         templateOptions: {
           label: $translate.instant('user.form.locale.label'),
+          required: true,
           options: optionsLocale
         }
       }
     ];
   }
 
-
-  function reset() {
-    vm.model = vm.originalModel;
-    $scope.formUser.$setPristine(); // $scope ... nessesary for reset of form validation foo
-  }
-
-  function save() {
-    if (angular.isDefined(user.id)) {
-      console.log('it should be an UPDATE', user);
-    } else {
-      // prepare new object
-      // customer is the currently selected customer
-      user.customer = {
-        id: CurrentUserService.getSelectedCustomer().id
-      };
-      console.log('it should be a CREATE', user);
-    }
-    // TODO save-Methode müsste man mal zuschalten und prüfen
-    //user.$save(); // MAYBE IT WORKS
-    AlertService.add('success', 'user.msg.create.success');
-
-    // im falle vom app.profile.user muss nicht umgeleitet werden ...
-    if ($state.current.name !== 'app.profile.user') {
-      $state.go('^', {}, {reload: true});
-    }
-  }
 };

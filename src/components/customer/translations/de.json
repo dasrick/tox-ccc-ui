@@ -39,5 +39,12 @@
   "customer.form.contact.lastName.label": "Nachname",
   "customer.form.contact.lastName.placeholder": "Geben sie einen Nachnamen an",
   "customer.form.contact.email.label": "E-Mail",
-  "customer.form.contact.email.placeholder": "Geben sie eine E-Mail-ADresse an"
+  "customer.form.contact.email.placeholder": "Geben sie eine E-Mail-ADresse an",
+
+  "customer.msg.create.success": "Kunde wurde erfolgreich angelegt",
+  "customer.msg.update.success": "Kunde wurde erfolgreich aktualisiert",
+
+  "customer.type.admin.label": "Administrator",
+  "customer.type.partner.label": "Partner",
+  "customer.type.consumer.label": "Endkunde"
 }
