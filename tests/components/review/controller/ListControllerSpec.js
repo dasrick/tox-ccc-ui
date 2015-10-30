@@ -4,21 +4,31 @@ var ReviewListController = require('../../../../src/components/review/controller
 
 describe('Components:Review:Controller:ListController', function () {
 
-  var createController, reviews;
+  var createController;
+  var reviews, $translate;
 
   beforeEach(function () {
+    $translate = jasmine.createSpyObj('$translate', ['instant']);
     angular.mock.inject(function ($injector) {
       var $controller = $injector.get('$controller');
       createController = function () {
-        return $controller(ReviewListController, {reviews: reviews});
+        var locals = {
+          reviews: reviews,
+          $translate: $translate
+        };
+        return $controller(ReviewListController, locals);
       };
     });
   });
 
   it('should init the reviews', function () {
-    reviews = 'reviews';
+    reviews = {
+      opener: [],
+      reviewer: []
+    };
     var controller = createController();
-    expect(controller.reviews).toBe('reviews');
+    expect(controller.preparedOpenerList).toEqual([]);
+    expect(controller.preparedReviewerList).toEqual([]);
   });
 
 });

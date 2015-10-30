@@ -4,6 +4,11 @@ module.exports = {
     'url': '/api/vmproinstance/:instanceId',
     'params': {
       'instanceId': '@id'
+    },
+    'actions': {
+      'update': {
+        method: 'PUT'
+      }
     }
   }
 };

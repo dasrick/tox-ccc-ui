@@ -5,6 +5,9 @@
 
 var angular = require('angular');
 
+window.SockJS = require('sockjs-client');
+window.Stomp = require('stompjs/lib/stomp.min').Stomp;
+
 //process.env.appversion = require('../package.json').version;
 
 require('angular-cache');
@@ -74,7 +77,7 @@ angular.module('tox-ccc-ui-app', requires)
           return null;
         }
 
-        console.log('auth needed for url: ', config.url);
+        //console.log('auth needed for url: ', config.url);
 
         if (CurrentUserService.isExpired()) {
 

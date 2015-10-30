@@ -9,7 +9,7 @@ module.exports = function (instances) {
   angular.forEach(vm.instances, function (instance) {
     vm.preparedList.push({
       id: instance.id,
-      active: instance.active,
+      state: (instance.active) ? 'success' : 'default',
       inUse: instance.inUse,
       reviewStatus: instance.reviewStatus,
       title: instance.name,

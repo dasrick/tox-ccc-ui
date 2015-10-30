@@ -21,5 +21,10 @@
   "user.form.lastName.placeholder": "Geben Sie einen Nachnamen an",
   "user.form.email.label": "E-Mail",
   "user.form.email.placeholder": "Geben Sie eine E-Mail-Adresse an",
-  "user.form.locale.label": "Sprache"
+  "user.form.locale.label": "Sprache",
+
+  "user.msg.create.success": "Benutzer wurde erfolgreich angelegt",
+  "user.msg.create.error": "Beim Anlegen eines neuen Benutzers ist ein Fehler aufgetreten",
+  "user.msg.update.success": "Benutzer wurde erfolgreich aktualisiert",
+  "user.msg.update.error": "Beim Aktualisieren eines Benutzers ist ein Fehler aufgetreten"
 }

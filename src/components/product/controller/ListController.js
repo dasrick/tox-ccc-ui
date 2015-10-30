@@ -9,7 +9,7 @@ module.exports = function (products) {
   angular.forEach(vm.products, function (product) {
     vm.preparedList.push({
       id: product.id,
-      active: product.active,
+      state: (product.active) ? 'success' : 'default',
       inUse: product.inUse,
       reviewStatus: product.reviewStatus,
       title: product.name

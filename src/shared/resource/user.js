@@ -5,6 +5,11 @@ module.exports = {
     'params': {
       'userId': '@id',
       'customer': '@customer'
+    },
+    'actions': {
+      'update': {
+        method: 'PUT'
+      }
     }
   }
 };

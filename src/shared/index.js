@@ -3,7 +3,9 @@
  * @ngInject
  */
 module.exports = require('angular')
-  .module('shared', [])
+  .module('shared', [
+    require('./reviewable').name
+  ])
 
   .directive('isInBaseState', require('./directive/IsInBaseState'))
   .directive('rowListItem', require('./directive/RowListItem'))

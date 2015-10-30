@@ -1,1 +1,79 @@
-here comes the list - reviews
+<section class="section-head">
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <!--
+                    <a ng-if="('app.admin'|includedByState)"
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.admin.user.create"
+                       has-role="user_create"
+                       ng-show="hasRole['user_create']">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                    <a ng-if="('app.management'|includedByState)"
+                       class="btn btn-mi24 btn-success"
+                       ui-sref="app.management.user.create"
+                       has-role="user_create"
+                       ng-show="hasRole['user_create']">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                    -->
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button class="btn btn-mi24 btn-primary">
+                        <i class="fa fa-th-large"></i>
+                    </button>
+                    <button class="btn btn-mi24 btn-primary">
+                        <i class="fa fa-th-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-body">
+
+    <div class="panel panel-default"
+         ng-if="reviewListVm.preparedReviewerList.length > 0">
+        <div class="panel-heading">
+            <h2 translate="review.list.reviewer.headline.label"></h2>
+
+            <p translate="review.list.reviewer.description"></p>
+        </div>
+        <div class="panel-body">
+            <div class="item-list">
+                <div ng-repeat="item in reviewListVm.preparedReviewerList"
+                     row-list-item="item"
+                     row-list-route="app.profile.review.detail({token: item.token})"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default"
+            ng-if="reviewListVm.preparedOpenerList.length > 0">
+        <div class="panel-heading">
+            <h2 translate="review.list.opener.headline.label"></h2>
+
+            <p translate="review.list.opener.description"></p>
+        </div>
+        <div class="panel-body">
+            <div class="item-list">
+                <div ng-repeat="item in reviewListVm.preparedOpenerList"
+                     row-list-item="item"
+                     row-list-route="app.profile.review"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default"
+         ng-if="reviewListVm.preparedReviewerList.length == 0 && reviewListVm.preparedOpenerList.length == 0">
+        <div class="panel-heading">
+            <h2 translate="review.list.empty.headline.label"></h2>
+
+            <p translate="review.list.empty.description"></p>
+        </div>
+    </div>
+</section>
+<!--<section class="section-foot"></section>-->
+

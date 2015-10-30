@@ -9,7 +9,7 @@ module.exports = function (assignments) {
   angular.forEach(vm.assignments, function (assignment) {
     vm.preparedList.push({
       id: assignment.id,
-      active: true,
+      state: 'success',
       reviewStatus: assignment.reviewStatus,
       title: assignment.name
     });

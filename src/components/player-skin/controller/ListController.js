@@ -9,7 +9,7 @@ module.exports = function (playerSkins) {
   angular.forEach(vm.playerSkins, function (playerSkin) {
     vm.preparedList.push({
       id: playerSkin.id,
-      active: playerSkin.active,
+      state: (playerSkin.active) ? 'success' : 'default',
       inUse: playerSkin.inUse,
       custom: playerSkin.custom,
       reviewStatus: playerSkin.reviewStatus,

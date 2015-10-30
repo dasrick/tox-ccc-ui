@@ -9,7 +9,7 @@ module.exports = function (customers) {
   angular.forEach(vm.customers, function (customer) {
     vm.preparedList.push({
       id: customer.id,
-      active: true,
+      state: 'success', // TODO ist das wirklich so?
       reviewStatus: customer.reviewStatus,
       title: customer.name
     });

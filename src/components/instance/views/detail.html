@@ -3,6 +3,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12 text-left">
+                    <!-- LIST -->
                     <a class="btn btn-mi24 btn-info"
                        ui-sref="app.admin.instance"
                        tooltip-placement="bottom"
@@ -11,6 +12,7 @@
                        uib-tooltip="[de] Zurück zur Liste">
                         <i class="fa fa-arrow-circle-left"></i>
                     </a>
+                    <!-- RESET -->
                     <a class="btn btn-mi24 btn-warning"
                        ng-click="instanceDetailVm.reset()"
                        ng-disabled="formInstance.$pristine"
@@ -23,15 +25,33 @@
                        uib-tooltip="[de] Zurücksetzen">
                         <i class="fa fa-undo"></i>
                     </a>
+                    <!-- CREATE -->
                     <a class="btn btn-mi24 btn-primary"
-                       ng-click="instanceDetailVm.save()"
-                       ng-disabled="formInstance.$invalid || formInstance.$pristine"
+                       ng-hide="instanceDetailVm.model.id"
+                       ng-disabled="(formInstance.$invalid || formInstance.$pristine)"
+                       ng-click="(formInstance.$invalid || formInstance.$pristine) || instanceDetailVm.create()"
                        has-type="admin"
                        has-role="instance_edit"
                        ng-show="hasType['admin'] && hasRole['instance_edit']"
                        tooltip-placement="bottom"
                        tooltip-popup-delay="1000"
                        tooltip-append-to-body="true"
+                       uib-tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                    <!-- UPDATE -->
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-show="instanceDetailVm.model.id"
+                       ng-disabled="(formInstance.$invalid || formInstance.$pristine)"
+                       has-type="admin"
+                       has-role="instance_edit"
+                       ng-show="hasType['admin'] && hasRole['instance_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       reviewable
+                       action="instanceDetailVm.update(reviewer)"
+                       right="instance_edit"
                        uib-tooltip="[de] Speichern">
                         <i class="fa fa-save"></i>
                     </a>
