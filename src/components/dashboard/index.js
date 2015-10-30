@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 var ModuleName = 'dashboard',
   RoutingConfig = require('./config');
 

@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 module.exports = {
   'app.management.dashboard': {
     url: '/dashboard',
