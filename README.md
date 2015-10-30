@@ -23,6 +23,11 @@ To build all parts of the app
 
     npm run build
 
+If you want to set a special API-URL, just set an environment variable and rebuild ...
+
+    export apiUlr="https://ccc.mi24.dev"
+    npm run build
+
 
 just check the codestyle with jscs or jshint
 

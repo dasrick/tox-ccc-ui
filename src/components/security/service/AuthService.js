@@ -2,10 +2,10 @@
 /**
  * @ngInject
  */
-function Auth($http, EnvConfigService) {
+function Auth($http) {
 
   var httpConf = {skipAuthorization: true};
-  var apiUrl = EnvConfigService.get('apiUrl');
+  var apiUrl = process.env.apiUrl;
 
   return {
     login: login,

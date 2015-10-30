@@ -8,8 +8,6 @@ var angular = require('angular');
 window.SockJS = require('sockjs-client');
 window.Stomp = require('stompjs/lib/stomp.min').Stomp;
 
-//process.env.appversion = require('../package.json').version;
-
 require('angular-cache');
 require('angular-formly');
 require('angular-formly-templates-bootstrap');

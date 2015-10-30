@@ -5,6 +5,7 @@ var path = require('path');
 var srcPath = path.resolve(__dirname, 'src', 'app.js');
 var dstPath = path.resolve(__dirname, 'web', 'js');
 var nodeEnv = process.env.NODE_ENV || 'development';
+var apiUrl = process.env.apiUrl || '';
 
 // the base config /////////////////////////////////////////////////////////////////////////////////////////////////////
 var config = {
@@ -30,7 +31,8 @@ var config = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(nodeEnv),
-        'appversion': JSON.stringify(require('./package.json').version)
+        'appversion': JSON.stringify(require('./package.json').version),
+        'apiUrl': JSON.stringify(apiUrl)
       }
     }),
     //new webpack.optimize.UglifyJsPlugin(),
