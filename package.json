@@ -1,6 +1,6 @@
 {
   "name": "tox-ccc-ui",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "AngularJS frontend app for Customer Control Center of MovingImage24.",
   "main": "serve.js",
   "private": true,
