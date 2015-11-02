@@ -16,4 +16,12 @@ module.exports = angular.module(ModuleName, [])
     });
     $translatePartialLoaderProvider.addPart(ModuleName);
   })
+
+
+  // default response error handling ///////////////////////////////////////////////////////////////////////////////////
+  .config(['ResponseErrorInterceptorProvider', function (ResponseErrorInterceptorProvider) {
+    ResponseErrorInterceptorProvider
+      .addErrorHandling('/api/transcoderprofiles', 'GET', 'common.error.transcoderprofiles.get.list');
+  }])
+  // ===================================================================================================================
 ;

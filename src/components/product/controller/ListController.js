@@ -13,6 +13,7 @@ module.exports = function (products) {
       inUse: product.inUse,
       reviewStatus: product.reviewStatus,
       title: product.name
+      //titleTranslatable: true
     });
   });
 };

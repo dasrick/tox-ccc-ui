@@ -84,6 +84,6 @@
     "watch": "npm run watch:copy & npm run watch:css & npm run watch:scripts",
     "watch:copy": "watch 'npm run build:i18n' src/",
     "watch:css": "watch 'npm run build:css' src/media/less",
-    "watch:scripts": "watch 'npm run build:scripts' src/"
+    "watch:scripts": "watch 'npm run build:js' src/"
   }
 }

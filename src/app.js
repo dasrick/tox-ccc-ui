@@ -118,7 +118,7 @@ angular.module('tox-ccc-ui-app', requires)
   })
 
   // redirect for unknown routes ///////////////////////////////////////////////////////////////////////////////////////
-  .config(function ($urlRouterProvider, $locationProvider, $resourceProvider) {
+  .config(function ($urlRouterProvider, $locationProvider, $resourceProvider, $httpProvider) {
     $urlRouterProvider.otherwise(function ($injector) {
       var $state, CurrentUserService;
       CurrentUserService = $injector.get('CurrentUserService');
@@ -130,6 +130,7 @@ angular.module('tox-ccc-ui-app', requires)
         $state.go('app.security.login', {}, {'reload': true});
       }
     });
+    $httpProvider.interceptors.push('ResponseErrorInterceptor');
     $resourceProvider.defaults.stripTrailingSlashes = true;
   })
 

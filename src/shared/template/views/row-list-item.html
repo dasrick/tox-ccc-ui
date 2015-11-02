@@ -15,7 +15,8 @@
                   ng-class="(item.locked) ? 'fa-lock text-danger' : 'fa-unlock-alt text-muted'"
                   class="fa fa-fw"
                   title="{{'core.icon.locked.title' | translate}}"></span>
-            <span class="title">{{::item.title}}</span>
+            <span ng-if="!item.titleTranslatable" class="title">{{::item.title}}</span>
+            <!--<span ng-if="item.titleTranslatable" class="title">{{item.title | translateModel}}</span>-->
             <span class="subtitle">{{::item.subtitle}}</span>
         </div>
     </a>

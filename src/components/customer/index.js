@@ -14,4 +14,11 @@ module.exports = angular.module(ModuleName, [])
     });
     $translatePartialLoaderProvider.addPart(ModuleName);
   })
+
+  .config(['ResponseErrorInterceptorProvider', function (ResponseErrorInterceptorProvider) {
+    ResponseErrorInterceptorProvider.addErrorHandling('/api/customers', 'GET', 'common.error.customers.get.list');
+    //ResponseErrorInterceptorProvider.addErrorHandling('/vam/rest/vms/{vmid}/users/{email}', 'GET', 'common.error.vms.users.get.single');
+    //ResponseErrorInterceptorProvider.addErrorHandling('/vam/rest/vms/{vmid}/users/{uid}', 'PATCH', 'common.error.vms.users.patch.single');
+    //ResponseErrorInterceptorProvider.addErrorHandling('/vam/rest/vms/{vmid}/users/{uid}', 'DELETE', 'common.error.vms.users.delete.single');
+  }])
 ;

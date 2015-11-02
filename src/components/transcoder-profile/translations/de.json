@@ -4,7 +4,7 @@
   "transcoder-profile.sidebar-admin.icon": "fa-film",
 
   "transcoder-profile.list.headline.label": "Transcoder-Profil-Liste",
-  "transcoder-profile.list.description": "In dieser Liste befinden sich alle erzeugten Transcoder-Profile. Diese teilen sich in zwei Gruppen. Die sogenannten 'Standard-Transcoder-Profile' werden automatisch allen existierenden VideoManagern zugeordnet. Die 'Individuellen Transcoder-Profile' müssen nach dem Erzeugen den jeweiliegn VideoManagern manuell zugeordnet werden.",
+  "transcoder-profile.list.description": "In dieser Liste befinden sich alle erzeugten Transcoder-Profile. Diese teilen sich in zwei Gruppen. Die sogenannten 'Standard-Transcoder-Profile' werden automatisch allen existierenden VideoManagern zugeordnet. Die 'Individuellen Transcoder-Profile' müssen nach dem Erzeugen den jeweiligen VideoManagern manuell zugeordnet werden.",
 
   "transcoder-profile.common.singular.standard.title": "Standard-Transcoder-Profil",
   "transcoder-profile.common.plural.standard.title": "Standard-Transcoder-Profile",
