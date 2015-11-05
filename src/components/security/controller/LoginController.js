@@ -26,14 +26,14 @@ module.exports = function ($state, AuthService, CurrentUserService, AlertService
         CurrentUserService.logout();
         var msg;
         switch (response.status) {
-          case 400:
-            msg = 'security.msg.login.error.400';
+          case 401:
+            msg = 'security.msg.login.error.401';
             break;
           case 404:
-            msg = 'security.msg.common.error.404';
+            msg = 'security.msg.login.error.404';
             break;
           default:
-            msg = 'security.msg.common.error.unknown';
+            msg = 'security.msg.login.error.unknown';
         }
         AlertService.add('danger', msg);
       }

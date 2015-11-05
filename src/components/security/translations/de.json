@@ -32,8 +32,9 @@
   "security.form.btn.password-request.label": "Passwort anfordern",
   "security.form.btn.password-reset.label": "Passwort speichern",
 
-  "security.msg.login.error.unknown": "Es ist ein unbekannter Fehler beim Login aufgetreten.",
-  "security.msg.login.error.unauthorized": "Ihre Zugansdaten sind inkorrekt",
+  "security.msg.login.error.unknown": "Bei der Anmeldung ist ein unbekannter Fehler aufgetreten.",
+  "security.msg.login.error.401": "Ihre Zugansdaten sind inkorrekt",
+  "security.msg.login.error.404": "Der Login-Service ist aktuell nicht erreichbar.",
   "security.msg.login.error.user_locked": "Ihr Zugang ist gesperrt. Wenden Sie sich bitte an Ihren Adminsitrator.",
   "security.msg.request-password.success": "success",
   "security.msg.request-password.error": "error"
