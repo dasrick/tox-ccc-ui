@@ -130,6 +130,7 @@ angular.module('tox-ccc-ui-app', requires)
         $state.go('app.security.login', {}, {'reload': true});
       }
     });
+    //$locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('ResponseErrorInterceptor');
     $resourceProvider.defaults.stripTrailingSlashes = true;
   })

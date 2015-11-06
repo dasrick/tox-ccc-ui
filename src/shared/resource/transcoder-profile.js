@@ -5,6 +5,11 @@ module.exports = {
     'params': {
       transcoderProfileId: '@id',
       type: '@type'
+    },
+    'actions': {
+      'update': {
+        method: 'PUT'
+      }
     }
   }
 };

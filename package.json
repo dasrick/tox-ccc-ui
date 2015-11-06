@@ -81,9 +81,9 @@
     "start": "node web.js",
     "test": "export CODACY_REPO_TOKEN='6d0c32dbb8fe4543bee90b3b20c1d2e5' && npm run test:karma && cat ./coverage/report-lcov/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js",
     "test:karma": "./node_modules/karma/bin/karma start karma.config.js",
-    "watch": "npm run watch:copy & npm run watch:css & npm run watch:scripts",
+    "watch": "npm run watch:copy & npm run watch:css & npm run watch:js",
     "watch:copy": "watch 'npm run build:i18n' src/",
     "watch:css": "watch 'npm run build:css' src/media/less",
-    "watch:scripts": "watch 'npm run build:js' src/"
+    "watch:js": "watch 'npm run build:js' src/"
   }
 }
