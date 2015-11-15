@@ -12,8 +12,8 @@ module.exports = function (products) {
       state: (product.active) ? 'success' : 'default',
       inUse: product.inUse,
       reviewStatus: product.reviewStatus,
-      title: product.name
-      //titleTranslatable: true
+      title: product.name,
+      titleTranslatable: true
     });
   });
 };

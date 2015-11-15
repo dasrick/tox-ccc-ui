@@ -4,8 +4,8 @@
  */
 module.exports = require('angular')
   .module('shared', [
-    require('./reviewable').name
-    //require('./translate-model').name
+    require('./reviewable').name,
+    require('./translate-model').name
   ])
 
   .directive('isInBaseState', require('./directive/IsInBaseState'))

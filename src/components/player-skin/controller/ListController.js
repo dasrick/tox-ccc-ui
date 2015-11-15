@@ -13,7 +13,8 @@ module.exports = function (playerSkins) {
       inUse: playerSkin.inUse,
       custom: playerSkin.custom,
       reviewStatus: playerSkin.reviewStatus,
-      title: playerSkin.name
+      title: playerSkin.name,
+      titleTranslatable: true
     });
   });
 };

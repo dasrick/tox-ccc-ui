@@ -20,10 +20,15 @@ module.exports = function ($translate, LocaleResource, $filter) {
       // notUsedLanguages
 
 
+      console.log('translateModel ngModel: ', scope.ngModel);
+      console.log('translateModel languages: ', scope.languages);
+      console.log('translateModel defaultLanguage: ', scope.defaultLanguage);
+      console.log('translateModel form: ', scope.form);
+
       //var filter, language, params, _i, _len, _ref;
-      //if (scope.ngModel == null) {
-      //  scope.ngModel = {};
-      //}
+      if (scope.ngModel == null) {
+        scope.ngModel = {};
+      }
       //scope.notUsedLanguages = [];
       //if (scope.ngModel[scope.defaultLanguage] == null) {
       //  scope.ngModel[scope.defaultLanguage] = '';
