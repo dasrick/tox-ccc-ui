@@ -1,0 +1,11 @@
+{
+  "feature.sidebar-admin.label": "Features",
+  "feature.sidebar-admin.title": "Features",
+  "feature.sidebar-admin.icon": "fa-cube",
+
+  "feature.common.singular.title": "Feature",
+  "feature.common.plural.title": "Features",
+
+  "feature.list.headline.label": "Liste der Features",
+  "feature.list.description": "In dieser Liste befinden sich die buchbaren Features. Diese können standardmäßig mit Produktvorlagen bzw. mit bereits gebuchten Produkten verknüpft werden."
+}

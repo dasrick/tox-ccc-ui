@@ -8,6 +8,7 @@ module.exports = require('angular')
     require('./core').name,
     require('./customer').name,
     require('./dashboard').name,
+    require('./feature').name,
     require('./instance').name,
     require('./log').name,
     require('./plan').name,

@@ -36,7 +36,7 @@
                 <ul ng-init="coreVm.showSection.admin = ('app.admin'|includedByState)"
                     ng-show="coreVm.showSection.admin"
                     class="list-unstyled">
-                    <li ng-repeat="type in ['product', 'instance', 'plan', 'player-skin', 'transcoder-profile', 'customer', 'user']"
+                    <li ng-repeat="type in ['product', 'feature', 'instance', 'plan', 'player-skin', 'transcoder-profile', 'customer', 'user']"
                         ng-class="{'selected':('app.admin.'+type|includedByState)}">
                         <a ui-sref="app.admin.{{type}}"
                            title="{{type+'.sidebar-admin.title'|translate}}">

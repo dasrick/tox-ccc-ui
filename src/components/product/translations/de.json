@@ -6,6 +6,6 @@
   "product.common.singular.title": "Produkt",
   "product.common.plural.title": "Produkte",
 
-  "product.list.headline.label": "Produktverwaltungsliste",
-  "product.list.description": "In dieser Liste befinden sich die buchbaren Features und die Produktvorlagen. Hier können verschiedene Produktpakete erzeugt werden, die dann für verschiedene Kunden gebucht werden können."
+  "product.list.headline.label": "Liste der Produktvorlagen",
+  "product.list.description": "In dieser Liste befinden sich die Produktvorlagen. Hier können verschiedene Produktpakete erzeugt werden, die dann für verschiedene Kunden gebucht werden können."
 }

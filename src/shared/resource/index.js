@@ -4,6 +4,7 @@ var resource = {};
 angular.extend(resource, require('./assignment'));
 angular.extend(resource, require('./customer'));
 angular.extend(resource, require('./country'));
+angular.extend(resource, require('./feature'));
 angular.extend(resource, require('./instance'));
 angular.extend(resource, require('./locale'));
 angular.extend(resource, require('./log'));
