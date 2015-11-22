@@ -9,7 +9,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
   vm.create = create;
   vm.update = update;
   // variables
-  vm.model = getPlanPrepared();
+  vm.model = getModelPrepared();
   vm.originalModel = angular.copy(vm.model);
   vm.options = {};
   vm.fields = getFields();
@@ -24,7 +24,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
   }
 
   function create() {
-    var planCleaned = getPlanCleaned();
+    var planCleaned = getModelCleaned();
     PlanResource.save(planCleaned).$promise.then(
       function () {
         AlertService.add('success', 'plan.msg.create.success');
@@ -36,7 +36,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
   }
 
   function update(reviewer) {
-    var planCleaned = getPlanCleaned();
+    var planCleaned = getModelCleaned();
     var data = {
       plan: planCleaned,
       review: {
@@ -62,18 +62,12 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
     if (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none') {
       fieldDisabled = true;
     }
-    // case CREATE - preset for country
+    // case CREATE - preset
     var defaultValueTrafficUnit = '';
     if (angular.isDefined(vm.model.traffic) && angular.isDefined(vm.model.traffic.unit)) {
       defaultValueTrafficUnit = vm.model.traffic.unit;
     }
-    // preset for units of traffic
-    var trafifcUnits = [
-      {name: 'MB', value: 'mb'},
-      {name: 'GB', value: 'gb'},
-      {name: 'TB', value: 'tb'},
-      {name: 'PB', value: 'pb'}
-    ];
+
     return [
       {
         key: 'title',
@@ -88,7 +82,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
       {
         noFormControl: true,
         template: '<div class="alert alert-danger" role="alert"><p><i class="fa fa-fw fa-exclamation-triangle"></i><span translate="plan.form.msg.required"></span></p></div>',
-        'hideExpression': 'model.user_enabled || model.traffic_enabled || model.hosting_enabled'
+        hideExpression: 'model.user_enabled || model.traffic_enabled || model.hosting_enabled'
       },
       {
         key: 'hosting_enabled',
@@ -100,18 +94,38 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
         }
       },
       {
-        key: 'value',
-        type: 'input',
-        model: vm.model.hosting,
-        templateOptions: {
-          label: $translate.instant('plan.form.hosting.value.label'),
-          placeholder: $translate.instant('plan.form.hosting.value.placeholder'),
-          type: 'number',
-          min: 1,
-          required: true,
-          disabled: fieldDisabled
-        },
-        'hideExpression': '!model.hosting_enabled'
+        className: 'row',
+        fieldGroup: [
+          {
+            className: 'col-xs-6',
+            key: 'value',
+            type: 'input',
+            model: vm.model.hosting,
+            templateOptions: {
+              label: $translate.instant('plan.form.hosting.value.label'),
+              placeholder: $translate.instant('plan.form.hosting.value.placeholder'),
+              type: 'number',
+              min: 1,
+              required: true,
+              disabled: fieldDisabled
+            },
+            hideExpression: '!model.hosting_enabled'
+          },
+          {
+            className: 'col-xs-6',
+            key: 'unit',
+            type: 'select',
+            defaultValue: vm.model.hosting.unit,
+            model: vm.model.hosting,
+            templateOptions: {
+              label: $translate.instant('plan.form.unit.label'),
+              options: getOptionsHostingUnit(),
+              required: true,
+              disabled: true
+            },
+            hideExpression: '!model.hosting_enabled'
+          }
+        ]
       },
       {
         noFormControl: true,
@@ -127,31 +141,38 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
         }
       },
       {
-        key: 'value',
-        type: 'input',
-        model: vm.model.traffic,
-        templateOptions: {
-          label: $translate.instant('plan.form.traffic.value.label'),
-          placeholder: $translate.instant('plan.form.traffic.value.placeholder'),
-          type: 'number',
-          min: 1,
-          required: true,
-          disabled: fieldDisabled
-        },
-        'hideExpression': '!model.traffic_enabled'
-      },
-      {
-        key: 'unit',
-        type: 'select',
-        defaultValue: defaultValueTrafficUnit,
-        model: vm.model.traffic,
-        templateOptions: {
-          label: $translate.instant('plan.form.traffic.unit.label'),
-          options: trafifcUnits,
-          required: true,
-          disabled: fieldDisabled
-        },
-        'hideExpression': '!model.traffic_enabled'
+        className: 'row',
+        fieldGroup: [
+          {
+            className: 'col-xs-6',
+            key: 'value',
+            type: 'input',
+            model: vm.model.traffic,
+            templateOptions: {
+              label: $translate.instant('plan.form.traffic.value.label'),
+              placeholder: $translate.instant('plan.form.traffic.value.placeholder'),
+              type: 'number',
+              min: 1,
+              required: true,
+              disabled: fieldDisabled
+            },
+            hideExpression: '!model.traffic_enabled'
+          },
+          {
+            className: 'col-xs-6',
+            key: 'unit',
+            type: 'select',
+            defaultValue: defaultValueTrafficUnit,
+            model: vm.model.traffic,
+            templateOptions: {
+              label: $translate.instant('plan.form.unit.label'),
+              options: getOptionsTrafficUnit(),
+              required: true,
+              disabled: fieldDisabled
+            },
+            hideExpression: '!model.traffic_enabled'
+          }
+        ]
       },
       {
         noFormControl: true,
@@ -167,23 +188,64 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
         }
       },
       {
-        key: 'value',
-        type: 'input',
-        model: vm.model.user,
-        templateOptions: {
-          label: $translate.instant('plan.form.user.value.label'),
-          placeholder: $translate.instant('plan.form.user.value.placeholder'),
-          type: 'number',
-          min: 1,
-          required: true,
-          disabled: fieldDisabled
-        },
-        'hideExpression': '!model.user_enabled'
+        className: 'row',
+        fieldGroup: [
+          {
+            className: 'col-xs-6',
+            key: 'value',
+            type: 'input',
+            model: vm.model.user,
+            templateOptions: {
+              label: $translate.instant('plan.form.user.value.label'),
+              placeholder: $translate.instant('plan.form.user.value.placeholder'),
+              type: 'number',
+              min: 1,
+              required: true,
+              disabled: fieldDisabled
+            },
+            hideExpression: '!model.user_enabled'
+          },
+          {
+            className: 'col-xs-6',
+            key: 'unit',
+            type: 'select',
+            defaultValue: vm.model.user.unit,
+            model: vm.model.user,
+            templateOptions: {
+              label: $translate.instant('plan.form.unit.label'),
+              options: getOptionsUserUnit(),
+              required: true,
+              disabled: true
+            },
+            hideExpression: '!model.user_enabled'
+          }
+        ]
       }
     ];
   }
 
-  function getPlanPrepared() {
+  function getOptionsHostingUnit() {
+    return [
+      {value: 'minutes', name: 'Minuten (plz transl)'}
+    ];
+  }
+
+  function getOptionsTrafficUnit() {
+    return [
+      {value: 'mb', name: 'MB'},
+      {value: 'gb', name: 'GB'},
+      {value: 'tb', name: 'TB'},
+      {value: 'pb', name: 'PB'}
+    ];
+  }
+
+  function getOptionsUserUnit() {
+    return [
+      {value: 'item', name: 'Anzahl (plz transl)'}
+    ];
+  }
+
+  function getModelPrepared() {
     /*jshint camelcase: false */
 
     var planPrepared = {
@@ -235,7 +297,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
     return planPrepared;
   }
 
-  function getPlanCleaned() {
+  function getModelCleaned() {
     /*jshint camelcase: false */
     var planCleaned = angular.copy(vm.model);
 

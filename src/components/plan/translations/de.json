@@ -9,6 +9,8 @@
   "plan.list.headline.label": "Tarifliste",
   "plan.list.description": "In dieser Liste befinden sich alle erzeugten Tarife. Auch hier können Kombipakete erzeugt werden, welche dann im Zusammenhang mit einem Produkt verwendet werden können.",
 
+  "plan.form.unit.label": "Einheit",
+
   "plan.form.title.label": "Titel",
   "plan.form.title.placeholder": "Tragen Sie bitte einen Titel für den Tarif ein",
 
@@ -19,7 +21,6 @@
   "plan.form.traffic_enabled.label": "Traffic aktivieren",
   "plan.form.traffic.value.label": "Traffic (in gewählter Einheit)",
   "plan.form.traffic.value.placeholder": "Geben sie einen Wert für Traffic an.",
-  "plan.form.traffic.unit.label": "Einheit",
 
   "plan.form.user_enabled.label": "User aktivieren",
   "plan.form.user.value.label": "Anzahl der User",
