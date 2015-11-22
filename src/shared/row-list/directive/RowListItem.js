@@ -12,7 +12,7 @@ module.exports = function () {
       item: '=rowListItem',
       route: '@rowListRoute'
     },
-    templateUrl: '/views/template/row-list-item.html',
+    templateUrl: '/views/row-list/row-list-item.html',
     replace: true
     //controller: controllerFunction, //Embed a custom controller in the directive
     //link: function ($scope, element, attrs) {

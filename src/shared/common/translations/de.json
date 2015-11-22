@@ -1,0 +1,11 @@
+{
+  "common": {
+    "datetime": {
+      "minute": "Minute",
+      "minutes": "Minuten"
+    },
+    "units": {
+      "item": "Anzahl"
+    }
+  }
+}

@@ -22,7 +22,7 @@ module.exports = {
         templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
-        templateUrl: '/views/template/header-left.html',
+        templateUrl: '/views/common/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
@@ -48,7 +48,7 @@ module.exports = {
         templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
-        templateUrl: '/views/template/header-left.html',
+        templateUrl: '/views/common/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
@@ -74,7 +74,7 @@ module.exports = {
         templateUrl: '/views/core/sidebar.html'
       },
       'header-left': {
-        templateUrl: '/views/template/header-left.html',
+        templateUrl: '/views/common/header-left.html',
         controller: 'HeaderLeftController as headerLeftVm'
       },
       'header-middle': {
@@ -100,10 +100,10 @@ module.exports = {
     },
     views: {
       'main': {
-        templateUrl: '/views/template/1col-centerbox.html'
+        templateUrl: '/views/common/1col-centerbox.html'
       },
       'header-left': {
-        templateUrl: '/views/template/header-left-noauth.html'
+        templateUrl: '/views/common/header-left-noauth.html'
       }
     }
   }

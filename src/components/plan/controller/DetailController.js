@@ -226,7 +226,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
 
   function getOptionsHostingUnit() {
     return [
-      {value: 'minutes', name: 'Minuten (plz transl)'}
+      {value: 'minutes', name: $translate.instant('common.datetime.minutes')}
     ];
   }
 
@@ -241,7 +241,7 @@ module.exports = function (plan, $scope, $state, AlertService, $translate, PlanR
 
   function getOptionsUserUnit() {
     return [
-      {value: 'item', name: 'Anzahl (plz transl)'}
+      {value: 'item', name: $translate.instant('common.units.item')}
     ];
   }
 

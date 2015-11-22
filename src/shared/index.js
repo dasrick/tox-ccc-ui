@@ -4,12 +4,13 @@
  */
 module.exports = require('angular')
   .module('shared', [
+    require('./common').name,
     require('./reviewable').name,
+    require('./row-list').name,
     require('./translate-model').name
   ])
 
   .directive('isInBaseState', require('./directive/IsInBaseState'))
-  .directive('rowListItem', require('./directive/RowListItem'))
 
   .factory('CurrentUserService', require('./service/CurrentUserService'))
 
