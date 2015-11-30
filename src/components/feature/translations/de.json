@@ -7,5 +7,11 @@
   "feature.common.plural.title": "Features",
 
   "feature.list.headline.label": "Liste der Features",
-  "feature.list.description": "In dieser Liste befinden sich die buchbaren Features. Diese können standardmäßig mit Produktvorlagen bzw. mit bereits gebuchten Produkten verknüpft werden."
+  "feature.list.description": "In dieser Liste befinden sich die buchbaren Features. Diese können standardmäßig mit Produktvorlagen bzw. mit bereits gebuchten Produkten verknüpft werden.",
+
+  "feature.form.supportedTypes.label": "Unterstützte Produkte-Typen",
+  "feature.form.name.label": "Titel",
+  "feature.form.name.placeholder": "Geben sie einen Titel in der angegebenen Sprache an.",
+
+  "feature.product.type.vm_pro": "VideoManager Pro"
 }

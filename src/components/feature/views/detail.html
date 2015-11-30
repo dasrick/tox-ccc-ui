@@ -1,16 +1,113 @@
+<!--<section class="section-head">-->
+    <!--<div class="row">-->
+        <!--<div class="col-sm-6 text-left">-->
+            <!--<a class="btn btn-mi24 btn-primary"-->
+               <!--ui-sref="app.admin.feature">-->
+                <!--<i class="fa fa-arrow-circle-left"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-sm-6 text-right"></div>-->
+    <!--</div>-->
+<!--</section>-->
+<!--<section class="section-body">-->
+    <!--producr detail-->
+    <!--<pre>{{featureDetailVm.feature}}</pre>-->
+<!--</section>-->
+<!--<section class="section-foot"></section>-->
+
+
 <section class="section-head">
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <a class="btn btn-mi24 btn-primary"
-               ui-sref="app.admin.feature">
-                <i class="fa fa-arrow-circle-left"></i>
-            </a>
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <!-- LIST -->
+                    <a class="btn btn-mi24 btn-info"
+                       ui-sref="app.admin.feature"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <!-- RESET -->
+                    <!--<a class="btn btn-mi24 btn-warning"-->
+                       <!--ng-click="featureDetailVm.reset()"-->
+                       <!--ng-disabled="formPlan.$pristine"-->
+                       <!--has-type="admin"-->
+                       <!--has-role="feature_edit"-->
+                       <!--ng-show="hasType['admin'] && hasRole['feature_edit']"-->
+                       <!--tooltip-placement="bottom"-->
+                       <!--tooltip-popup-delay="1000"-->
+                       <!--tooltip-append-to-body="true"-->
+                       <!--uib-tooltip="[de] Zurücksetzen">-->
+                        <!--<i class="fa fa-undo"></i>-->
+                    <!--</a>-->
+                    <!-- CREATE -->
+                    <!--<a class="btn btn-mi24 btn-primary"-->
+                       <!--ng-hide="featureDetailVm.model.id"-->
+                       <!--ng-disabled="(formPlan.$invalid || formPlan.$pristine)"-->
+                       <!--ng-click="(formPlan.$invalid || formPlan.$pristine) || featureDetailVm.create()"-->
+                       <!--has-type="admin"-->
+                       <!--has-role="feature_create"-->
+                       <!--ng-show="hasType['admin'] && hasRole['feature_create']"-->
+                       <!--tooltip-placement="bottom"-->
+                       <!--tooltip-popup-delay="1000"-->
+                       <!--tooltip-append-to-body="true"-->
+                       <!--uib-tooltip="[de] Speichern">-->
+                        <!--<i class="fa fa-save"></i>-->
+                    <!--</a>-->
+                    <!-- UPDATE -->
+                    <!--<a class="btn btn-mi24 btn-primary"-->
+                       <!--ng-show="featureDetailVm.model.id"-->
+                       <!--ng-disabled="(formPlan.$invalid || formPlan.$pristine)"-->
+                       <!--has-type="admin"-->
+                       <!--has-role="feature_edit"-->
+                       <!--ng-show="hasType['admin'] && hasRole['feature_edit']"-->
+                       <!--tooltip-placement="bottom"-->
+                       <!--tooltip-popup-delay="1000"-->
+                       <!--tooltip-append-to-body="true"-->
+                       <!--reviewable-->
+                       <!--action="featureDetailVm.update(reviewer)"-->
+                       <!--right="feature_edit"-->
+                       <!--uib-tooltip="[de] Speichern">-->
+                        <!--<i class="fa fa-save"></i>-->
+                    <!--</a>-->
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 text-right"></div>
     </div>
 </section>
+
 <section class="section-body">
-    producr detail
-    <pre>{{featureDetailVm.feature}}</pre>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div ng-if="featureDetailVm.underReview" class="alert alert-danger" role="alert">
+                <p>
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>
+                    <span translate="core.msg.review.description"></span>
+                </p>
+            </div>
+            <h2 translate="feature.common.singular.title"></h2>
+        </div>
+        <div class="panel-body">
+            <form name="formFeature">
+                <formly-form model="featureDetailVm.model"
+                             fields="featureDetailVm.fields"
+                             options="featureDetailVm.options">
+                </formly-form>
+
+
+                <formly-form model="featureDetailVm.model"
+                             fields="featureDetailVm.fieldsOfConfig"
+                             options="featureDetailVm.options">
+                    <button type="button" class="btn btn-default"
+                            ng-click="featureDetailVm.addFieldsOfConfig()">Add config</button>
+                </formly-form>
+
+            </form>
+            <pre>{{featureDetailVm.model|json}}</pre>
+        </div>
+    </div>
 </section>
-<!--<section class="section-foot"></section>-->
+

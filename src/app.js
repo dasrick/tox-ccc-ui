@@ -167,12 +167,6 @@ angular.module('tox-ccc-ui-app', requires)
       })
       .determinePreferredLanguage();
 
-    /*
-     The fallback language is not working ...
-     $translateProvider.fallbackLanguage('en');
-     The following workaround sets the preferred language to english,
-     if the detection failed or the detected language is not known.
-     */
     var language = $translateProvider.preferredLanguage();
     if ((language !== null) || !language.match(/(de).*/)) {
       return $translateProvider.preferredLanguage('de');

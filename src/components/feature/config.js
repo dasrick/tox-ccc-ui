@@ -31,6 +31,12 @@ module.exports = {
       FeatureResource: 'FeatureResource',
       feature: function (FeatureResource, $stateParams) {
         return FeatureResource.get({featureId: $stateParams.featureId}).$promise;
+      },
+      LocaleResource: 'LocaleResource',
+      CurrentUserService: 'CurrentUserService',
+      locales: function (LocaleResource, CurrentUserService) {
+        var locale = CurrentUserService.getUser().locale;
+        return LocaleResource.query({locale: locale}).$promise;
       }
     }
   }
