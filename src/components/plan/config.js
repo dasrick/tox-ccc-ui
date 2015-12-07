@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = {
+/**
+ * @ngInject
+ */module.exports = {
   'app.admin.plan': {
     url: '/plan',
     views: {

@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @ngInject
+ */
 module.exports = {
   'app.profile.review': {
     url: '/review',

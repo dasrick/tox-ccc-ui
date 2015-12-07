@@ -1,4 +1,8 @@
 'use strict';
+
+/**
+ * @ngInject
+ */
 var resource = {};
 
 angular.extend(resource, require('./assignment'));

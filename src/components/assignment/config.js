@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 module.exports = {
   'app.management.assignment': {
     url: '/assignment',
@@ -32,3 +34,4 @@ module.exports = {
     }
   }
 };
+'use strict';

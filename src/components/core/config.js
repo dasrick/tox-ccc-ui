@@ -1,5 +1,7 @@
 'use strict';
-
+/**
+ * @ngInject
+ */
 module.exports = {
   'app': {
     url: '',

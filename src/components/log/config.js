@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = {
+/**
+ * @ngInject
+ */module.exports = {
   'app.management.log': {
     url: '/log',
     views: {

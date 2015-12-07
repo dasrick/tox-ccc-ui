@@ -1,9 +1,15 @@
 'use strict';
 
+// modules /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var webpack = require('webpack');
 var path = require('path');
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+
+// pathes //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var srcPath = path.resolve(__dirname, 'src', 'app.js');
 var dstPath = path.resolve(__dirname, 'web', 'js');
+
+// vars ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var nodeEnv = process.env.NODE_ENV || 'development';
 var apiUrl = process.env.apiUrl || '';
 
@@ -19,11 +25,6 @@ var config = {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'ng-annotate', // works RTL - example 'ng-annotate!jshint'
-        exclude: /node_modules|coverage|scripts|web/
       }
     ]
   },
@@ -35,7 +36,10 @@ var config = {
         'apiUrl': JSON.stringify(apiUrl)
       }
     }),
-    //new webpack.optimize.UglifyJsPlugin(),
+    new ngAnnotatePlugin({add: true}),
+    new webpack.optimize.UglifyJsPlugin(
+      {compress: {warnings: false}}
+    ),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.DedupePlugin()
   ]
@@ -45,7 +49,7 @@ var config = {
 switch (nodeEnv) {
   case 'development':
   case 'test':
-    config.devtool = 'eval';
+    config.devtool = 'source-map';
     break;
   case 'staging':
     config.devtool = 'cheap-module-source-map';
@@ -58,18 +62,4 @@ switch (nodeEnv) {
     process.exit(1);
 }
 
-// proccessing /////////////////////////////////////////////////////////////////////////////////////////////////////////
-webpack(config, function (err, stats) {
-  if (err) {
-    console.log('webpack errors: ', err);
-    process.exit(1);
-  }
-  var jsonStats = stats.toJson();
-  if (jsonStats.errors.length > 0) {
-    console.log('webpack jsonStats.errors: ', jsonStats.errors);
-  }
-  if (jsonStats.warnings.length > 0) {
-    console.log('webpack jsonStats.warnings: ', jsonStats.warnings);
-  }
-  console.log('webpack build DONE for ', nodeEnv);
-});
+module.exports = config;

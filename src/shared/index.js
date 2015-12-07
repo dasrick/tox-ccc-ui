@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * @ngInject
  */
@@ -15,7 +16,7 @@ module.exports = require('angular')
   .factory('CurrentUserService', require('./service/CurrentUserService'))
 
   // mi-angular-resource-builder ///////////////////////////////////////////////////////////////////////////////////////
-  .config(function (ResourceBuilderProvider) {
+  .config(['ResourceBuilderProvider', function (ResourceBuilderProvider) {
     // append url based on environment
     var apiUrl = process.env.apiUrl;
     var resources = require('./resource/index');
@@ -27,6 +28,6 @@ module.exports = require('angular')
       }
     }
     ResourceBuilderProvider.addResources(resources);
-  })
+  }])
   // ===================================================================================================================
 ;
