@@ -73,58 +73,58 @@ angular.module('diff', [])
       return str;
     }
 
-    function randomColor() {
-      return 'rgb(' + (Math.random() * 100) + '%, ' +
-        (Math.random() * 100) + '%, ' +
-        (Math.random() * 100) + '%)';
-    }
+    //function randomColor() {
+    //  return 'rgb(' + (Math.random() * 100) + '%, ' +
+    //    (Math.random() * 100) + '%, ' +
+    //    (Math.random() * 100) + '%)';
+    //}
 
-    function diffString2(o, n) {
-      var i;
-
-      o = o.replace(/\s+$/, '');
-      n = n.replace(/\s+$/, '');
-
-      var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/));
-
-      var oSpace = o.match(/\s+/g);
-      if (!oSpace) {
-        oSpace = ['\n'];
-      } else {
-        oSpace.push('\n');
-      }
-      var nSpace = n.match(/\s+/g);
-      if (!nSpace) {
-        nSpace = ['\n'];
-      } else {
-        nSpace.push('\n');
-      }
-
-      var os = '';
-      var colors = [];
-      for (i = 0; i < out.o.length; i++) {
-        colors[i] = randomColor();
-
-        if (out.o[i].text) {
-          os += '<span style="background-color: ' + colors[i] + '">' +
-            escape(out.o[i].text) + oSpace[i] + '</span>';
-        } else {
-          os += '<del>' + escape(out.o[i]) + oSpace[i] + '</del>';
-        }
-      }
-
-      var ns = '';
-      for (i = 0; i < out.n.length; i++) {
-        if (out.n[i].text) {
-          ns += '<span style="background-color: ' + colors[out.n[i].row] + '">' +
-            escape(out.n[i].text) + nSpace[i] + '</span>';
-        } else {
-          ns += '<ins>' + escape(out.n[i]) + nSpace[i] + '</ins>';
-        }
-      }
-
-      return {o: os, n: ns};
-    }
+    //function diffString2(o, n) {
+    //  var i;
+    //
+    //  o = o.replace(/\s+$/, '');
+    //  n = n.replace(/\s+$/, '');
+    //
+    //  var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/));
+    //
+    //  var oSpace = o.match(/\s+/g);
+    //  if (!oSpace) {
+    //    oSpace = ['\n'];
+    //  } else {
+    //    oSpace.push('\n');
+    //  }
+    //  var nSpace = n.match(/\s+/g);
+    //  if (!nSpace) {
+    //    nSpace = ['\n'];
+    //  } else {
+    //    nSpace.push('\n');
+    //  }
+    //
+    //  var os = '';
+    //  var colors = [];
+    //  for (i = 0; i < out.o.length; i++) {
+    //    colors[i] = randomColor();
+    //
+    //    if (out.o[i].text) {
+    //      os += '<span style="background-color: ' + colors[i] + '">' +
+    //        escape(out.o[i].text) + oSpace[i] + '</span>';
+    //    } else {
+    //      os += '<del>' + escape(out.o[i]) + oSpace[i] + '</del>';
+    //    }
+    //  }
+    //
+    //  var ns = '';
+    //  for (i = 0; i < out.n.length; i++) {
+    //    if (out.n[i].text) {
+    //      ns += '<span style="background-color: ' + colors[out.n[i].row] + '">' +
+    //        escape(out.n[i].text) + nSpace[i] + '</span>';
+    //    } else {
+    //      ns += '<ins>' + escape(out.n[i]) + nSpace[i] + '</ins>';
+    //    }
+    //  }
+    //
+    //  return {o: os, n: ns};
+    //}
 
     function diff(o, n) {
       var ns = {};
