@@ -19,6 +19,11 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
   vm.underReview = (angular.isDefined(vm.model.reviewStatus) && vm.model.reviewStatus !== 'none');
 
   vm.fieldsOfConfig = getFieldsOfConfig();
+  // used for dynamic fields
+  vm.counter = {
+    configurations: 0,
+    customConfigurations: 0
+  };
 
 
   //console.log(locales);
@@ -80,9 +85,10 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
 
     var fields = [];
     var fieldsName = getFieldsName();
-    var fieldsSupportedTypes = getFieldsSupportedTypes();
+    //var fieldsSupportedTypes = getFieldsSupportedTypes();
 
-    return fields.concat(fieldsName, fieldsSupportedTypes);
+    //return fields.concat(fieldsName, fieldsSupportedTypes);
+    return fields.concat(fieldsName);
   }
 
   function getFieldsName() {
@@ -111,25 +117,25 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
     return nameFields;
   }
 
-  function getFieldsSupportedTypes() {
-    return [
-      {
-        key: 'supportedTypes',
-        type: 'multiCheckbox',
-        templateOptions: {
-          label: $translate.instant('feature.form.supportedTypes.label'),
-          options: getOptionsSupportedTypes(),
-          required: true
-        }
-      }
-    ];
-  }
-
-  function getOptionsSupportedTypes() {
-    return [
-      {value: 1, name: $translate.instant('feature.product.type.vm_pro')}
-    ];
-  }
+  //function getFieldsSupportedTypes() {
+  //  return [
+  //    {
+  //      key: 'supportedTypes',
+  //      type: 'multiCheckbox',
+  //      templateOptions: {
+  //        label: $translate.instant('feature.form.supportedTypes.label'),
+  //        options: getOptionsSupportedTypes(),
+  //        required: true
+  //      }
+  //    }
+  //  ];
+  //}
+  //
+  //function getOptionsSupportedTypes() {
+  //  return [
+  //    {value: 1, name: $translate.instant('feature.product.type.vm_pro')}
+  //  ];
+  //}
 
   function getModelPrepared(model) {
     /*jshint camelcase: false */
@@ -148,7 +154,9 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
     //};
 
     var modelPrepared = {
-      name: model.name
+      name: model.name,
+      inUse: model.inUse,
+      active: model.active
     };
 
     if (angular.isDefined(model.id)) {
@@ -159,11 +167,36 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
       modelPrepared.reviewStatus = model.reviewStatus;
     }
 
-    if (angular.isDefined(model.supportedTypes)) {
-      modelPrepared.supportedTypes = model.supportedTypes;
+    if (angular.isDefined(model.configurations)) {
+
+      console.log('orig: ', model.configurations);
+      console.log('object keys: ', Object.keys(model.configurations));
+
+      var arr = [];
+      var array = Object.keys(model.configurations).map(function (key) {
+        arr[key] = model.configurations[key];
+        return model.configurations[key];
+      });
+
+      console.log('array: ', array);
+      console.log('arr: ', arr);
+
+      //modelPrepared.configurations = model.configurations;
     } else {
-      modelPrepared.supportedTypes = [];
+      modelPrepared.configurations = [];
     }
+
+    //if (angular.isDefined(model.customConfigurations)) {
+    //  modelPrepared.customConfigurations = model.customConfigurations;
+    //} else {
+    //  modelPrepared.customConfigurations = [];
+    //}
+
+    //if (angular.isDefined(model.supportedTypes)) {
+    //  modelPrepared.supportedTypes = model.supportedTypes;
+    //} else {
+    //  modelPrepared.supportedTypes = [];
+    //}
 
     /*jshint camelcase: true */
     return modelPrepared;
@@ -198,11 +231,12 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
   }
 
 
-
-
   function getFieldsOfConfig() {
     // TODO fehlt noch ne uuid für den key ...
     // vlt so http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+    // var uniqueKey = vm.counter.configurations + 1;
+    console.log(vm.model.configurations);
+
     return [
       {
         key: 'blah',
@@ -229,7 +263,7 @@ module.exports = function (feature, locales, $scope, $state, AlertService, $tran
           required: true
         }
       }
-    ;
+      ;
     return vm.fieldsOfConfig.push(addField);
   }
 

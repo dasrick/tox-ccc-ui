@@ -5,6 +5,8 @@
  */
 var resource = {};
 
+// TODO rename all resources - just do it via vm => git mv path/file.js path/File.js
+
 angular.extend(resource, require('./assignment'));
 angular.extend(resource, require('./customer'));
 angular.extend(resource, require('./country'));
