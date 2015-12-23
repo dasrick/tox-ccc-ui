@@ -1,11 +1,16 @@
 language: node_js
 node_js:
-  - "0.12"
+- '0.10'
+- '0.12'
+- '4.0'
+- '4.1'
+- '4.2'
 deploy:
   provider: heroku
   api_key: "4dacafd2-7064-4c78-b2fb-122b9a122a5a"
   app: tox-ccc-ui
   on:
     tags: true
+    node: '4.2'
 notifications:
   slack: dasrick:m0Fv79R4R7EKzZMzKz65p43f
