@@ -1,6 +1,7 @@
 'use strict';
 /**
  * @ngInject
+ * @param {Object[]} customers - The list of customers
  */
 module.exports = function (customers) {
   var vm = this;
