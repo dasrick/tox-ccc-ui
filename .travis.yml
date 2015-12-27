@@ -5,6 +5,10 @@ node_js:
 - '4.0'
 - '4.1'
 - '4.2'
+after_success:
+- cat ./coverage/report-lcov/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js
+  on:
+    node: '4.2'
 deploy:
   provider: heroku
   api_key: "4dacafd2-7064-4c78-b2fb-122b9a122a5a"
