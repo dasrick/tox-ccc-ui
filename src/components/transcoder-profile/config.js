@@ -14,6 +14,10 @@ module.exports = {
     },
     resolve: {
       TranscoderProfileResource: 'TranscoderProfileResource',
+      /**
+       * @param TranscoderProfileResource
+       * @returns {*|Function}
+       */
       transcoderProfiles: function (TranscoderProfileResource) {
         var type = 'all';
         return TranscoderProfileResource.query({type: type}).$promise;
@@ -30,6 +34,11 @@ module.exports = {
     },
     resolve: {
       TranscoderProfileResource: 'TranscoderProfileResource',
+      /**
+       * @param TranscoderProfileResource
+       * @param $stateParams
+       * @returns {*|Function}
+       */
       transcoderProfile: function (TranscoderProfileResource, $stateParams) {
         return TranscoderProfileResource.get({transcoderProfileId: $stateParams.transcoderProfileId}).$promise;
       }
@@ -44,6 +53,10 @@ module.exports = {
     },
     resolve: {
       TranscoderProfileResource: 'TranscoderProfileResource',
+      /**
+       * @param TranscoderProfileResource
+       * @returns {*}
+       */
       transcoderProfile: function (TranscoderProfileResource) {
         return new TranscoderProfileResource();
       }

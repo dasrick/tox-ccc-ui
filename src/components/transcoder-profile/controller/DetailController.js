@@ -1,6 +1,14 @@
 'use strict';
+
 /**
  * @ngInject
+ *
+ * @param transcoderProfile
+ * @param $scope
+ * @param $state
+ * @param AlertService
+ * @param $translate
+ * @param TranscoderProfileResource
  */
 module.exports = function (transcoderProfile, $scope, $state, AlertService, $translate, TranscoderProfileResource) {
   var vm = this;

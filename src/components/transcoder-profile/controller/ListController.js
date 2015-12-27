@@ -1,6 +1,9 @@
 'use strict';
+
 /**
  * @ngInject
+ *
+ * @param {Object[]} transcoderProfiles - list of transcoder profiles
  */
 module.exports = function (transcoderProfiles) {
   var vm = this;
