@@ -1,6 +1,8 @@
 'use strict';
+
 /**
  * @ngInject
+ * @param {service} CurrentUserService
  */
 module.exports = function (CurrentUserService) {
   var vm = this;
