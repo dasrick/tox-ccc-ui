@@ -1,6 +1,13 @@
 'use strict';
+
 /**
  * @ngInject
+ * @param {Object} instance
+ * @param {service} $scope
+ * @param {service} $state
+ * @param {service} AlertService
+ * @param {service} $translate
+ * @param {service} InstanceResource
  */
 module.exports = function (instance, $scope, $state, AlertService, $translate, InstanceResource) {
   var vm = this;
