@@ -1,6 +1,9 @@
 'use strict';
+
 /**
  * @ngInject
+ * @param {Object[]} users - list of users
+ * @param {service} CurrentUserService
  */
 module.exports = function (users, CurrentUserService) {
   var vm = this;
