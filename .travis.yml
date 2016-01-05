@@ -5,11 +5,11 @@ node_js:
 - '4.0'
 - '4.1'
 - '4.2'
-before_install:
-- pip install codecov
+#before_install:
+#- pip install codecov
 after_success:
 - test $TRAVIS_NODE_VERSION == "4.2.*" && cat ./coverage/report-lcov/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js
-- codecov
+#- codecov
 deploy:
   provider: heroku
   api_key: "4dacafd2-7064-4c78-b2fb-122b9a122a5a"
