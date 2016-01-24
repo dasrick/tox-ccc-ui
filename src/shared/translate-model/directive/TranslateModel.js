@@ -2,7 +2,8 @@
 /**
  * @ngInject
  */
-module.exports = function ($translate, LocaleResource, $filter) {
+module.exports = function () {
+//module.exports = function ($translate, LocaleResource, $filter) {
   return {
     restrict: 'E',
     templateUrl: 'views/translate-model/translate-model.html',
