@@ -9,6 +9,7 @@
  * @param {service} AlertService
  * @param {service} $translate
  * @param {service} CurrentUserService
+ * @returns {object}
  */
 module.exports = function (user, locales, $scope, $state, AlertService, $translate, CurrentUserService) {
   var vm = this;
