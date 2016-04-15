@@ -1,6 +1,6 @@
 # tox-ccc-ui
 
-[![GitHub release][github-image-release]][github-url]
+[![GitHub tag][github-image-tag]][github-url]
 [![Build Status](https://travis-ci.org/dasrick/tox-ccc-ui.svg?branch=master)](https://travis-ci.org/dasrick/tox-ccc-ui)
 [![dependency Status](https://david-dm.org/dasrick/tox-ccc-ui/status.svg)](https://david-dm.org/dasrick/tox-ccc-ui#info=dependencies)
 [![devDependency Status](https://david-dm.org/dasrick/tox-ccc-ui/dev-status.svg)](https://david-dm.org/dasrick/tox-ccc-ui#info=devDependencies)
@@ -53,5 +53,5 @@ To start the local web server ...
 This web server will be reachable at [localhost:3000](http://localhost:3000)
 
 
-[github-image-release]: https://img.shields.io/github/release/dasrick/tox-ccc-ui.svg?style=flat-square
+[github-image-tag]: https://img.shields.io/github/tag/dasrick/tox-ccc-ui.svg?style=flat-square
 [github-url]: https://github.com/dasrick/tox-ccc-ui
