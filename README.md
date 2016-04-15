@@ -2,6 +2,7 @@
 
 [![GitHub tag][github-image-tag]][github-url]
 [![Build Status](https://travis-ci.org/dasrick/tox-ccc-ui.svg?branch=master)](https://travis-ci.org/dasrick/tox-ccc-ui)
+[![Circle CI](https://circleci.com/gh/dasrick/tox-ccc-ui/tree/master.svg?style=svg)](https://circleci.com/gh/dasrick/tox-ccc-ui/tree/master)
 [![dependency Status](https://david-dm.org/dasrick/tox-ccc-ui/status.svg)](https://david-dm.org/dasrick/tox-ccc-ui#info=dependencies)
 [![devDependency Status](https://david-dm.org/dasrick/tox-ccc-ui/dev-status.svg)](https://david-dm.org/dasrick/tox-ccc-ui#info=devDependencies)
 [![Codacy Badge](https://www.codacy.com/project/badge/019b587e008e45b29754f1fe617d5f5a)](https://www.codacy.com/public/dasrick/tox-ccc-ui)
