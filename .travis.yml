@@ -7,6 +7,9 @@ node_js:
 - '5'
 #before_install:
 #- pip install codecov
+cache:
+  directories:
+    - node_modules
 after_success:
 - test $TRAVIS_NODE_VERSION == "4.2.*" && cat ./coverage/report-lcov/lcov.info | ./node_modules/codacy-coverage/bin/codacy-coverage.js
 #- codecov
