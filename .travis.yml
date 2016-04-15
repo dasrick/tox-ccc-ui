@@ -2,9 +2,8 @@ language: node_js
 node_js:
 - '0.10'
 - '0.12'
-- '4.0'
-- '4.1'
-- '4.2'
+- '4'
+- '5'
 #before_install:
 #- pip install codecov
 after_success:
@@ -16,6 +15,6 @@ deploy:
   app: tox-ccc-ui
   on:
     tags: true
-    node: '4.2'
+    node: '4'
 notifications:
   slack: dasrick:m0Fv79R4R7EKzZMzKz65p43f
