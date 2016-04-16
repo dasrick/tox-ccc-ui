@@ -26,7 +26,7 @@ To build all parts of the app
 
 If you want to set a special API-URL, just set an environment variable and rebuild ...
 
-    export apiUlr="https://ccc.mi24.dev"
+    export apiUrl="https://ccc.mi24.dev"
     npm run build
 
 
