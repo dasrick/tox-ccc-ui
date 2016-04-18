@@ -28,7 +28,7 @@
     "css-loader": "^0.23.1",
     "express": "^4.13.1",
     "font-awesome": "^4.4.0",
-    "fs-extra": "^0.26.5",
+    "fs-extra": "^0.28.0",
     "glob": "^7.0.0",
     "istanbul-instrumenter-loader": "^0.2.0",
     "jscs": "^3.0.0",
