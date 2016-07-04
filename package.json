@@ -7,7 +7,6 @@
   "author": "Enrico Hoffmann <dasrick@gmail.com>",
   "license": "propertieray",
   "dependencies": {
-    "airbrake": "~1.0.0",
     "angular": "^1.4.9",
     "angular-cache": "^4.4.2",
     "angular-formly": "^8.0.0",
