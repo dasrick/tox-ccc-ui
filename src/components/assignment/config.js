@@ -30,6 +30,36 @@ module.exports = {
       AssignmentResource: 'AssignmentResource',
       assignment: function (AssignmentResource, $stateParams) {
         return AssignmentResource.get({assignmentId: $stateParams.assignmentId}).$promise;
+      },
+      InstanceResource: 'InstanceResource',
+      instances: function (InstanceResource) {
+        return InstanceResource.query().$promise;
+      },
+      ProductResource: 'ProductResource',
+      products: function (ProductResource) {
+        return ProductResource.query().$promise;
+      }
+    }
+  },
+  'app.management.assignment.create': {
+    views: {
+      'content@app.management': {
+        templateUrl: '/views/assignment/detail.html',
+        controller: 'AssignmentDetailController as assignmentDetailVm'
+      }
+    },
+    resolve: {
+      AssignmentResource: 'AssignmentResource',
+      assignment: function (AssignmentResource) {
+        return new AssignmentResource();
+      },
+      InstanceResource: 'InstanceResource',
+      instances: function (InstanceResource) {
+        return InstanceResource.query().$promise;
+      },
+      ProductResource: 'ProductResource',
+      products: function (ProductResource) {
+        return ProductResource.query().$promise;
       }
     }
   }

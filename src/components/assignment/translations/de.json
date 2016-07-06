@@ -3,6 +3,18 @@
   "assignment.sidebar-customer.title": "Produkte",
   "assignment.sidebar-customer.icon": "fa-cubes",
 
+  "assignment.common.singular.title": "Produkt",
+  "assignment.common.plural.title": "Produkte",
+
   "assignment.list.headline.label": "Produktliste",
-  "assignment.list.description": "In dieser Liste befinden sich die für den Kunden gebuchten Produkte."
+  "assignment.list.description": "In dieser Liste befinden sich die für den Kunden gebuchten Produkte.",
+
+  "assignment.form.name.label": "Name",
+  "assignment.form.name.placeholder": "Geben Sie bitte einen Namen ein",
+  "assignment.form.duration.startdate.label": "Laufzeit-Anfang",
+  "assignment.form.duration.enddate.label": "Laufzeit-Ende",
+
+  "assignment.form.datepicker.close.title": "Anwenden",
+  "assignment.form.datepicker.current.title": "Heute",
+  "assignment.form.datepicker.clear.title": "Löschen"
 }

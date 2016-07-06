@@ -1,15 +1,87 @@
 <section class="section-head">
-    <div class="row">
-        <div class="col-sm-6 text-left">
-            <a class="btn btn-mi24 btn-primary"
-               ui-sref="app.management.assignment">
-                <i class="fa fa-arrow-circle-left"></i>
-            </a>
+    <div class="panel panel-default panel-control-bar">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <!-- LIST -->
+                    <a ng-if="('app.admin.assignment'|includedByState)"
+                       class="btn btn-mi24 btn-info"
+                       ui-sref="app.admin.assignment"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <a ng-if="('app.management.assignment'|includedByState)"
+                       class="btn btn-mi24 btn-info"
+                       ui-sref="app.management.assignment"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zurück zur Liste">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                    <!-- RESET -->
+                    <a class="btn btn-mi24 btn-warning"
+                       ng-click="assignmentDetailVm.reset()"
+                       ng-disabled="theForm.$pristine"
+                       has-type="admin"
+                       has-role="assignment_edit"
+                       ng-show="hasType['admin'] && hasRole['assignment_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       uib-tooltip="[de] Zurücksetzen">
+                        <i class="fa fa-undo"></i>
+                    </a>
+                    <!-- CREATE -->
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-hide="assignmentDetailVm.model.id"
+                       ng-disabled="theForm.$invalid || theForm.$pristine"
+                       has-type="admin"
+                       has-role="assignment_create"
+                       ng-show="hasType['admin'] && hasRole['assignment_create']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       ng-click="assignmentDetailVm.create()"
+                       uib-tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                    <!-- UPDATE -->
+                    <a class="btn btn-mi24 btn-primary"
+                       ng-show="assignmentDetailVm.model.id"
+                       ng-disabled="theForm.$invalid || theForm.$pristine"
+                       has-type="admin"
+                       has-role="assignment_edit"
+                       ng-show="hasType['admin'] && hasRole['assignment_edit']"
+                       tooltip-placement="bottom"
+                       tooltip-popup-delay="1000"
+                       tooltip-append-to-body="true"
+                       ng-click="assignmentDetailVm.update()"
+                       uib-tooltip="[de] Speichern">
+                        <i class="fa fa-save"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6 text-right"></div>
     </div>
 </section>
+
 <section class="section-body">
-    assignment detail
-    <pre>{{assignmentDetailVm.assignment}}</pre></section>
-<!--<section class="section-foot"></section>-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 translate="assignment.common.singular.title"></h2>
+            <pre>{{assignmentDetailVm.model | json}}</pre>
+        </div>
+        <div class="panel-body">
+            <form name="theForm">
+                <formly-form model="assignmentDetailVm.model"
+                             fields="assignmentDetailVm.fields"
+                             options="assignmentDetailVm.options">
+                </formly-form>
+            </form>
+        </div>
+    </div>
+</section>
