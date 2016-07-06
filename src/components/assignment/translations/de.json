@@ -13,6 +13,10 @@
   "assignment.form.name.placeholder": "Geben Sie bitte einen Namen ein",
   "assignment.form.duration.startdate.label": "Laufzeit-Anfang",
   "assignment.form.duration.enddate.label": "Laufzeit-Ende",
+  "assignment.form.product.label": "Produkt",
+  "assignment.form.product.placeholder": "Wählen Sie bitte ein Produkt aus",
+  "assignment.form.instance.label": "Instanz",
+  "assignment.form.instance.placeholder": "Wählen Sie bitte eine Instanz aus",
 
   "assignment.form.datepicker.close.title": "Anwenden",
   "assignment.form.datepicker.current.title": "Heute",

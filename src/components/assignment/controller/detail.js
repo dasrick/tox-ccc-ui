@@ -45,9 +45,9 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
           placeholder: $translate.instant('assignment.form.name.placeholder'),
           required: true
           // disabled: inUpdateMode()  // nur bei CREATE enabled
-        },
-        validation: {
-          show: true
+        // },
+        // validation: {
+        //   show: true
         }
       },
       {// duration.startDate (datepicker)
@@ -134,22 +134,22 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
     var modelPrepared = model;
 
     var modelDefault = {
-      additionalFeatures: [],
-      auditLogEnabled: false,
-      // customer // customer: {id: vm.selectedCustomer.id},
+      additionalFeatures: [], // TODO necessayr?
+      auditLogEnabled: false,  // TODO necessayr?
+      // customer // customer: {id: vm.selectedCustomer.id},   // TODO necessayr?
       duration: {
         startDate: new Date(),  // TODO maybe new date - and check again
         endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000) // TODO maybe tomorrow - and check again
       },
-      durationHostory: [],
-      inactivename: false,
-      permanentlyDeleteVideosAllowed: false,
-      plans: [],
-      playerSkins: [],
-      product: {id: null},
-      transcoderProfiles: [],
-      type: null,
-      vmproInstance: {id: null}
+      durationHostory: [],   // TODO necessayr?
+      inactivename: false,   // TODO necessayr?
+      permanentlyDeleteVideosAllowed: false,   // TODO necessayr?
+      plans: [],   // TODO necessayr?
+      playerSkins: [],   // TODO necessayr?
+      product: {id: null},  // necessary because of select-option and sub-model
+      transcoderProfiles: [],  // TODO necessayr?
+      type: null,  // TODO necessayr?
+      vmproInstance: {id: null} // necessary because of select-option and sub-model
     };
 
     // definitiv nicht schön, aber selten ...
