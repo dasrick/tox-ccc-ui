@@ -45,15 +45,16 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
           placeholder: $translate.instant('assignment.form.name.placeholder'),
           required: true
           // disabled: inUpdateMode()  // nur bei CREATE enabled
-        // },
-        // validation: {
-        //   show: true
+          // },
+          // validation: {
+          //   show: true
         }
       },
       {// duration.startDate (datepicker)
         key: 'startDate',
         type: 'datepicker',
         model: vm.model.duration,
+        // defaultValue: (new Date(vm.model.duration.startDate).getTime()),
         templateOptions: {
           label: $translate.instant('assignment.form.duration.startdate.label'),
           type: 'text',
@@ -66,7 +67,8 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
           closeText: $translate.instant('assignment.form.datepicker.close.title'),
           currentText: $translate.instant('assignment.form.datepicker.current.title'),
           clearText: $translate.instant('assignment.form.datepicker.clear.title'),
-          required: true
+          required: true,
+          disabled: isUpdateMode()
         },
         validation: {
           show: true
@@ -76,6 +78,7 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
         key: 'endDate',
         type: 'datepicker',
         model: vm.model.duration,
+        defaultValue: vm.model.duration.endDate,
         templateOptions: {
           label: $translate.instant('assignment.form.duration.enddate.label'),
           type: 'text',
@@ -104,8 +107,8 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
           label: $translate.instant('assignment.form.product.label'),
           placeholder: $translate.instant('assignment.form.product.placeholder'),
           required: true,
-          options: getOptionsProduct()
-          // disabled: // TODO maybe only available in CREATE mode
+          options: getOptionsProduct(),
+          disabled: isUpdateMode()
         }
       },
       { // vmproInstance (reference select-option)
@@ -119,9 +122,25 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
           options: getOptionsInstance(),
           disabled: isUpdateMode()
         }
+      },
+      { // permanentlyDeleteVideosAllowed (bool) (ONLY at CREATE)
+        key: 'permanentlyDeleteVideosAllowed',
+        type: 'checkbox',
+        defaultValue: (angular.isDefined(vm.model.permanentlyDeleteVideosAllowed)),
+        templateOptions: {
+          label: $translate.instant('assignment.form.permanentlyDeleteVideosAllowed.label'),
+          disabled: isUpdateMode()
+        }
+      },
+      { // auditLogEnabled (bool) (ONLY at CREATE)
+        key: 'auditLogEnabled',
+        type: 'checkbox',
+        defaultValue: (angular.isDefined(vm.model.auditLogEnabled)),
+        templateOptions: {
+          label: $translate.instant('assignment.form.auditLogEnabled.label'),
+          disabled: isUpdateMode()  // TODO check if updateble
+        }
       }
-      // permanentlyDeleteVideosAllowed (bool) (ONLY at CREATE)
-      // auditLogEnabled (bool) (ONLY at CREATE)
       // Tarife ... via checkboxes?
     ];
   }
@@ -138,12 +157,12 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
       auditLogEnabled: false,  // TODO necessayr?
       // customer // customer: {id: vm.selectedCustomer.id},   // TODO necessayr?
       duration: {
-        startDate: new Date(),  // TODO maybe new date - and check again
-        endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000) // TODO maybe tomorrow - and check again
+        startDate: new Date(new Date().setHours(0, 0, 0, 0)),  // TODO maybe new date - and check again
+        endDate: new Date(new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000) // TODO maybe tomorrow - and check again
       },
       durationHostory: [],   // TODO necessayr?
       inactivename: false,   // TODO necessayr?
-      permanentlyDeleteVideosAllowed: false,   // TODO necessayr?
+      permanentlyDeleteVideosAllowed: false,
       plans: [],   // TODO necessayr?
       playerSkins: [],   // TODO necessayr?
       product: {id: null},  // necessary because of select-option and sub-model
@@ -151,6 +170,12 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
       type: null,  // TODO necessayr?
       vmproInstance: {id: null} // necessary because of select-option and sub-model
     };
+
+
+    if (angular.isDefined(model.id)) {
+      modelPrepared.duration.startDate = new Date(model.duration.startDate);
+      modelPrepared.duration.endDate = new Date(model.duration.endDate);
+    }
 
     // definitiv nicht schön, aber selten ...
     for (var property in modelDefault) {
