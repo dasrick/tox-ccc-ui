@@ -128,7 +128,7 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
         type: 'checkbox',
         defaultValue: (angular.isDefined(vm.model.permanentlyDeleteVideosAllowed)),
         templateOptions: {
-          label: $translate.instant('assignment.form.permanentlyDeleteVideosAllowed.label'),
+          label: $translate.instant('assignment.form.permanently-delete-videos-allowed.label'),
           disabled: isUpdateMode()
         }
       },
@@ -137,7 +137,7 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
         type: 'checkbox',
         defaultValue: (angular.isDefined(vm.model.auditLogEnabled)),
         templateOptions: {
-          label: $translate.instant('assignment.form.auditLogEnabled.label'),
+          label: $translate.instant('assignment.form.auditLog-enabled.label'),
           disabled: isUpdateMode()  // TODO check if updateble
         }
       }
@@ -160,9 +160,9 @@ module.exports = function (assignment, instances, products, $filter, $log, $scop
         startDate: new Date(new Date().setHours(0, 0, 0, 0)),  // TODO maybe new date - and check again
         endDate: new Date(new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000) // TODO maybe tomorrow - and check again
       },
-      durationHostory: [],   // TODO necessayr?
+      durationHistory: [],   // TODO necessayr?
       inactivename: false,   // TODO necessayr?
-      permanentlyDeleteVideosAllowed: false,
+      permanentlyDeleteVideosAllowed: true,
       plans: [],   // TODO necessayr?
       playerSkins: [],   // TODO necessayr?
       product: {id: null},  // necessary because of select-option and sub-model

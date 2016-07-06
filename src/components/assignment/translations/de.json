@@ -17,6 +17,8 @@
   "assignment.form.product.placeholder": "Wählen Sie bitte ein Produkt aus",
   "assignment.form.instance.label": "Instanz",
   "assignment.form.instance.placeholder": "Wählen Sie bitte eine Instanz aus",
+  "assignment.form.permanently-delete-videos-allowed.label" : "Videos permanent löschbar",
+  "assignment.form.auditLog-enabled.label" : "Audit-Log aktivieren",
 
   "assignment.form.datepicker.close.title": "Anwenden",
   "assignment.form.datepicker.current.title": "Heute",
