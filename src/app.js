@@ -23,6 +23,7 @@ require('angular-validation-match');
 require('mi-angular-alert-service');
 require('mi-angular-resource-builder');
 require('ui-select');
+require('opbeat-angular');
 var requires = [
   'angular-cache',
   'formly',
@@ -38,26 +39,27 @@ var requires = [
   'mi.AlertService',
   'mi.ResourceBuilder',
   'ui.select',
+  'ngOpbeat',
   require('./shared').name,
   require('./components').name
 ];
 
 angular.module('tox-ccc-ui-app', requires)
 
-  // put jwt token into requests ///////////////////////////////////////////////////////////////////////////////////////
-  //.config(function ($httpProvider, jwtInterceptorProvider) {
-  //  jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
-  //    //
-  //    // CCC Frontend erweitern siehe
-  //    // https://github.com/auth0/angular-jwt
-  //    //
-  //    // CCC Backend erweitern siehe
-  //    // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
-  //    //
-  //    return CurrentUserService.getAccessToken();
-  //  }];
-  //  $httpProvider.interceptors.push('jwtInterceptor');
-  //})
+// put jwt token into requests ///////////////////////////////////////////////////////////////////////////////////////
+//.config(function ($httpProvider, jwtInterceptorProvider) {
+//  jwtInterceptorProvider.tokenGetter = ['CurrentUserService', function (CurrentUserService) {
+//    //
+//    // CCC Frontend erweitern siehe
+//    // https://github.com/auth0/angular-jwt
+//    //
+//    // CCC Backend erweitern siehe
+//    // https://github.com/lexik/LexikJWTAuthenticationBundle/issues/37
+//    //
+//    return CurrentUserService.getAccessToken();
+//  }];
+//  $httpProvider.interceptors.push('jwtInterceptor');
+//})
   .config(function Config($httpProvider, jwtInterceptorProvider) {
     var refreshPromise;
     jwtInterceptorProvider.tokenGetter = ['$q', 'config', 'CurrentUserService', 'AuthService', '$state',
@@ -192,6 +194,15 @@ angular.module('tox-ccc-ui-app', requires)
     warning: {timeout: 4000},
     success: {timeout: 2000},
     info: {timeout: 2000}
+  })
+  // ===================================================================================================================
+
+  // opbeat performance monitoring /////////////////////////////////////////////////////////////////////////////////////
+  .config(function ($opbeatProvider) {
+    $opbeatProvider.config({
+      orgId: '8ee86c1fbc1f4e0cb3ba608dd97ae0ae',  // TODO extract into env-vars
+      appId: '16a5a974cd'                         // TODO extract into env-vars
+    });
   })
   // ===================================================================================================================
 ;
